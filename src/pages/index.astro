@@ -14,10 +14,12 @@ const ogImage = new URL(`${base}og.png`, Astro.site).href;
 const now = Date.now();
 const retro = PLANETS.filter((p) => activeAt(p, now));
 const list = (names: readonly string[]) => (names.length < 2 ? names.join('') : `${names.slice(0, -1).join(', ')} and ${names.at(-1)}`);
+// Brand last, as "Retrograde Watch": "Retro Watch" alone collides with vintage-watch searches.
+const SITE_NAME = 'Retrograde Watch';
 const title =
   retro.length === 0
-    ? 'Retro Watch: no planets retrograding right now'
-    : `Retro Watch: ${retro.length} planet${retro.length === 1 ? '' : 's'} retrograding right now`;
+    ? `No Planets in Retrograde Now · ${SITE_NAME}`
+    : `${retro.length} Planet${retro.length === 1 ? '' : 's'} in Retrograde Now · ${SITE_NAME}`;
 const nowText =
   retro.length === 0
     ? 'No planet is retrograde right now.'
@@ -27,9 +29,16 @@ const nowText =
 const description = `${nowText} Retrograde dates for all seven planets, and when they overlap.`;
 
 const dataUrl = new URL(`${base}retrogrades.json`, Astro.site).href;
+// The site's name for search results (Google reads WebSite.name / alternateName).
+const site = {
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  alternateName: 'Retro Watch',
+  url: canonical,
+};
 const app = {
   '@type': 'WebApplication',
-  name: 'Retro Watch',
+  name: SITE_NAME,
   url: canonical,
   description,
   applicationCategory: 'LifestyleApplication',
@@ -58,7 +67,7 @@ const dataset = {
   measurementTechnique: 'Ephemeris computation (astronomy-engine)',
   distribution: [{ '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: dataUrl }],
 };
-const jsonLd = { '@context': 'https://schema.org', '@graph': [app, dataset] };
+const jsonLd = { '@context': 'https://schema.org', '@graph': [site, app, dataset] };
 ---
 
 <html lang="en">
@@ -72,7 +81,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [app, dataset] };
     <meta name="theme-color" content="#07080d" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Retro Watch" />
+    <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
