@@ -61,7 +61,8 @@ h1 {
 .tagline { margin: 10px auto 0; font-size: clamp(14px, 4vw, 17px); color: var(--text-secondary); }
 
 /* ---------- Charts ---------- */
-.chart { position: relative; width: 100%; }
+/* Charts bleed through main's 6px gutter to the screen edges. */
+.chart { position: relative; margin: 0 -6px; }
 .chart svg { display: block; font-size: 11px; touch-action: pan-y; }
 .glyph, .row-label, .wave-label { font-family: 'Noto Sans Symbols', 'Jost', sans-serif; }
 .tick { fill: var(--text-muted); }

@@ -86,14 +86,14 @@ const rows = PLANETS.map((planet) => ({
   const yearsEl = document.getElementById('chart-years')!;
   const monthsEl = document.getElementById('chart-months')!;
   // Planets are labelled by glyph; the years chart keeps a narrow column for them,
-  // the months chart has no row labels and runs nearly edge to edge.
+  // the months chart has no row labels and runs edge to edge.
   const style = { label: (p: Planet) => GLYPH[p], left: 30, hideScale: true, centerLabels: true };
-  const monthsStyle = { ...style, left: 8 };
+  const monthsStyle = { ...style, left: 0 };
 
   function draw() {
     const today = $today.get().getTime();
-    const monthsFrom = addMonths(today, -6);
-    const monthsTo = addMonths(today, 6);
+    const monthsFrom = addMonths(today, -4);
+    const monthsTo = addMonths(today, 4);
 
     renderChart(yearsEl, {
       ...style,
@@ -120,13 +120,12 @@ const rows = PLANETS.map((planet) => ({
       ticks: (from, to) => {
         const values: Date[] = [];
         for (let m = Date.UTC(from.getUTCFullYear(), from.getUTCMonth() + 1, 1); m <= to.getTime(); m = addMonths(m, 1)) values.push(new Date(m));
-        const narrow = monthsEl.clientWidth < 600;
         return {
           values,
           format: (d) => {
             const m = d.getUTCMonth();
             if (m === 0) return String(d.getUTCFullYear());
-            return narrow && m % 2 ? '' : MONTH_NAMES[m];
+            return MONTH_NAMES[m];
           },
         };
       },

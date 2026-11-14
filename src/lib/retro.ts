@@ -18,15 +18,18 @@ export interface Period {
   planet: Planet;
   start: number; // epoch ms
   end: number;
+  /** Degrees the planet walks back across the sky during this retrograde. */
+  arc: number;
 }
 
 export const periods: Record<Planet, Period[]> = Object.fromEntries(
   PLANETS.map((planet) => [
     planet,
-    (data.planets as Record<string, [string, string][]>)[planet].map(([s, e]) => ({
+    (data.planets as Record<string, [string, string, number][]>)[planet].map(([s, e, arc]) => ({
       planet,
       start: Date.parse(s),
       end: Date.parse(e),
+      arc,
     })),
   ]),
 ) as Record<Planet, Period[]>;

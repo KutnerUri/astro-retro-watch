@@ -1,6 +1,6 @@
 import { scaleLinear, scaleUtc } from 'd3-scale';
 import { area, line } from 'd3-shape';
-import { PLANETS, periods, sampleOverlap, type Planet } from './retro';
+import { PLANETS, periods, sampleOverlap, type Period, type Planet } from './retro';
 
 export interface ChartOptions {
   from: number;
@@ -25,7 +25,7 @@ export interface ChartOptions {
 }
 
 const NS = 'http://www.w3.org/2000/svg';
-const BASE_M = { top: 22, right: 8, left: 72 };
+const BASE_M = { top: 22, right: 0, left: 72 };
 const CURVE_H = 120;
 const GAP = 14;
 const ROW_H = 20;
@@ -38,6 +38,10 @@ function el<K extends keyof SVGElementTagNameMap>(tag: K, attrs: Record<string, 
   parent?.appendChild(node);
   return node;
 }
+
+/** Tooltip x: right of the cursor, else left of it, always kept inside the chart. */
+const tipLeft = (px: number, w: number, width: number) =>
+  Math.max(0, Math.min(width - w, px + 14 + w > width ? px - 14 - w : px + 14));
 
 const color = (p: Planet) => `var(--planet-${p.toLowerCase()})`;
 
@@ -146,8 +150,7 @@ export function renderChart(container: HTMLElement, o: ChartOptions) {
             .join('')
         : '<div class="tip-row">No planet retrograde</div>');
     tip.hidden = false;
-    const left = px + 14 + tip.offsetWidth > width ? px - 14 - tip.offsetWidth : px + 14;
-    tip.style.left = `${left}px`;
+    tip.style.left = `${tipLeft(px, tip.offsetWidth, width)}px`;
     tip.style.top = `${M.top}px`;
   });
   svg.addEventListener('pointerleave', hide);
@@ -172,6 +175,16 @@ const DASH: Record<Planet, string> = {
 const pulseAt = (p: { start: number; end: number }, t: number) => Math.sin((Math.PI * (t - p.start)) / (p.end - p.start)) ** 2;
 
 /**
+ * Wave height on a log scale of degrees walked back: 1° maps to 0, 20° to 1.
+ * Log keeps the outer planets (3–7°) readable next to Venus and Mars (16°+).
+ */
+const ARC_MIN = 1;
+const ARC_MAX = 20;
+const height01 = (deg: number) => Math.log(Math.max(deg, ARC_MIN) / ARC_MIN) / Math.log(ARC_MAX / ARC_MIN);
+/** One retrograde's wave at time t: the sin² pulse, peaking at its log-scaled arc. */
+const waveAt = (p: Period, t: number) => height01(p.arc) * pulseAt(p, t);
+
+/**
  * One sin² wave per retrograde period, per planet, on a shared 0–1 scale:
  * the pulses that the overlap curve adds together.
  */
@@ -180,10 +193,9 @@ export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step'
   const M = { ...BASE_M, left: o.left ?? BASE_M.left };
   const label = o.label ?? ((p: Planet) => p);
   const width = Math.max(320, container.clientWidth);
-  const LABEL_ROWS = 3;
   const LABEL_H = 15;
-  const top = M.top + LABEL_ROWS * LABEL_H;
-  const plotH = 220;
+  const top = M.top + 2 * LABEL_H;
+  const plotH = 230;
   const axisY = top + plotH;
   const height = axisY + AXIS_H;
 
@@ -193,9 +205,11 @@ export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step'
   const svg = el('svg', { width, height, viewBox: `0 0 ${width} ${height}`, role: 'img' }, container);
   svg.setAttribute('aria-label', 'Retrograde pulse for each planet');
 
-  for (const v of [0, 0.5, 1]) {
-    el('line', { x1: M.left, x2: width - M.right, y1: y(v), y2: y(v), class: v ? 'grid' : 'baseline' }, svg);
-    if (!o.hideScale) el('text', { x: M.left - 8, y: y(v), class: 'tick', 'text-anchor': 'end', 'dominant-baseline': 'middle' }, svg).textContent = String(v);
+  // Degree marks on the log scale, labelled inside the plot so they cost no width.
+  el('line', { x1: M.left, x2: width - M.right, y1: y(0), y2: y(0), class: 'baseline' }, svg);
+  for (const deg of [2, 5, 10, 20]) {
+    el('line', { x1: M.left, x2: width - M.right, y1: y(height01(deg)), y2: y(height01(deg)), class: 'grid' }, svg);
+    el('text', { x: M.left + 2, y: y(height01(deg)) - 3, class: 'tick' }, svg).textContent = `${deg}°`;
   }
 
   // Waves, clipped to the plot
@@ -204,32 +218,34 @@ export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step'
   el('rect', { x: M.left, y: 0, width: width - M.left - M.right, height: axisY + 1 }, clip);
   const waves = el('g', { 'clip-path': `url(#${clipId})` }, svg);
 
-  const labels: { x: number; planet: Planet }[] = [];
+  const labels: { x: number; y: number; planet: Planet }[] = [];
   const visible = PLANETS.flatMap((planet) => periods[planet].filter((p) => p.end > o.from && p.start < o.to));
   for (const p of visible) {
     const n = 120;
     const pts: [number, number][] = Array.from({ length: n + 1 }, (_, k) => {
       const t = p.start + ((p.end - p.start) * k) / n;
-      return [x(t), y(pulseAt(p, t))];
+      return [x(t), y(waveAt(p, t))];
     });
     el('path', { d: line()(pts)!, class: 'wave', stroke: color(p.planet), 'stroke-dasharray': DASH[p.planet] }, waves);
+    // Label at the peak; if the peak is outside the window, label where the wave meets the edge.
     const mid = (p.start + p.end) / 2;
-    if (mid > o.from && mid < o.to) labels.push({ x: x(mid), planet: p.planet });
+    const at = Math.min(Math.max(mid, o.from), o.to);
+    if (waveAt(p, at) > 0.02) labels.push({ x: x(at), y: y(waveAt(p, at)), planet: p.planet });
   }
 
-  // Direct labels above each peak, stacked into rows so they don't collide
-  labels.sort((a, b) => a.x - b.x);
-  const rowEnds = Array<number>(LABEL_ROWS).fill(-Infinity);
-  // Leaders first, then labels on top with a surface-coloured halo.
+  // Direct labels just above each peak. Taller peaks are placed first; a label that would
+  // overlap one already placed moves up a step, with a leader line back to its peak.
+  labels.sort((a, b) => a.y - b.y);
+  const placed: { x: number; y: number; w: number }[] = [];
   const leaders = el('g', {}, svg);
   const texts = el('g', {}, svg);
   for (const l of labels) {
-    const w = label(l.planet).length * 6.5 + 8;
-    let row = rowEnds.findIndex((end) => l.x - w / 2 > end);
-    if (row < 0) row = LABEL_ROWS - 1;
-    rowEnds[row] = l.x + w / 2;
-    const ly = top - 6 - row * LABEL_H;
-    el('line', { x1: l.x, x2: l.x, y1: ly + 3, y2: y(1) - 3, class: 'leader' }, leaders);
+    const w = label(l.planet).length * 9 + 6;
+    l.x = Math.min(Math.max(l.x, M.left + w / 2), width - M.right - w / 2);
+    let ly = l.y - 7;
+    while (placed.some((q) => Math.abs(q.x - l.x) < (q.w + w) / 2 && Math.abs(q.y - ly) < LABEL_H)) ly -= LABEL_H;
+    placed.push({ x: l.x, y: ly, w });
+    if (ly < l.y - 7) el('line', { x1: l.x, x2: l.x, y1: ly + 3, y2: l.y - 3, class: 'leader' }, leaders);
     el('text', { x: l.x, y: ly, class: 'wave-label', 'text-anchor': 'middle' }, texts).textContent = label(l.planet);
   }
 
@@ -266,18 +282,18 @@ export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step'
     dots.replaceChildren();
     const active = PLANETS.flatMap((planet) => {
       const p = periods[planet].find((q) => q.start <= t && t < q.end);
-      return p ? [{ planet, p, v: pulseAt(p, t) }] : [];
+      return p ? [{ planet, p, v: waveAt(p, t) }] : [];
     });
     for (const a of active) el('circle', { cx: px, cy: y(a.v), r: 4, fill: color(a.planet), class: 'wave-dot' }, dots);
     tip.innerHTML =
       `<div class="tip-date">${o.hoverFormat(new Date(t))}</div>` +
       (active.length
         ? active
-            .map(({ planet, p, v }) => `<div class="tip-row"><span class="swatch" style="background:${color(planet)}"></span>${planet} <b>${v.toFixed(2)}</b><span class="tip-dates">${fmt(p.start)} – ${fmt(p.end)}</span></div>`)
+            .map(({ planet, p }) => `<div class="tip-row"><span class="swatch" style="background:${color(planet)}"></span>${planet} <b>${p.arc.toFixed(1)}° back</b><span class="tip-dates">${fmt(p.start)} – ${fmt(p.end)}</span></div>`)
             .join('')
         : '<div class="tip-row">No planet retrograde</div>');
     tip.hidden = false;
-    tip.style.left = `${px + 14 + tip.offsetWidth > width ? px - 14 - tip.offsetWidth : px + 14}px`;
+    tip.style.left = `${tipLeft(px, tip.offsetWidth, width)}px`;
     tip.style.top = `${top}px`;
   });
   svg.addEventListener('pointerleave', hide);
