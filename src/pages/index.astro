@@ -14,8 +14,9 @@ const ogImage = new URL(`${base}og.png`, Astro.site).href;
 const now = Date.now();
 const retro = PLANETS.filter((p) => activeAt(p, now));
 const list = (names: readonly string[]) => (names.length < 2 ? names.join('') : `${names.slice(0, -1).join(', ')} and ${names.at(-1)}`);
-// Brand last, as "Retrograde Watch": "Retro Watch" alone collides with vintage-watch searches.
-const SITE_NAME = 'Retrograde Watch';
+// Brand last, as "Retrograde Tracker" (a phrase people search). "Retro Watch" alone collides with
+// vintage-watch searches, so it stays only as the visual brand and an alternate name.
+const SITE_NAME = 'Retrograde Tracker';
 const title =
   retro.length === 0
     ? `No Planets in Retrograde Now · ${SITE_NAME}`
@@ -33,7 +34,7 @@ const dataUrl = new URL(`${base}retrogrades.json`, Astro.site).href;
 const site = {
   '@type': 'WebSite',
   name: SITE_NAME,
-  alternateName: 'Retro Watch',
+  alternateName: ['Retro Watch', 'Retrograde Watch'],
   url: canonical,
 };
 const app = {
@@ -102,7 +103,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [site, app, dataset
     <Starfield />
     <main>
       <header class="masthead">
-        <h1>Retro Watch</h1>
+        <h1>{SITE_NAME}</h1>
         <p class="tagline">When the planets seem to walk backwards,<br /> and when they do it together.</p>
       </header>
 

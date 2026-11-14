@@ -60,6 +60,7 @@ h2::before, h2::after { content: ''; flex: 1; height: 1px; background: var(--rul
 h1 {
   margin: 0; color: var(--starlight);
   font: 400 clamp(38px, 12vw, 60px)/1.1 'Yeseva One', serif; letter-spacing: 0.03em;
+  text-wrap: balance; /* wraps on phones as "Retrograde / Tracker" */
 }
 .tagline { margin: 10px auto 0; font-size: clamp(14px, 4vw, 17px); color: var(--text-secondary); }
 
