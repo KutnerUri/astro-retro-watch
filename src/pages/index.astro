@@ -4,6 +4,26 @@ import { PLANETS, activeAt, nextAfter } from '../lib/retro';
 import { DASH } from '../lib/chart';
 import { nextText, nowText } from '../lib/dates';
 
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const canonical = new URL(base, Astro.site).href;
+const ogImage = new URL(`${base}og.png`, Astro.site).href;
+const title = 'Retro Watch: Planetary Retrograde Calendar and Overlap Chart';
+const description =
+  'Mercury, Venus, Mars, Jupiter, Saturn, Uranus and Neptune retrograde dates, and when their retrogrades overlap, across the years and months ahead.';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Retro Watch',
+  url: canonical,
+  description,
+  applicationCategory: 'LifestyleApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' },
+  license: 'https://opensource.org/licenses/MIT',
+  sameAs: 'https://github.com/KutnerUri/astro-retro-watch',
+};
+
 // Plain-text dates in the static HTML (rebuilt daily) so search engines can read them.
 // The page script refreshes them on load, in case the build is stale.
 const now = Date.now();
@@ -18,11 +38,27 @@ const rows = PLANETS.map((planet) => ({
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Retro Watch: planetary retrogrades over time</title>
-    <meta
-      name="description"
-      content="Mercury, Venus, Mars, Jupiter, Saturn, Uranus and Neptune retrogrades: how they overlap across the years and months ahead."
-    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <meta name="theme-color" content="#1a1a19" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Retro Watch" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Retrograde overlap curve and per-planet retrograde timeline for the ten years around today" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <meta name="google-site-verification" content="c_65gtO5NzbmPFhvR7kkY-1wM0badmHUVpBmureBer8" />
     <Analytics />
   </head>

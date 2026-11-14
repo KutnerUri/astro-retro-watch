@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "bun --bun astro dev",
-    "build": "bun --bun astro build",
+    "build": "bun scripts/gen-og.ts && bun --bun astro build",
     "preview": "bun --bun astro preview"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "nanostores": "^1.5.5"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "@types/d3-scale": "^4.0.9",
     "@types/d3-shape": "^3.2.0",
     "astronomy-engine": "^2.1.19"
