@@ -2,11 +2,11 @@
 import Analytics from '../components/Analytics.astro';
 import { PLANETS, activeAt, nextAfter } from '../lib/retro';
 import { DASH } from '../lib/chart';
+import { nextText, nowText } from '../lib/dates';
 
 // Plain-text dates in the static HTML (rebuilt daily) so search engines can read them.
+// The page script refreshes them on load, in case the build is stale.
 const now = Date.now();
-const fmt = (ms: number) =>
-  new Date(ms).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 const rows = PLANETS.map((planet) => ({
   planet,
   current: activeAt(planet, now),
@@ -60,10 +60,10 @@ const rows = PLANETS.map((planet) => ({
           <tbody>
             {
               rows.map(({ planet, current, next }) => (
-                <tr>
+                <tr data-planet={planet}>
                   <th scope="row">{planet}</th>
-                  <td>{current ? `Retrograde until ${fmt(current.end)}` : 'Direct'}</td>
-                  <td>{fmt(next.start)} – {fmt(next.end)}</td>
+                  <td data-now>{nowText(current)}</td>
+                  <td data-next>{nextText(next)}</td>
                 </tr>
               ))
             }
@@ -75,6 +75,8 @@ const rows = PLANETS.map((planet) => ({
     <script>
       import { renderChart, renderWaves } from '../lib/chart';
       import { $today } from '../lib/store';
+      import { activeAt, nextAfter, type Planet } from '../lib/retro';
+      import { nextText, nowText } from '../lib/dates';
 
       const DAY = 86_400_000;
       const addMonths = (t: number, n: number) => {
@@ -127,7 +129,19 @@ const rows = PLANETS.map((planet) => ({
         });
       }
 
-      $today.subscribe(draw);
+      function updateTable() {
+        const t = $today.get().getTime();
+        for (const row of document.querySelectorAll<HTMLTableRowElement>('.dates tr[data-planet]')) {
+          const planet = row.dataset.planet as Planet;
+          row.querySelector('[data-now]')!.textContent = nowText(activeAt(planet, t));
+          row.querySelector('[data-next]')!.textContent = nextText(nextAfter(planet, t)!);
+        }
+      }
+
+      $today.subscribe(() => {
+        draw();
+        updateTable();
+      });
       let last = yearsEl.clientWidth;
       new ResizeObserver(() => {
         if (yearsEl.clientWidth !== last) {
