@@ -100,6 +100,16 @@ export function renderChart(container: HTMLElement, o: ChartOptions) {
   el('path', { d: areaPath, class: 'curve-area' }, svg);
   el('path', { d: linePath, class: 'curve-line' }, svg);
 
+  // Bars get a soft bevel: one shared gradient overlay, lighter at the top and shaded at
+  // the bottom, so they read as slightly raised. No lines, so nothing looks like a border.
+  const uid = container.id || 'chart';
+  const defs = el('defs', {}, svg);
+  const bevel = el('linearGradient', { id: `bevel-${uid}`, x1: 0, x2: 0, y1: 0, y2: 1 }, defs);
+  for (const [offset, c, a] of [[0, '#fff', 0.38], [0.35, '#fff', 0], [0.6, '#000', 0], [1, '#000', 0.32]] as const) {
+    el('stop', { offset, style: `stop-color:${c};stop-opacity:${a}` }, bevel);
+  }
+  const ganttGroup = el('g', {}, svg);
+
   // Gantt rows
   PLANETS.forEach((planet, i) => {
     const rowY = ganttTop + i * ROW_H;
@@ -114,9 +124,12 @@ export function renderChart(container: HTMLElement, o: ChartOptions) {
       if (p.end < o.from || p.start > o.to) continue;
       const a = Math.max(x(p.start), M.left);
       const b = Math.min(x(p.end), width - M.right);
-      el('rect', { x: a, y: rowY + (ROW_H - BAR_H) / 2, width: Math.max(2, b - a), height: BAR_H, rx: 2, fill: color(planet) }, svg);
+      const bar = { x: a, y: rowY + (ROW_H - BAR_H) / 2, width: Math.max(2, b - a), height: BAR_H, rx: 2 };
+      el('rect', { ...bar, fill: color(planet) }, ganttGroup);
+      el('rect', { ...bar, fill: `url(#bevel-${uid})` }, ganttGroup);
     }
   });
+  svg.appendChild(ganttGroup); // bars above the row tracks, as before
 
   // X axis
   const axisY = ganttTop + ganttH;
