@@ -1,0 +1,32 @@
+---
+import { GLYPH, PLANETS } from '../lib/retro';
+
+interface Props {
+  /** Make each planet a button that shows its card (#planet-inline, in RetroCharts). */
+  interactive?: boolean;
+}
+const { interactive = false } = Astro.props;
+---
+
+<ul class="glyph-key">
+  {
+    PLANETS.map((p) => {
+      const label = (
+        <>
+          <span class="glyph" data-planet={p} style={`color:var(--planet-${p.toLowerCase()})`}>{GLYPH[p]}</span> {p}
+        </>
+      );
+      return (
+        <li>
+          {interactive ? (
+            <button class="key-planet" type="button" data-planet={p} aria-pressed="false" aria-controls="planet-inline">
+              {label}
+            </button>
+          ) : (
+            label
+          )}
+        </li>
+      );
+    })
+  }
+</ul>

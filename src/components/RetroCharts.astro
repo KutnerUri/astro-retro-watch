@@ -1,5 +1,6 @@
 ---
 import { PLANETS, activeAt, nextAfter } from '../lib/retro';
+import GlyphKey from './GlyphKey.astro';
 import { nextText, nowText } from '../lib/dates';
 
 // Planet notes (src/content/planets/*.md), shown when a glyph in the years chart is tapped.
@@ -22,7 +23,24 @@ const rows = PLANETS.map((planet) => ({
 ---
 
 <section>
-  <h2>By year</h2>
+  <h2>By year <button class="help-btn" type="button" popovertarget="help-years" aria-label="How to read this chart">?</button></h2>
+  <div class="help-card" id="help-years" popover>
+    <div class="help-head">
+      <strong>What am I looking at?</strong>
+      <button class="help-close" type="button" popovertarget="help-years" popovertargetaction="hide" aria-label="Close"><svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" /></svg></button>
+    </div>
+    <ul>
+      <li>
+        <svg class="help-icon" viewBox="0 0 32 18" aria-hidden="true"><path class="i-line" d="M1 16 L7 16 L10 4 L13 13 L16 9 L19 16 L23 16 L26 2 L29 16 L31 16" /></svg>
+        <span><b>The top graph</b> counts how many planets are in retrograde at the same time.</span>
+      </li>
+      <li>
+        <svg class="help-icon" viewBox="0 0 32 18" aria-hidden="true"><rect class="i-bar" x="7" y="5" width="18" height="8" rx="2" /></svg>
+        <span><b>Each row</b> is one planet. Its bars show when it goes backwards.</span>
+      </li>
+    </ul>
+    <GlyphKey />
+  </div>
   <div class="chart" id="chart-years"></div>
   <div class="planet-card" id="planet-card" role="dialog" hidden></div>
   {
@@ -46,9 +64,39 @@ const rows = PLANETS.map((planet) => ({
 </section>
 
 <section>
-  <h2>By month</h2>
+  <h2>By month <button class="help-btn" type="button" popovertarget="help-months" aria-label="How to read this chart">?</button></h2>
+  <div class="help-card" id="help-months" popover>
+    <div class="help-head">
+      <strong>What am I looking at?</strong>
+      <button class="help-close" type="button" popovertarget="help-months" popovertargetaction="hide" aria-label="Close"><svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" /></svg></button>
+    </div>
+    <ul>
+      <li>
+        <svg class="help-icon" viewBox="0 0 32 18" aria-hidden="true"><path class="i-wave" d="M1 16 C9 16 11 3 16 3 C21 3 23 16 31 16" /></svg>
+        <span><b>Each wave</b> is one planet. While its wave is up, that planet is going backwards.</span>
+      </li>
+      <li>
+        <svg class="help-icon" viewBox="0 0 32 18" aria-hidden="true"><path class="i-wave" d="M1 16 C5 16 6 2 9 2 C12 2 13 16 16 16" /><path class="i-wave i-faint" d="M16 16 C20 16 21 11 24 11 C27 11 28 16 31 16" /></svg>
+        <span><b>The height of a wave</b> shows how far back the planet goes, in degrees.</span>
+      </li>
+      <li>
+        <svg class="help-icon" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(16 16) scale(1.3) translate(-18.5 -9)"><path class="i-horizon" d="M7 15.3 Q18 15 30 15.3" /><path class="i-wedge" d="M12.5 17 L24 15.2 Q27 8 21.5 2.8 Z" /><path class="i-sides" d="M24 15.2 L12.5 17 L21.5 2.8" /><path class="i-path" pathLength="10" d="M24 15.2 Q27 8 21.5 2.8" /><path class="i-arc" d="M19.63 15.88 Q21.49 11.42 18.08 8.2" /><circle class="i-star" cx="24" cy="15.2" r="0.8" /><path class="i-star" d="M21.5 -0.8 L22.55 1.75 L25.1 2.8 L22.55 3.85 L21.5 6.4 L20.45 3.85 L17.9 2.8 L20.45 1.75 Z" /><circle class="i-star" cx="12.5" cy="17" r="1.2" /></g></svg>
+        <span><b>A full circle</b> all the way around us is 360°.</span>
+      </li>
+    </ul>
+    <GlyphKey />
+  </div>
   <button class="months-reset" id="months-reset" type="button" hidden>Back to today</button>
   <div class="chart" id="chart-months"></div>
+</section>
+
+<section class="explainer">
+  <h2>What is a retrograde?</h2>
+  <p>Planets usually move forward across the night sky. But a few times a year, one seems to stop and <b>walk backwards</b> for a while. That is called a <b>retrograde</b>.</p>
+  <p>The planet does not really turn around. It only looks that way from Earth, because we are moving too. It is like passing a slower car on the highway: for a moment, it seems to roll backwards.</p>
+  <p>In astrology, a planet going backwards slows down the things it is in charge of. Mercury, for example, is in charge of talking, messages and phones. When <b>several planets go backwards together</b>, life can feel slow and stuck. This page shows you when that happens.</p>
+  <GlyphKey interactive />
+  <div class="planet-card planet-inline" id="planet-inline" hidden></div>
 </section>
 
 <footer class="dates">
@@ -171,15 +219,20 @@ const rows = PLANETS.map((planet) => ({
   const card = document.getElementById('planet-card')!;
   let cardPlanet: Planet | null = null;
   let pinned = false;
-  function openCard(planet: Planet, label: SVGGraphicsElement) {
+  /** Fills a card element with a planet's note and its current status. */
+  function fillCard(el: HTMLElement, planet: Planet) {
     const tpl = document.querySelector<HTMLTemplateElement>(`template[data-note="${planet}"]`);
-    if (!tpl) return;
-    card.replaceChildren(tpl.content.cloneNode(true));
+    if (!tpl) return false;
+    el.replaceChildren(tpl.content.cloneNode(true));
     const t = $today.get().getTime();
     const current = activeAt(planet, t);
-    card.querySelector('[data-status]')!.textContent = current
+    el.querySelector('[data-status]')!.textContent = current
       ? `Retrograde until ${fmtDate(current.end)}`
       : `Next: ${fmtDate(nextAfter(planet, t)!.start)}`;
+    return true;
+  }
+  function openCard(planet: Planet, label: SVGGraphicsElement) {
+    if (!fillCard(card, planet)) return;
     const box = label.getBoundingClientRect();
     const host = yearsEl.parentElement!.getBoundingClientRect();
     card.style.top = `${box.bottom - host.top + 6}px`;
@@ -190,6 +243,19 @@ const rows = PLANETS.map((planet) => ({
     card.hidden = true;
     cardPlanet = null;
     pinned = false;
+  }
+  // Planet names in the explainer's key show the same card just below the key.
+  // Tapping the shown planet again hides it.
+  const inlineCard = document.getElementById('planet-inline')!;
+  const keyButtons = document.querySelectorAll<HTMLButtonElement>('.key-planet');
+  for (const btn of keyButtons) {
+    btn.addEventListener('click', () => {
+      const planet = btn.dataset.planet as Planet;
+      const show = btn.getAttribute('aria-pressed') !== 'true';
+      if (show && !fillCard(inlineCard, planet)) return;
+      inlineCard.hidden = !show;
+      for (const b of keyButtons) b.setAttribute('aria-pressed', String(show && b === btn));
+    });
   }
   const labelOf = (e: Event) => (e.target as Element).closest<SVGGraphicsElement>('.row-hit');
   yearsEl.addEventListener('pointerover', (e) => {

@@ -17,6 +17,9 @@
   --grid: #1a1c28;
   --rule: #34374d;
   --highlight: rgb(236 235 245 / 0.045);
+  /* Button states, laid over each button's own background. */
+  --hover-tint: rgb(236 235 245 / 0.06);
+  --press-tint: rgb(236 235 245 / 0.16);
   --starlight: #f4eedc;
   /* Iconic planet colours. Mercury (silver) and Venus (starlight) are deliberately low-chroma
      and several are brighter than the usual dark-mode band; adjacent pairs still pass
@@ -59,6 +62,22 @@ h1 {
   font: 400 clamp(38px, 12vw, 60px)/1.1 'Yeseva One', serif; letter-spacing: 0.03em;
 }
 .tagline { margin: 10px auto 0; font-size: clamp(14px, 4vw, 17px); color: var(--text-secondary); }
+
+/* ---------- Buttons ---------- */
+/* Colour-only states. A press tints at once; on release the tint fades back. */
+:is(.help-btn, .help-close, .key-planet, .months-reset) {
+  transition: box-shadow 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (hover: hover) {
+  :is(.help-btn, .help-close, .key-planet, .months-reset):hover {
+    box-shadow: inset 0 0 0 999px var(--hover-tint); border-color: var(--text-muted);
+  }
+}
+:is(.help-btn, .help-close, .key-planet, .months-reset):active {
+  box-shadow: inset 0 0 0 999px var(--press-tint); border-color: var(--text-secondary); color: var(--text-primary);
+  transition-duration: 0s;
+}
 
 /* ---------- Charts ---------- */
 /* Charts bleed through main's 6px gutter to the screen edges. */
@@ -117,8 +136,73 @@ h1 {
 .planet-card dd { margin: 0; }
 .planet-card .card-body p { margin: 6px 0 0; color: var(--text-secondary); }
 
+/* ---------- Help ("?" next to chart headings) ---------- */
+/* Native popovers sit in the top layer, so opening one never moves the charts. */
+.help-btn {
+  flex: none; width: 22px; height: 22px; margin: -2px 0; padding: 0; border-radius: 50%;
+  border: 1px solid var(--rule); background: var(--card); color: var(--starlight);
+  font: 500 13px/1 'Jost', sans-serif; cursor: pointer;
+}
+.help-card {
+  box-sizing: border-box; width: min(400px, calc(100vw - 32px)); margin: auto; padding: 20px;
+  background: var(--card); color: var(--text-primary); border: 1px solid var(--rule); border-radius: 12px;
+  box-shadow: 0 10px 40px rgb(0 0 0 / 0.6); font-size: 16px; line-height: 1.5;
+}
+.help-card::backdrop { background: rgb(0 0 0 / 0.55); }
+/* One rhythm: 16px between sections (title, points, key, button), 12px between points.
+   Only when open, so the popover's own display: none still applies when closed. */
+.help-card:popover-open { display: flex; flex-direction: column; gap: 16px; }
+.help-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.help-card strong { display: block; font: 500 14px 'Cinzel', serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--starlight); }
+.help-card ul:not(.glyph-key) { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.help-card .glyph-key { gap: 8px 18px; margin: 0; padding-top: 16px; border-top: 1px solid var(--grid); }
+.help-card .glyph-key li { display: inline-flex; gap: 4px; margin: 0; color: var(--text-secondary); }
+.help-card li { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; margin: 0; color: var(--text-secondary); }
+/* Tiny drawings of the chart parts, standing in for bullets. */
+/* Square boxes, drawings centred in them; the first text line is 24px tall. */
+.help-icon { width: 32px; height: 32px; margin-top: -4px; overflow: visible; }
+.i-line { fill: none; stroke: var(--starlight); stroke-width: 1.6; stroke-linejoin: round; }
+.i-bar { fill: var(--planet-jupiter); }
+.i-wave { fill: none; stroke: var(--planet-uranus); stroke-width: 2; }
+.i-faint { opacity: 0.6; }
+.i-horizon { fill: none; stroke: var(--text-muted); stroke-width: 0.7; opacity: 0.7; }
+.i-wedge { fill: var(--planet-uranus); fill-opacity: 0.3; }
+.i-sides { fill: none; stroke: var(--planet-uranus); stroke-width: 1; stroke-linejoin: round; }
+.i-path { fill: none; stroke: var(--text-secondary); stroke-width: 1; stroke-linecap: round; stroke-dasharray: 2 2; opacity: 0.7; }
+.i-arc { fill: none; stroke: var(--starlight); stroke-width: 0.9; }
+.i-star { fill: var(--starlight); }
+.help-card b { color: var(--text-primary); font-weight: 500; }
+.help-close {
+  /* The ×, top-right, level with the title; pulled out so its circle doesn't widen the card's edge. */
+  display: flex; align-items: center; justify-content: center;
+  flex: none; box-sizing: border-box; width: 32px; height: 32px; margin: -6px -8px -6px 0; padding: 0; border-radius: 50%;
+  border: 1px solid transparent; background: none; color: var(--text-secondary); cursor: pointer;
+}
+/* Drawn, not typed: a font's × sits off-centre in its box. */
+.help-close svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+
+/* ---------- Explainer (below the charts) ---------- */
+.explainer { margin-top: 48px; font-size: 17px; color: var(--text-secondary); }
+.explainer p { margin: 12px 0 0; }
+.explainer b { color: var(--text-primary); font-weight: 500; }
+.glyph-key { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin: 18px 0 0; padding: 0; list-style: none; font-size: 15px; }
+.glyph-key li { display: inline-flex; align-items: center; gap: 4px; }
+/* Ghost buttons: an outline says "tap me" without adding weight. */
+.key-planet {
+  display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px;
+  font: inherit; color: inherit; background: none; border: 1px solid var(--rule); border-radius: 999px; cursor: pointer;
+}
+.key-planet[aria-pressed='true'] { background: var(--highlight); border-color: var(--text-muted); color: var(--text-primary); }
+.explainer .glyph-key { gap: 8px; }
+.glyph-key .glyph { display: inline-flex; align-items: center; justify-content: center; height: 1em; font-size: 18px; line-height: 1; }
+/* These marks sit low in the symbol font; lift them to line up with the names. */
+.glyph-key .glyph:is([data-planet='Mars'], [data-planet='Saturn'], [data-planet='Uranus']) { position: relative; top: -2px; }
+
+/* The planet card shown under the explainer's key: same card, in the page flow. */
+.planet-inline { position: static; margin: 16px auto 0; box-shadow: none; color: var(--text-primary); }
+
 /* ---------- Dates footer ---------- */
-.dates { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--grid); color: var(--text-muted); font-size: 12px; text-align: center; }
+.dates { margin-top: 56px; color: var(--text-muted); font-size: 12px; text-align: center; }
 .dates h2 { font-size: 12px; }
 .dates table { border-collapse: collapse; margin: 0 auto; }
 .dates th, .dates td { text-align: left; font-weight: 400; padding: 2px 20px 2px 0; }
