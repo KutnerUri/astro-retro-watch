@@ -12,6 +12,11 @@ export interface ChartOptions {
   ticks: (from: Date, to: Date) => { values: Date[]; format: (d: Date) => string };
   /** Optional shaded window, e.g. the months view inside the years view. */
   highlight?: [number, number];
+  /**
+   * Makes the window draggable. Called with the new window centre (ms) when the window is
+   * dragged, or when the plot is tapped (the window jumps there).
+   */
+  onWindowMove?: (center: number) => void;
   /** Formats the date in the hover tooltip. */
   hoverFormat: (d: Date) => string;
   /** Row / peak label for a planet. Defaults to its name. */
@@ -39,6 +44,18 @@ function el<K extends keyof SVGElementTagNameMap>(tag: K, attrs: Record<string, 
   return node;
 }
 
+/**
+ * Touch tooltips stay up after the finger lifts; a tap anywhere outside the chart closes them.
+ * One listener per chart container, replaced on each redraw.
+ */
+const outsideListeners = new WeakMap<HTMLElement, AbortController>();
+function dismissOnOutsideTouch(container: HTMLElement, hide: () => void) {
+  outsideListeners.get(container)?.abort();
+  const ctrl = new AbortController();
+  outsideListeners.set(container, ctrl);
+  document.addEventListener('pointerdown', (ev) => !container.contains(ev.target as Node) && hide(), { signal: ctrl.signal });
+}
+
 /** Tooltip x: right of the cursor, else left of it, always kept inside the chart. */
 const tipLeft = (px: number, w: number, width: number) =>
   Math.max(0, Math.min(width - w, px + 14 + w > width ? px - 14 - w : px + 14));
@@ -63,9 +80,11 @@ export function renderChart(container: HTMLElement, o: ChartOptions) {
   svg.setAttribute('aria-label', 'Retrograde overlap curve and retrograde periods per planet');
 
   // Highlighted window (the months view shown inside the years view)
+  let windowRect: SVGRectElement | null = null;
   if (o.highlight) {
     const [a, b] = o.highlight.map((t) => x(t));
-    el('rect', { x: a, y: M.top, width: b - a, height: ganttTop + ganttH - M.top, class: 'highlight' }, svg);
+    windowRect = el('rect', { x: a, y: M.top, width: b - a, height: ganttTop + ganttH - M.top, class: 'highlight' }, svg);
+    if (o.onWindowMove) windowRect.classList.add('draggable');
   }
 
   // Y gridlines + labels (whole planets' worth of overlap)
@@ -122,10 +141,10 @@ export function renderChart(container: HTMLElement, o: ChartOptions) {
   tip.hidden = true;
   container.appendChild(tip);
 
-  svg.addEventListener('pointermove', (ev) => {
-    const rect = svg.getBoundingClientRect();
-    const px = ev.clientX - rect.left;
-    if (px < M.left || px > width - M.right) return hide();
+  const pxOf = (ev: PointerEvent) => ev.clientX - svg.getBoundingClientRect().left;
+  const inPlot = (px: number) => px >= M.left && px <= width - M.right;
+
+  function showAt(px: number) {
     const t = x.invert(px).getTime();
     const k = Math.round((t - o.from) / o.step);
     const value = samples[Math.min(samples.length - 1, Math.max(0, k))][1];
@@ -152,13 +171,104 @@ export function renderChart(container: HTMLElement, o: ChartOptions) {
     tip.hidden = false;
     tip.style.left = `${tipLeft(px, tip.offsetWidth, width)}px`;
     tip.style.top = `${M.top}px`;
-  });
-  svg.addEventListener('pointerleave', hide);
+  }
   function hide() {
     cross.setAttribute('visibility', 'hidden');
     dot.setAttribute('visibility', 'hidden');
     tip.hidden = true;
   }
+  dismissOnOutsideTouch(container, hide);
+
+  // Mouse: the tooltip follows the cursor. Touch is handled with the window gestures below
+  // (tap shows it and it stays; a drag moves the window instead).
+  svg.addEventListener('pointermove', (ev) => {
+    if (ev.pointerType === 'touch') return;
+    const px = pxOf(ev);
+    if (inPlot(px)) showAt(px);
+    else hide();
+  });
+  svg.addEventListener('pointerleave', (ev) => ev.pointerType !== 'touch' && hide());
+  svg.addEventListener('pointercancel', hide);
+
+  let currentWindow: [number, number] = o.highlight ?? [0, 0];
+
+  // Moving the window.
+  //  Mouse: press to jump or grab the window, drag to move it.
+  //  Touch: a sideways drag moves it; a tap jumps it there (unless the tap lands inside the
+  //  window) and shows that date's tooltip. A vertical swipe scrolls the page and is ignored:
+  //  the browser cancels the pointer, so nothing moves until the finger has gone sideways.
+  if (windowRect && o.onWindowMove) {
+    const onMove = o.onWindowMove;
+    const DRAG_PX = 6;
+    let grab: number | null = null;
+    let down: { x: number; touch: boolean; dragging: boolean } | null = null;
+    const timeAt = (px: number) => x.invert(px).getTime();
+    // Keep receiving moves when the pointer leaves the chart. Capture can fail (e.g. the
+    // pointer already ended); dragging still works without it.
+    const capture = (ev: PointerEvent) => {
+      try {
+        svg.setPointerCapture(ev.pointerId);
+      } catch {}
+    };
+    const startGrab = (px: number) => {
+      const t = timeAt(px);
+      const [a, b] = currentWindow;
+      grab = t >= a && t <= b ? t - (a + b) / 2 : 0;
+    };
+
+    svg.addEventListener('pointerdown', (ev) => {
+      const px = pxOf(ev);
+      if (!inPlot(px)) return;
+      const touch = ev.pointerType === 'touch';
+      down = { x: px, touch, dragging: !touch };
+      if (touch) return; // wait to see whether this is a tap, a drag or a scroll
+      ev.preventDefault(); // no text selection while dragging
+      capture(ev);
+      svg.classList.add('dragging');
+      startGrab(px);
+      onMove(timeAt(px) - grab!);
+    });
+    svg.addEventListener('pointermove', (ev) => {
+      if (!down) return;
+      const px = pxOf(ev);
+      if (down.touch && !down.dragging) {
+        if (Math.abs(px - down.x) < DRAG_PX) return;
+        down.dragging = true;
+        capture(ev);
+        svg.classList.add('dragging');
+        hide();
+        startGrab(down.x);
+      }
+      if (grab !== null) onMove(timeAt(px) - grab);
+    });
+    svg.addEventListener('pointerup', (ev) => {
+      if (down?.touch && !down.dragging) {
+        const px = pxOf(ev);
+        const t = timeAt(px);
+        const [a, b] = currentWindow;
+        if (t < a || t > b) onMove(t);
+        showAt(px);
+      }
+      end();
+    });
+    svg.addEventListener('pointercancel', end);
+    function end() {
+      down = null;
+      grab = null;
+      svg.classList.remove('dragging');
+    }
+  }
+  return {
+    /** Moves the shaded window without redrawing the chart. */
+    setWindow(from: number, to: number) {
+      currentWindow = [from, to];
+      if (!windowRect) return;
+      windowRect.setAttribute('x', String(x(from)));
+      windowRect.setAttribute('width', String(x(to) - x(from)));
+    },
+    /** The time range the chart shows. */
+    domain: [o.from, o.to] as const,
+  };
 }
 
 /** Dash pattern per planet, so the waves differ by more than colour. */
@@ -272,9 +382,20 @@ export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step'
   container.appendChild(tip);
   const fmt = (ms: number) => new Date(ms).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 
-  svg.addEventListener('pointermove', (ev) => {
+  // Mouse: follows the cursor. Touch: a tap shows that date, sliding sideways scrubs, and the
+  // tooltip stays after the finger lifts. A vertical swipe scrolls and cancels it.
+  const showFrom = (ev: PointerEvent) => {
     const px = ev.clientX - svg.getBoundingClientRect().left;
     if (px < M.left || px > width - M.right) return hide();
+    showAt(px);
+  };
+  svg.addEventListener('pointerdown', (ev) => ev.pointerType === 'touch' && showFrom(ev));
+  svg.addEventListener('pointermove', showFrom);
+  svg.addEventListener('pointerleave', (ev) => ev.pointerType !== 'touch' && hide());
+  svg.addEventListener('pointercancel', hide);
+  dismissOnOutsideTouch(container, hide);
+
+  function showAt(px: number) {
     const t = x.invert(px).getTime();
     cross.setAttribute('x1', String(px));
     cross.setAttribute('x2', String(px));
@@ -295,8 +416,7 @@ export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step'
     tip.hidden = false;
     tip.style.left = `${tipLeft(px, tip.offsetWidth, width)}px`;
     tip.style.top = `${top}px`;
-  });
-  svg.addEventListener('pointerleave', hide);
+  }
   function hide() {
     cross.setAttribute('visibility', 'hidden');
     dots.replaceChildren();

@@ -47,6 +47,7 @@ const rows = PLANETS.map((planet) => ({
 
 <section>
   <h2>By month</h2>
+  <button class="months-reset" id="months-reset" type="button" hidden>Back to today</button>
   <div class="chart" id="chart-months"></div>
 </section>
 
@@ -72,7 +73,7 @@ const rows = PLANETS.map((planet) => ({
 
 <script>
   import { renderChart, renderWaves } from '../lib/chart';
-  import { $today } from '../lib/store';
+  import { $focus, $today } from '../lib/store';
   import { GLYPH, activeAt, nextAfter, type Planet } from '../lib/retro';
   import { fmtDate, nextText, nowText } from '../lib/dates';
 
@@ -90,18 +91,28 @@ const rows = PLANETS.map((planet) => ({
   const style = { label: (p: Planet) => GLYPH[p], left: 30, hideScale: true, centerLabels: true };
   const monthsStyle = { ...style, left: 0 };
 
-  function draw() {
-    const today = $today.get().getTime();
-    const monthsFrom = addMonths(today, -4);
-    const monthsTo = addMonths(today, 4);
+  const MONTHS_EACH_SIDE = 4;
+  const monthsWindow = (center: number): [number, number] => [
+    addMonths(center, -MONTHS_EACH_SIDE),
+    addMonths(center, MONTHS_EACH_SIDE),
+  ];
+  let years: ReturnType<typeof renderChart> | null = null;
 
-    renderChart(yearsEl, {
+  function drawYears() {
+    const today = $today.get().getTime();
+    years = renderChart(yearsEl, {
       ...style,
       from: addMonths(today, -60),
       to: addMonths(today, 60),
       today,
       step: DAY,
-      highlight: [monthsFrom, monthsTo],
+      highlight: monthsWindow($focus.get() ?? today),
+      onWindowMove: (center) => {
+        // Keep the whole window inside the years chart.
+        const [from, to] = years!.domain;
+        const half = (MONTHS_EACH_SIDE * 30.44 * DAY);
+        $focus.set(Math.min(Math.max(center, from + half), to - half));
+      },
       hoverFormat: (d) => d.toLocaleDateString(undefined, { month: 'long', year: 'numeric', timeZone: 'UTC' }),
       ticks: (from, to) => {
         const values: Date[] = [];
@@ -110,7 +121,13 @@ const rows = PLANETS.map((planet) => ({
         return { values, format: (d) => (d.getUTCFullYear() % every ? '' : String(d.getUTCFullYear())) };
       },
     });
+  }
 
+  function drawMonths() {
+    const today = $today.get().getTime();
+    const [monthsFrom, monthsTo] = monthsWindow($focus.get() ?? today);
+    years?.setWindow(monthsFrom, monthsTo);
+    resetButton.hidden = $focus.get() === null;
     renderWaves(monthsEl, {
       ...monthsStyle,
       from: monthsFrom,
@@ -131,6 +148,24 @@ const rows = PLANETS.map((planet) => ({
       },
     });
   }
+
+  function draw() {
+    drawYears();
+    drawMonths();
+  }
+
+  // Redraw the months chart at most once per frame while dragging.
+  let pending = false;
+  $focus.listen(() => {
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(() => {
+      pending = false;
+      drawMonths();
+    });
+  });
+  const resetButton = document.getElementById('months-reset') as HTMLButtonElement;
+  resetButton.addEventListener('click', () => $focus.set(null));
 
   // Planet cards: hover a glyph (mouse) or tap it (touch) in the years chart.
   const card = document.getElementById('planet-card')!;
