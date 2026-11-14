@@ -7,12 +7,15 @@ Live: https://kutneruri.github.io/astro-retro-watch/
 Retro Watch charts the apparent retrograde periods of Mercury, Venus, Mars, Jupiter, Saturn,
 Uranus and Neptune, with a "today" line through every chart:
 
+- **Orbit map:** the solar system seen from above, with every planet where it really is. It follows the
+  date you drag to on the year chart.
 - **By year:** an overlap curve spanning ten years around today. It rises when several planets are
   retrograde at once. Under it is a timeline with one row per planet, labelled with its glyph. Tap a glyph to read about the planet.
 - **By month:** a year centred on today, with one wave for each planet's retrograde period.
 - **Retrograde dates:** for each planet, whether it's retrograde now and when its next retrograde is.
 
-Retrograde dates are available from 1900 to 2100.
+Retrograde dates are available from 1900 to 2100, and the data is published as
+[`retrogrades.json`](https://kutneruri.github.io/astro-retro-watch/retrogrades.json).
 
 ## How it works
 
@@ -36,6 +39,19 @@ The dates are checked against Swiss Ephemeris times for 2013–2031:
 | Mars | within ~1.5 hours |
 
 Outer planets barely move when they turn, so a tiny difference in position shifts the time by hours.
+
+### The orbit map
+
+[`src/lib/orbits.ts`](src/lib/orbits.ts) places the planets with JPL's approximate Keplerian elements
+(Standish, valid 1800–2050). `bun scripts/check-orbits.ts` compares them with astronomy-engine: within
+0.33° (Saturn's worst case) from 1900 to 2100. Angles are true; distances use a log scale, and planet
+sizes the square root of their real radii.
+
+The asteroids ([`src/lib/asteroids.ts`](src/lib/asteroids.ts)) are synthetic, not a catalogue: random
+orbits drawn to the real belt's structure (Kirkwood gaps, Jupiter's forced eccentricity, Hungarias,
+Cybeles, Hildas in 3:2 resonance and Jupiter's Trojans), generated in the browser from a fixed seed.
+
+A standalone version with a date slider and distance-scale options is at `/orbits/` (not linked, noindex).
 
 ### The overlap curve
 
@@ -66,6 +82,7 @@ Regenerate or check the data:
 ```bash
 bun scripts/gen-retrogrades.ts 1900 2100   # writes data/retrogrades.json
 bun scripts/check-retrogrades.ts           # compares with Swiss Ephemeris dates, 2013–2031
+bun scripts/check-orbits.ts                # compares orbit-map positions with astronomy-engine
 ```
 
 ### Project layout
@@ -76,11 +93,15 @@ scripts/                     data generator, accuracy check, share-image generat
 src/content/planets/*.md     planet notes shown when you tap a glyph (edit freely)
 src/lib/retro.ts             data loading, planet glyphs and the overlap function
 src/lib/chart.ts             SVG renderers: years (curve + timeline) and months (waves)
+src/lib/orbits.ts            approximate planet positions for the orbit map
+src/lib/asteroids.ts         the orbit map's synthetic asteroid population
 src/lib/dates.ts             date text shared by the build and the browser
-src/lib/store.ts             shared state (the "today" date) as nanostores atoms
-src/components/              charts, header art, starfield, analytics
+src/lib/store.ts             shared state (the "today" date, the dragged focus) as nanostores atoms
+src/components/              charts, orbit map, header art, starfield, analytics
 src/styles/base.css          the theme: colours, fonts, layout
-src/pages/index.astro        the page
+src/pages/index.astro        the page, its live title and JSON-LD (WebApplication + Dataset)
+src/pages/orbits.astro       standalone orbit map prototype
+src/pages/retrogrades.json.ts  publishes the data at /retrogrades.json
 research/NOTES.md            background research and design notes
 ```
 

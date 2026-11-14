@@ -1,0 +1,24 @@
+---
+// Prototype page for the orbit map. Not linked from the site; noindex.
+import OrbitMap from '../components/OrbitMap.astro';
+import Starfield from '../components/Starfield.astro';
+import '../styles/base.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Retro Watch · orbit map prototype</title>
+  </head>
+  <body>
+    <Starfield />
+    <main>
+      <section>
+        <h2>The solar system now</h2>
+        <OrbitMap />
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,385 @@
+---
+// Top-down map of the solar system: real planet positions (approximate orbital elements), a
+// synthetic asteroid population, and short tails showing each planet's speed. Drawn in the browser, at the
+// date the charts are focused on (`$focus`, set by dragging) or else the shared `$today`. `compact` drops the date line, controls, caption and distance labels (for the masthead).
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<figure class:list={['orbit-map', { 'om-compact': compact }]}>
+  {!compact && <div class="om-date" data-om-date></div>}
+  <svg class="om-svg" viewBox="-100 -100 200 200" role="img" aria-label="Planet positions seen from above the solar system">
+    <defs>
+      <filter id="om-glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="0.9" result="b" />
+        <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+      </filter>
+      <clipPath id="om-disc-clip"><circle r="1" /></clipPath>
+      <!-- Jupiter, classic side view: grey poles, cream zones, the rust North and South Equatorial Belts. -->
+      <linearGradient id="om-jupiter-bands" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#b9b0a0" />
+        <stop offset="0.15" stop-color="#c9b79a" />
+        <stop offset="0.25" stop-color="#ead9bb" />
+        <stop offset="0.32" stop-color="#dcb08a" />
+        <stop offset="0.37" stop-color="#eedfc2" />
+        <stop offset="0.43" stop-color="#c27a45" />
+        <stop offset="0.48" stop-color="#cf8a52" />
+        <stop offset="0.52" stop-color="#f1e4cc" />
+        <stop offset="0.58" stop-color="#f0e2c8" />
+        <stop offset="0.63" stop-color="#c98450" />
+        <stop offset="0.68" stop-color="#d39a68" />
+        <stop offset="0.73" stop-color="#ecdcc0" />
+        <stop offset="0.82" stop-color="#d8b994" />
+        <stop offset="0.9" stop-color="#c8b9a2" />
+        <stop offset="1" stop-color="#b5ab9a" />
+      </linearGradient>
+      <!-- Saturn: smooth butterscotch with barely-there bands. -->
+      <linearGradient id="om-saturn-bands" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#cdbf9c" />
+        <stop offset="0.2" stop-color="#e2d3ac" />
+        <stop offset="0.4" stop-color="#ebdebb" />
+        <stop offset="0.5" stop-color="#eee2c2" />
+        <stop offset="0.6" stop-color="#e6d7b1" />
+        <stop offset="0.78" stop-color="#dccba3" />
+        <stop offset="1" stop-color="#c8b996" />
+      </linearGradient>
+      <radialGradient id="om-limb">
+        <stop offset="0.55" stop-color="#000" stop-opacity="0" />
+        <stop offset="1" stop-color="#000" stop-opacity="0.15" />
+      </radialGradient>
+      <linearGradient id="om-night">
+        <stop offset="0" stop-color="#fff" stop-opacity="0.45" />
+        <stop offset="0.5" stop-color="#fff" stop-opacity="0" />
+        <stop offset="0.6" stop-color="#000" stop-opacity="0" />
+        <stop offset="1" stop-color="#000" stop-opacity="0.25" />
+      </linearGradient>
+    </defs>
+    <g data-om="scale"></g>
+    <g data-om="orbits"></g>
+    <g data-om="belt"></g>
+    <g data-om="tails"></g>
+    <g data-om="sights"></g>
+    <g data-om="bodies"></g>
+  </svg>
+
+  {!compact && (
+  <div class="om-controls">
+    <div class="om-row">
+      <button data-om="play" type="button">Play</button>
+      <input data-om="scrub" type="range" min="-730" max="730" step="1" value="0" aria-label="Days from today" />
+      <button data-om="today" type="button">Today</button>
+    </div>
+    <div class="om-row">
+      <label>Distance scale
+        <select data-om="scale-select">
+          <option value="log" selected>Log</option>
+          <option value="sqrt">Square root</option>
+          <option value="linear">True (linear)</option>
+        </select>
+      </label>
+      <label>Speed
+        <select data-om="speed">
+          <option value="2">2 days/frame</option>
+          <option value="5" selected>5 days/frame</option>
+          <option value="20">20 days/frame</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  )}
+
+  {!compact && (
+  <figcaption class="om-note">
+    Seen from above the solar system; everything moves anticlockwise. Directions are true (JPL approximate orbital
+    elements, within a third of a degree). Distances use the selected scale. Planet sizes follow the square root of
+    their real radii, so Jupiter stays visibly bigger than Saturn; the Sun is not to scale. Faces show each planet's familiar look; Saturn's rings take the classic tilted look;
+    Uranus's ring is tilted as it really sits, which from above makes it almost a line. Each tail's length follows the planet's current speed, compressed so Neptune's still shows. The
+    asteroids are synthetic but built to the real belt's structure: Kirkwood gaps, the Hildas' triangle, and Jupiter's
+    Trojans 60° ahead of and behind it. Dashed lines run from Earth to planets that are retrograde right now.
+  </figcaption>
+  )}
+</figure>
+
+<style is:global>
+  .orbit-map { margin: 0; }
+  .om-date { text-align: center; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+  .om-svg { display: block; width: 100%; max-width: 640px; margin: 8px auto; aspect-ratio: 1; }
+  .om-controls { display: grid; gap: 10px; max-width: 640px; margin: 0 auto; color: var(--text-secondary); font-size: 14px; }
+  .om-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .om-row input[type='range'] { flex: 1; min-width: 200px; }
+  .om-row button, .om-row select { font: inherit; background: var(--card); color: var(--text-primary); border: 1px solid var(--rule); border-radius: 6px; padding: 4px 10px; }
+  .om-compact .om-svg { max-width: 520px; margin: 4px auto 0; }
+  .om-note { max-width: 640px; margin: 16px auto 0; color: var(--text-muted); font-size: 13px; }
+  .om-orbit { fill: none; stroke: var(--rule); stroke-width: 0.25; }
+  .om-scale-ring { fill: none; stroke: var(--grid); stroke-width: 0.2; stroke-dasharray: 0.6 1; }
+  .om-scale-label { fill: var(--text-muted); font-size: 2.2px; }
+  .om-sun { fill: var(--starlight); filter: url(#om-glow); }
+  .om-rocks { fill: none; stroke: var(--text-muted); stroke-linecap: round; stroke-width: 0.42; opacity: 0.55; }
+  .om-rocks.trojan { stroke: var(--planet-jupiter); opacity: 0.4; }
+  .om-sight { stroke: var(--starlight); stroke-width: 0.25; stroke-dasharray: 0.8 0.8; opacity: 0.55; }
+  .om-glyph { font-size: var(--om-label, 3.6px); font-family: 'Noto Sans Symbols', system-ui, sans-serif; dominant-baseline: central; }
+</style>
+
+<script>
+  import { BODIES, position, periodDays, speedKms, type Body } from '../lib/orbits';
+  import { asteroidPositions, type Kind } from '../lib/asteroids';
+  import { GLYPH, activeAt, type Planet } from '../lib/retro';
+  import { $focus, $today } from '../lib/store';
+
+  const DAY = 86_400_000;
+  const NS = 'http://www.w3.org/2000/svg';
+
+  // Planet sizes: square root of the real equatorial radius (km). Jupiter : Saturn stays 1.1 : 1, and
+  // Mercury to Jupiter spans ~5×. The Sun would be ~12 units on this scale, so it gets a fixed size.
+  const RADIUS_KM: Record<Body | 'Sun', number> = {
+    Sun: 695_700, Mercury: 2_440, Venus: 6_052, Earth: 6_371, Mars: 3_390,
+    Jupiter: 69_911, Saturn: 58_232, Uranus: 25_362, Neptune: 24_622,
+  };
+  const size = (b: Body | 'Sun') => (b === 'Sun' ? 4.5 : 0.7 * Math.sqrt(RADIUS_KM[b] / RADIUS_KM.Mercury));
+
+  const EARTH_SEA = '#2f74e0', EARTH_LAND = '#3fae5a';
+  const colour = (b: Body) => (b === 'Earth' ? EARTH_SEA : `var(--planet-${b.toLowerCase()})`);
+  const glyph = (b: Body) => (b === 'Earth' ? '⊕' : GLYPH[b]);
+  const isRetro = (b: Body, t: number) => b !== 'Earth' && !!activeAt(b as Planet, t);
+
+  // Radial scales: AU -> SVG units. The log scale starts just outside the Sun's disc.
+  const MIN_AU = 0.3, MAX_AU = 30.5, R_IN = 9, R_OUT = 92;
+  const scales = {
+    log: (d: number) => R_IN + ((R_OUT - R_IN) * Math.log(d / MIN_AU)) / Math.log(MAX_AU / MIN_AU),
+    sqrt: (d: number) => R_OUT * Math.sqrt(d / MAX_AU),
+    linear: (d: number) => (R_OUT * d) / MAX_AU,
+  };
+  type ScaleName = keyof typeof scales;
+
+  for (const root of document.querySelectorAll<HTMLElement>('.orbit-map')) {
+    const q = <T extends Element = SVGGElement>(name: string) => root.querySelector<T>(`[data-om="${name}"]`)!;
+    const el = (tag: string, attrs: Record<string, string | number>, parent: Element) => {
+      const e = document.createElementNS(NS, tag);
+      for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, String(v));
+      parent.appendChild(e);
+      return e;
+    };
+
+    let scale: ScaleName = 'log';
+    const toXY = (lon: number, r: number): [number, number] => {
+      const R = scales[scale](r);
+      return [R * Math.cos(lon), -R * Math.sin(lon)]; // north-up view: anticlockwise motion
+    };
+    const at = (b: Body, t: number) => {
+      const p = position(b, t);
+      return toXY(p.lon, p.r);
+    };
+
+    const compact = root.classList.contains('om-compact');
+    let now = $today.get().getTime();
+    let offsetDays = 0;
+
+    // Distance rings and one full orbit per planet (the true, eccentric path).
+    function drawStatic() {
+      const scaleG = q('scale'), orbitsG = q('orbits');
+      scaleG.replaceChildren();
+      orbitsG.replaceChildren();
+      for (const au of [1, 5, 10, 20, 30]) {
+        const r = scales[scale](au);
+        el('circle', { class: 'om-scale-ring', r }, scaleG);
+        if (!compact) el('text', { class: 'om-scale-label', x: 0.8, y: -r - 0.6 }, scaleG).textContent = `${au} AU`;
+      }
+      for (const b of BODIES) {
+        const n = 240, P = periodDays(b) * DAY;
+        const pts = Array.from({ length: n }, (_, i) => at(b, now + (i / n) * P));
+        el('path', { class: 'om-orbit', d: `M${pts.map((p) => p.map((v) => v.toFixed(2)).join(' ')).join('L')}Z` }, orbitsG);
+      }
+    }
+
+    function drawAsteroids(t: number) {
+      const g = q('belt');
+      g.replaceChildren();
+      const paths: Record<Kind, string> = { belt: '', hilda: '', trojan: '' };
+      for (const a of asteroidPositions(t)) {
+        const [x, y] = toXY(a.lon, a.r);
+        paths[a.kind] += `M${x.toFixed(2)} ${y.toFixed(2)}h0`; // zero-length segment + round cap = dot
+      }
+      el('path', { class: 'om-rocks', d: paths.belt + paths.hilda }, g);
+      el('path', { class: 'om-rocks trojan', d: paths.trojan }, g);
+    }
+
+    // Tail: a thin line back along the orbit that fades out. Its length follows the planet's current
+    // angular speed, compressed (speed^0.4) so the outer planets still show one.
+    const REF_SPEED = 4.09; // Mercury's mean, degrees/day
+    const angularSpeed = (b: Body, t: number) => {
+      const d = position(b, t + DAY / 2).lon - position(b, t - DAY / 2).lon;
+      return ((((d * 180) / Math.PI) % 360) + 360) % 360;
+    };
+    function drawTail(b: Body, t: number, parent: Element) {
+      const w = angularSpeed(b, t);
+      const span = ((60 * (w / REF_SPEED) ** 0.4) / w) * DAY;
+      const N = 32;
+      const pts = Array.from({ length: N + 1 }, (_, i) => at(b, t - (i / N) * span));
+      const id = `om-tail-${b}`;
+      const grad = el('linearGradient', {
+        id, gradientUnits: 'userSpaceOnUse', x1: pts[0][0], y1: pts[0][1], x2: pts[N][0], y2: pts[N][1],
+      }, parent);
+      el('stop', { offset: 0, 'stop-color': colour(b), 'stop-opacity': 0.8 }, grad);
+      el('stop', { offset: 1, 'stop-color': colour(b), 'stop-opacity': 0 }, grad);
+      el('path', {
+        d: `M${pts.map((p) => p.map((v) => v.toFixed(2)).join(' ')).join('L')}`,
+        fill: 'none', stroke: `url(#${id})`, 'stroke-width': 0.5, 'stroke-linecap': 'round',
+      }, parent);
+    }
+
+    // Faces use the classic side-on look people recognise (like the blue-marble Earth). Unit-disc coordinates.
+    function drawSurface(b: Body, g: Element) {
+      switch (b) {
+        case 'Mercury': // a few craters
+          for (const [cx, cy, cr] of [[-0.35, -0.3, 0.2], [0.4, 0.1, 0.14], [-0.1, 0.5, 0.17], [0.25, -0.55, 0.1]])
+            el('circle', { cx, cy, r: cr, fill: 'rgb(40 40 60 / 0.22)' }, g);
+          break;
+        case 'Earth': // the classic blue marble
+          el('path', { d: 'M-0.75 -0.55Q-0.25 -1 0.15 -0.45Q0.05 0.05 -0.4 0.15Q-0.95 -0.05 -0.75 -0.55Z', fill: EARTH_LAND }, g);
+          el('path', { d: 'M0.2 0.15Q0.7 -0.15 0.85 0.3Q0.6 0.95 0.2 0.7Q-0.05 0.4 0.2 0.15Z', fill: EARTH_LAND }, g);
+          break;
+        case 'Jupiter': // belts and zones, plus the Great Red Spot
+          el('circle', { r: 1, fill: 'url(#om-jupiter-bands)' }, g);
+          el('ellipse', { cx: 0.32, cy: 0.38, rx: 0.2, ry: 0.11, fill: '#c0603a', opacity: 0.85 }, g);
+          break;
+        case 'Saturn':
+          el('circle', { r: 1, fill: 'url(#om-saturn-bands)' }, g);
+          break;
+        case 'Neptune': // deep blue, a dark storm and small bright clouds (as Voyager 2 saw it)
+          el('circle', { r: 1, fill: '#1d36b8' }, g);
+          el('ellipse', { cx: -0.1, cy: 0.08, rx: 0.26, ry: 0.12, fill: '#14206e', opacity: 0.55 }, g);
+          for (const [cx, cy, rx, ry, o] of [[-0.12, -0.02, 0.15, 0.03, 0.8], [0.4, -0.5, 0.22, 0.025, 0.5], [-0.5, 0.55, 0.09, 0.03, 0.6], [0.2, 0.45, 0.07, 0.02, 0.5]])
+            el('ellipse', { cx, cy, rx, ry, fill: '#e8f0ff', opacity: o }, g);
+          break;
+        // Venus, Mars and Uranus stay plain.
+      }
+    }
+
+    // Rings. Each is an ellipse: `angle` turns its long axis (SVG degrees), `ratio` is short/long, and `nearSide`
+    // says which half (in the turned frame) passes in front of the planet. Radii are in planet radii.
+    // - Saturn: the classic tilted look, slimmed to the bright B ring and the dimmer A ring, with the Cassini
+    //   Division between them (true radii 1.53–1.95 and 2.03–2.27, scaled down ~0.8 to keep it compact).
+    // - Uranus: tilted as it really sits, seen from above. Its pole (IAU, J2000 ecliptic) is at λ 257.6°, β 7.7°,
+    //   so the ring's long axis is perpendicular to λ 257.6° and its ratio is sin 7.7°: almost a line.
+    //   The pole side tilts away from the viewer, so the half on the other side (y < 0) is the near one.
+    interface Ring { angle: number; ratio: number; nearSide: 'up' | 'down'; bands: [number, number, string, number][] }
+    const RINGS: Partial<Record<Body, Ring>> = {
+      Saturn: {
+        angle: -18, ratio: 0.32, nearSide: 'down',
+        bands: [ // [mid radius, width, colour, opacity]
+          [1.43, 0.36, '#d6d1d4', 0.75],
+          [1.79, 0.2, '#aaa5b0', 0.6],
+        ],
+      },
+      Uranus: { angle: -(257.6 + 90), ratio: 0.134, nearSide: 'up', bands: [[2.0, 0.035, '#e6f2f4', 0.35]] }, // the ε ring
+    };
+    const ringExtent = (b: Body) => Math.max(1, ...(RINGS[b]?.bands.map(([m, w]) => m + w / 2) ?? []));
+    // Each ring is split in two: the far half is drawn before the planet (hidden behind it), the near half after.
+    function drawRings(b: Body, g: Element, half: 'back' | 'front') {
+      const ring = RINGS[b];
+      if (!ring) return;
+      // From (-rx, 0) to (rx, 0), sweep 1 runs through y < 0 ('up') and sweep 0 through y > 0 ('down').
+      const up = (half === 'front') === (ring.nearSide === 'up');
+      for (const [m, w, stroke, opacity] of ring.bands) {
+        el('path', {
+          d: `M${-m} 0A${m} ${m * ring.ratio} 0 0 ${up ? 1 : 0} ${m} 0`,
+          fill: 'none', stroke, opacity, 'stroke-width': w, transform: `rotate(${ring.angle})`,
+        }, g);
+      }
+    }
+
+    function draw() {
+      const t = ($focus.get() ?? now) + offsetDays * DAY;
+      const dateEl = root.querySelector('[data-om-date]');
+      if (dateEl) dateEl.textContent =
+        new Date(t).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+      const tailsG = q('tails'), bodiesG = q('bodies'), sightsG = q('sights');
+      tailsG.replaceChildren();
+      bodiesG.replaceChildren();
+      sightsG.replaceChildren();
+      drawAsteroids(t);
+      el('circle', { class: 'om-sun', r: size('Sun') }, bodiesG);
+      const earth = at('Earth', t);
+
+      for (const b of BODIES) {
+        drawTail(b, t, tailsG);
+        const p = position(b, t);
+        const [x, y] = toXY(p.lon, p.r);
+        const r = size(b);
+        const retroNow = isRetro(b, t);
+        if (retroNow) el('line', { class: 'om-sight', x1: earth[0], y1: earth[1], x2: x, y2: y }, sightsG);
+        const g = el('g', {}, bodiesG);
+        // Disc drawn in unit coordinates: base colour, surface detail, shading, then rings on top.
+        const disc = el('g', { transform: `translate(${x} ${y}) scale(${r})` }, g);
+        drawRings(b, disc, 'back');
+        el('circle', { r: 1, fill: colour(b) }, disc);
+        const surface = el('g', { 'clip-path': 'url(#om-disc-clip)' }, disc);
+        drawSurface(b, surface);
+        el('circle', { r: 1, fill: 'url(#om-limb)' }, disc);
+        // Sunlit highlight toward the Sun, shade on the far side: rotate so the dark end points away from it.
+        el('circle', { r: 1, fill: 'url(#om-night)', transform: `rotate(${(Math.atan2(y, x) * 180) / Math.PI})` }, disc);
+        drawRings(b, disc, 'front');
+        const lab = el('text', { class: 'om-glyph', x: x + r * ringExtent(b) + 1, y, fill: colour(b) }, g);
+        lab.textContent = glyph(b);
+        el('title', {}, g).textContent =
+          `${b}: ${p.r.toFixed(2)} AU from the Sun, ${speedKms(b, p.r).toFixed(1)} km/s${retroNow ? ', retrograde from Earth' : ''}`;
+      }
+    }
+
+    // Planet labels stay ~11px on screen whatever the map's size (SVG units shrink on narrow screens).
+    const svg = root.querySelector<SVGSVGElement>('.om-svg')!;
+    new ResizeObserver(([entry]) => {
+      const pxPerUnit = entry.contentRect.width / 200;
+      if (pxPerUnit > 0) svg.style.setProperty('--om-label', `${Math.max(3.6, 11 / pxPerUnit).toFixed(2)}px`);
+    }).observe(svg);
+
+    if (!compact) setupControls();
+    function setupControls() {
+      const scrub = q<HTMLInputElement>('scrub');
+      const setOffset = (d: number) => {
+        offsetDays = Math.max(+scrub.min, Math.min(+scrub.max, d));
+        scrub.value = String(offsetDays);
+        draw();
+      };
+      scrub.addEventListener('input', () => setOffset(+scrub.value));
+      q('today').addEventListener('click', () => setOffset(0));
+      q<HTMLSelectElement>('scale-select').addEventListener('change', (e) => {
+        scale = (e.target as HTMLSelectElement).value as ScaleName;
+        drawStatic();
+        draw();
+      });
+      let playing = false;
+      const play = q<HTMLButtonElement>('play');
+      const tick = () => {
+        if (!playing) return;
+        const step = +q<HTMLSelectElement>('speed').value;
+        setOffset(offsetDays + step >= +scrub.max ? +scrub.min : offsetDays + step);
+        requestAnimationFrame(tick);
+      };
+      play.addEventListener('click', () => {
+        playing = !playing;
+        play.textContent = playing ? 'Pause' : 'Play';
+        if (playing) tick();
+      });
+    }
+
+    // Follow the shared "today" (subscribe also fires once now, for the first draw), and the charts' focus
+    // while the visitor drags it: at most one redraw per frame.
+    $today.subscribe((d) => {
+      now = d.getTime();
+      drawStatic();
+      draw();
+    });
+    let pending = false;
+    $focus.listen(() => {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(() => {
+        pending = false;
+        draw();
+      });
+    });
+  }
+</script>

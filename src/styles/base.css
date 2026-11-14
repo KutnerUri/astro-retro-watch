@@ -51,14 +51,14 @@ h2 {
 h2::before, h2::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
 /* ---------- Masthead ---------- */
-.masthead { text-align: center; }
+.masthead { text-align: center; padding: clamp(48px, 14vw, 96px) 0 clamp(20px, 6vw, 40px); }
 .mark { display: block; width: min(260px, 72vw); margin: 12px auto 0; }
 .mark .orbit { fill: none; stroke: var(--rule); stroke-width: 1; }
 .mark .ring { fill: none; stroke: var(--planet-saturn); stroke-width: 1.4; }
 .mark .star { fill: var(--starlight); opacity: 0.8; }
 .mark .earth { fill: none; stroke: var(--starlight); stroke-width: 1; stroke-dasharray: 2 3; }
 h1 {
-  margin: 14px 0 0; color: var(--starlight);
+  margin: 0; color: var(--starlight);
   font: 400 clamp(38px, 12vw, 60px)/1.1 'Yeseva One', serif; letter-spacing: 0.03em;
 }
 .tagline { margin: 10px auto 0; font-size: clamp(14px, 4vw, 17px); color: var(--text-secondary); }
@@ -85,7 +85,7 @@ h1 {
 .chart svg { display: block; font-size: 11px; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
 .glyph, .row-label, .wave-label { font-family: 'Noto Sans Symbols', 'Jost', sans-serif; }
 .tick { fill: var(--text-muted); }
-.row-label { font-size: 16px; fill: var(--text-primary); }
+.row-label { font-size: 13px; fill: var(--text-primary); }
 .row-hit { fill: transparent; cursor: pointer; }
 .grid { stroke: var(--grid); }
 .baseline { stroke: var(--rule); }

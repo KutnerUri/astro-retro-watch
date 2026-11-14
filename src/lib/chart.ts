@@ -33,8 +33,8 @@ const NS = 'http://www.w3.org/2000/svg';
 const BASE_M = { top: 22, right: 0, left: 72 };
 const CURVE_H = 120;
 const GAP = 14;
-const ROW_H = 20;
-const BAR_H = 10;
+const ROW_H = 14;
+const BAR_H = 6;
 const AXIS_H = 26;
 
 function el<K extends keyof SVGElementTagNameMap>(tag: K, attrs: Record<string, string | number> = {}, parent?: Element) {
