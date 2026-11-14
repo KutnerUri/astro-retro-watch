@@ -1,0 +1,36 @@
+---
+import Analytics from '../components/Analytics.astro';
+import intervals from '../../data/retrograde-intervals-2013-2031.json';
+
+// Built into the static HTML so search engines can read it.
+const now = new Date();
+const active = intervals
+  .filter((i) => new Date(i.start_utc) <= now && now < new Date(i.end_utc))
+  .map((i) => i.planet);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Retro Watch: planetary retrogrades over time</title>
+    <meta name="description" content="Which planets are retrograde now, and how retrograde periods overlap across years and months." />
+    <Analytics />
+  </head>
+  <body>
+    <h1>Retro Watch</h1>
+    <p>
+      Retrograde as of this build: {active.length ? active.join(', ') : 'none'}.
+    </p>
+
+    <section id="years">
+      <h2>Years</h2>
+      <!-- overlap curve + per-planet Gantt (years scale) -->
+    </section>
+
+    <section id="months">
+      <h2>Months</h2>
+      <!-- overlap curve + per-planet Gantt (months scale) -->
+    </section>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+dist/
+.astro/
+__pycache__/
+# Original chart work and carousel images (about 20 MB), kept locally for reference.
+# Remove this line to publish them.
+research/reference/

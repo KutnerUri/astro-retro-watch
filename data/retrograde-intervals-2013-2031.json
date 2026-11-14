@@ -1,0 +1,782 @@
+[
+  {
+    "planet": "Mercury",
+    "start_utc": "2013-02-23T09:41Z",
+    "end_utc": "2013-03-17T20:02Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2013-06-26T13:07Z",
+    "end_utc": "2013-07-20T18:22Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2013-10-21T10:28Z",
+    "end_utc": "2013-11-10T21:11Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2014-02-06T21:43Z",
+    "end_utc": "2014-02-28T14:00Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2014-06-07T11:56Z",
+    "end_utc": "2014-07-01T12:49Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2014-10-04T17:02Z",
+    "end_utc": "2014-10-25T19:16Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2015-01-21T15:54Z",
+    "end_utc": "2015-02-11T14:56Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2015-05-19T01:49Z",
+    "end_utc": "2015-06-11T22:33Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2015-09-17T18:09Z",
+    "end_utc": "2015-10-09T14:57Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2016-01-05T13:05Z",
+    "end_utc": "2016-01-25T21:49Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2016-04-28T17:19Z",
+    "end_utc": "2016-05-22T13:19Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2016-08-30T13:03Z",
+    "end_utc": "2016-09-22T05:30Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2016-12-19T10:55Z",
+    "end_utc": "2017-01-08T09:42Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2017-04-09T23:14Z",
+    "end_utc": "2017-05-03T16:32Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2017-08-13T01:00Z",
+    "end_utc": "2017-09-05T11:29Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2017-12-03T07:34Z",
+    "end_utc": "2017-12-23T01:50Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2018-03-23T00:18Z",
+    "end_utc": "2018-04-15T09:20Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2018-07-26T05:02Z",
+    "end_utc": "2018-08-19T04:24Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2018-11-17T01:33Z",
+    "end_utc": "2018-12-06T21:22Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2019-03-05T18:18Z",
+    "end_utc": "2019-03-28T13:58Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2019-07-07T23:14Z",
+    "end_utc": "2019-08-01T03:57Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2019-10-31T15:41Z",
+    "end_utc": "2019-11-20T19:11Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2020-02-17T00:54Z",
+    "end_utc": "2020-03-10T03:48Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2020-06-18T04:58Z",
+    "end_utc": "2020-07-12T08:26Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2020-10-14T01:05Z",
+    "end_utc": "2020-11-03T17:49Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2021-01-30T15:51Z",
+    "end_utc": "2021-02-21T00:52Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2021-05-29T22:34Z",
+    "end_utc": "2021-06-22T22:00Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2021-09-27T05:10Z",
+    "end_utc": "2021-10-18T15:16Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2022-01-14T11:41Z",
+    "end_utc": "2022-02-04T04:13Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2022-05-10T11:47Z",
+    "end_utc": "2022-06-03T08:00Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2022-09-10T03:38Z",
+    "end_utc": "2022-10-02T09:07Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2022-12-29T09:31Z",
+    "end_utc": "2023-01-18T13:11Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2023-04-21T08:34Z",
+    "end_utc": "2023-05-15T03:16Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2023-08-23T19:59Z",
+    "end_utc": "2023-09-15T20:21Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2023-12-13T07:09Z",
+    "end_utc": "2024-01-02T03:07Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2024-04-01T22:14Z",
+    "end_utc": "2024-04-25T12:54Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2024-08-05T04:56Z",
+    "end_utc": "2024-08-28T21:14Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2024-11-26T02:42Z",
+    "end_utc": "2024-12-15T20:56Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2025-03-15T06:46Z",
+    "end_utc": "2025-04-07T11:07Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2025-07-18T04:45Z",
+    "end_utc": "2025-08-11T07:29Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2025-11-09T19:01Z",
+    "end_utc": "2025-11-29T17:38Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2026-02-26T06:48Z",
+    "end_utc": "2026-03-20T19:32Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2026-06-29T17:35Z",
+    "end_utc": "2026-07-23T22:57Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2026-10-24T07:12Z",
+    "end_utc": "2026-11-13T15:53Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2027-02-09T17:36Z",
+    "end_utc": "2027-03-03T12:32Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2027-06-10T18:15Z",
+    "end_utc": "2027-07-04T19:39Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2027-10-07T14:37Z",
+    "end_utc": "2027-10-28T14:10Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2028-01-24T11:02Z",
+    "end_utc": "2028-02-14T12:37Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2028-05-21T08:43Z",
+    "end_utc": "2028-06-14T06:06Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2028-09-19T16:33Z",
+    "end_utc": "2028-10-11T10:27Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2029-01-07T07:56Z",
+    "end_utc": "2029-01-27T18:40Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2029-05-01T23:05Z",
+    "end_utc": "2029-05-25T19:20Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2029-09-02T12:18Z",
+    "end_utc": "2029-09-25T02:01Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2029-12-22T05:50Z",
+    "end_utc": "2030-01-11T05:45Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2030-04-13T02:33Z",
+    "end_utc": "2030-05-06T20:14Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2030-08-16T01:20Z",
+    "end_utc": "2030-09-08T09:27Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mercury",
+    "start_utc": "2030-12-06T02:47Z",
+    "end_utc": "2030-12-25T21:14Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Venus",
+    "start_utc": "2013-12-21T21:53Z",
+    "end_utc": "2014-01-31T20:48Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Venus",
+    "start_utc": "2015-07-25T09:28Z",
+    "end_utc": "2015-09-06T08:29Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Venus",
+    "start_utc": "2017-03-04T09:08Z",
+    "end_utc": "2017-04-15T10:17Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Venus",
+    "start_utc": "2018-10-05T19:04Z",
+    "end_utc": "2018-11-16T10:51Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Venus",
+    "start_utc": "2020-05-13T06:45Z",
+    "end_utc": "2020-06-25T06:48Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Venus",
+    "start_utc": "2021-12-19T10:35Z",
+    "end_utc": "2022-01-29T08:45Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Venus",
+    "start_utc": "2023-07-23T01:32Z",
+    "end_utc": "2023-09-04T01:20Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Venus",
+    "start_utc": "2025-03-02T00:36Z",
+    "end_utc": "2025-04-13T01:02Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Venus",
+    "start_utc": "2026-10-03T07:15Z",
+    "end_utc": "2026-11-14T00:27Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Venus",
+    "start_utc": "2028-05-10T23:02Z",
+    "end_utc": "2028-06-22T22:12Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Venus",
+    "start_utc": "2029-12-16T23:47Z",
+    "end_utc": "2030-01-26T21:33Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Mars",
+    "start_utc": "2014-03-01T17:24Z",
+    "end_utc": "2014-05-20T01:09Z",
+    "provenance": "JPL approximate geometric stations"
+  },
+  {
+    "planet": "Mars",
+    "start_utc": "2016-04-17T12:39Z",
+    "end_utc": "2016-06-29T22:27Z",
+    "provenance": "JPL approximate geometric stations"
+  },
+  {
+    "planet": "Mars",
+    "start_utc": "2018-06-26T20:14Z",
+    "end_utc": "2018-08-27T14:57Z",
+    "provenance": "JPL approximate geometric stations"
+  },
+  {
+    "planet": "Mars",
+    "start_utc": "2020-09-09T21:32Z",
+    "end_utc": "2020-11-13T23:15Z",
+    "provenance": "JPL approximate geometric stations"
+  },
+  {
+    "planet": "Mars",
+    "start_utc": "2022-10-30T14:21Z",
+    "end_utc": "2023-01-12T20:24Z",
+    "provenance": "JPL approximate geometric stations"
+  },
+  {
+    "planet": "Mars",
+    "start_utc": "2024-12-07T00:25Z",
+    "end_utc": "2025-02-24T01:08Z",
+    "provenance": "JPL approximate geometric stations"
+  },
+  {
+    "planet": "Mars",
+    "start_utc": "2027-01-10T13:37Z",
+    "end_utc": "2027-04-01T13:08Z",
+    "provenance": "JPL approximate geometric stations"
+  },
+  {
+    "planet": "Mars",
+    "start_utc": "2029-02-14T08:30Z",
+    "end_utc": "2029-05-05T17:47Z",
+    "provenance": "JPL approximate geometric stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2013-02-18T17:02Z",
+    "end_utc": "2013-07-08T05:11Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2014-03-02T16:18Z",
+    "end_utc": "2014-07-20T20:35Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2015-03-14T15:02Z",
+    "end_utc": "2015-08-02T05:53Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2016-03-25T10:00Z",
+    "end_utc": "2016-08-13T09:50Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2017-04-06T05:05Z",
+    "end_utc": "2017-08-25T12:08Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2018-04-18T01:46Z",
+    "end_utc": "2018-09-06T11:08Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2019-04-30T00:54Z",
+    "end_utc": "2019-09-18T08:46Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2020-05-11T04:09Z",
+    "end_utc": "2020-09-29T05:11Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2021-05-23T09:19Z",
+    "end_utc": "2021-10-11T02:17Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2022-06-04T21:46Z",
+    "end_utc": "2022-10-23T04:07Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2023-06-17T17:27Z",
+    "end_utc": "2023-11-04T07:02Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2024-06-29T19:06Z",
+    "end_utc": "2024-11-15T14:21Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2025-07-13T04:07Z",
+    "end_utc": "2025-11-28T03:51Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2026-07-26T19:56Z",
+    "end_utc": "2026-12-10T23:31Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2027-08-09T18:05Z",
+    "end_utc": "2027-12-24T02:47Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2028-08-22T22:16Z",
+    "end_utc": "2029-01-05T12:38Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2029-09-06T08:34Z",
+    "end_utc": "2030-01-19T03:53Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Saturn",
+    "start_utc": "2030-09-20T21:29Z",
+    "end_utc": "2031-02-02T03:49Z",
+    "provenance": "supplied apparent stations; clipped endpoint replaced by approximate geometric station"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2013-07-17T17:19Z",
+    "end_utc": "2013-12-17T17:39Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2014-07-22T02:52Z",
+    "end_utc": "2014-12-21T22:44Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2015-07-26T10:37Z",
+    "end_utc": "2015-12-26T03:52Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2016-07-29T21:06Z",
+    "end_utc": "2016-12-29T09:29Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2017-08-03T05:30Z",
+    "end_utc": "2018-01-02T14:10Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2018-08-07T16:49Z",
+    "end_utc": "2019-01-06T20:26Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2019-08-12T02:27Z",
+    "end_utc": "2020-01-11T01:48Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2020-08-15T14:26Z",
+    "end_utc": "2021-01-14T08:35Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2021-08-20T01:40Z",
+    "end_utc": "2022-01-18T15:26Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2022-08-24T13:53Z",
+    "end_utc": "2023-01-22T22:58Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2023-08-29T02:38Z",
+    "end_utc": "2024-01-27T07:34Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2024-09-01T15:17Z",
+    "end_utc": "2025-01-30T16:22Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2025-09-06T04:51Z",
+    "end_utc": "2026-02-04T02:33Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2026-09-10T18:27Z",
+    "end_utc": "2027-02-08T12:29Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2027-09-15T09:09Z",
+    "end_utc": "2028-02-12T23:49Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2028-09-19T00:01Z",
+    "end_utc": "2029-02-16T10:51Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2029-09-23T16:22Z",
+    "end_utc": "2030-02-20T23:22Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Uranus",
+    "start_utc": "2030-09-28T08:26Z",
+    "end_utc": "2031-02-25T09:15Z",
+    "provenance": "supplied apparent stations; clipped endpoint replaced by approximate geometric station"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2013-06-07T08:25Z",
+    "end_utc": "2013-11-13T18:42Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2014-06-09T19:49Z",
+    "end_utc": "2014-11-16T07:05Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2015-06-12T09:07Z",
+    "end_utc": "2015-11-18T16:30Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2016-06-13T20:42Z",
+    "end_utc": "2016-11-20T04:38Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2017-06-16T11:10Z",
+    "end_utc": "2017-11-22T14:20Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2018-06-18T23:26Z",
+    "end_utc": "2018-11-25T01:08Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2019-06-21T14:35Z",
+    "end_utc": "2019-11-27T12:32Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2020-06-23T04:32Z",
+    "end_utc": "2020-11-29T00:36Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2021-06-25T19:21Z",
+    "end_utc": "2021-12-01T13:23Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2022-06-28T07:54Z",
+    "end_utc": "2022-12-04T00:15Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2023-06-30T21:06Z",
+    "end_utc": "2023-12-06T13:21Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2024-07-02T10:40Z",
+    "end_utc": "2024-12-07T23:43Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2025-07-04T21:32Z",
+    "end_utc": "2025-12-10T12:23Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2026-07-07T10:54Z",
+    "end_utc": "2026-12-12T22:17Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2027-07-09T22:41Z",
+    "end_utc": "2027-12-15T09:06Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2028-07-11T13:04Z",
+    "end_utc": "2028-12-16T20:42Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2029-07-14T02:11Z",
+    "end_utc": "2029-12-19T08:24Z",
+    "provenance": "supplied apparent stations"
+  },
+  {
+    "planet": "Neptune",
+    "start_utc": "2030-07-16T16:29Z",
+    "end_utc": "2030-12-21T20:40Z",
+    "provenance": "supplied apparent stations"
+  }
+]

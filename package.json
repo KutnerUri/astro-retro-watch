@@ -1,0 +1,24 @@
+{
+  "name": "retro-watch",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^7.4.12",
+    "d3-scale": "^4.0.3",
+    "d3-shape": "^3.2.1",
+    "nanostores": "^1.5.5"
+  },
+  "devDependencies": {
+    "@types/d3-scale": "^4.0.9",
+    "@types/d3-shape": "^3.2.0",
+    "astronomy-engine": "^2.1.19"
+  }
+}
