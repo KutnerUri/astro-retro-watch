@@ -12,7 +12,10 @@ import { PLANETS, periods, sampleOverlap } from '../src/lib/retro';
 const W = 1200;
 const H = 630;
 const DAY = 86_400_000;
-const COLORS = ['#3987e5', '#d95926', '#199e70', '#c98500', '#d55181', '#0ca30c', '#9085e9'];
+// Same as the --planet-* colours in src/styles/base.css.
+const COLORS = ['#9aa0d0', '#f4e9c8', '#e8412f', '#efb27a', '#a8861c', '#33b8c8', '#4d6cf2'];
+const BG = '#07080d';
+const INK = '#f4eedc';
 
 const today = Date.now();
 const addYears = (t: number, n: number) => {
@@ -39,7 +42,7 @@ const linePath = line<[number, number]>().x((d) => x(d[0])).y((d) => y(d[1]))(sa
 
 const bars = PLANETS.flatMap((planet, i) => {
   const rowY = ganttTop + i * rowH;
-  const label = `<text x="${left - 14}" y="${rowY + rowH / 2 + 5}" text-anchor="end" fill="#c3c2b7" font-size="15">${planet}</text>`;
+  const label = `<text x="${left - 14}" y="${rowY + rowH / 2 + 5}" text-anchor="end" fill="#b7b8cc" font-size="15">${planet}</text>`;
   const rects = periods[planet]
     .filter((p) => p.end > from && p.start < to)
     .map((p) => {
@@ -53,21 +56,21 @@ const bars = PLANETS.flatMap((planet, i) => {
 const years: string[] = [];
 for (let yr = new Date(from).getUTCFullYear() + 1; yr <= new Date(to).getUTCFullYear(); yr++) {
   const tx = x(Date.UTC(yr, 0, 1));
-  years.push(`<text x="${tx}" y="${ganttTop + PLANETS.length * rowH + 22}" text-anchor="middle" fill="#8f8e88" font-size="14">${yr}</text>`);
+  years.push(`<text x="${tx}" y="${ganttTop + PLANETS.length * rowH + 22}" text-anchor="middle" fill="#7c7e96" font-size="14">${yr}</text>`);
 }
 
 const tx = x(today);
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Helvetica, Arial, DejaVu Sans, sans-serif">
-  <rect width="${W}" height="${H}" fill="#1a1a19"/>
-  <text x="${left - 80}" y="96" fill="#f0efec" font-size="60" font-weight="700">Retro Watch</text>
-  <text x="${left - 80}" y="142" fill="#c3c2b7" font-size="26">Which planets are retrograde, and when they overlap</text>
-  <path d="${areaPath}" fill="#c3c2b7" fill-opacity="0.14"/>
-  <path d="${linePath}" fill="none" stroke="#f0efec" stroke-width="2.5" stroke-linejoin="round"/>
-  <line x1="${left}" x2="${right}" y1="${curveBottom}" y2="${curveBottom}" stroke="#8f8e88"/>
+  <rect width="${W}" height="${H}" fill="${BG}"/>
+  <text x="${left - 80}" y="96" fill="${INK}" font-size="60" font-weight="700">Retro Watch</text>
+  <text x="${left - 80}" y="142" fill="#b7b8cc" font-size="26">Which planets are retrograde, and when they overlap</text>
+  <path d="${areaPath}" fill="${INK}" fill-opacity="0.08"/>
+  <path d="${linePath}" fill="none" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>
+  <line x1="${left}" x2="${right}" y1="${curveBottom}" y2="${curveBottom}" stroke="#34374d"/>
   ${bars.join('\n  ')}
   ${years.join('\n  ')}
-  <line x1="${tx}" x2="${tx}" y1="${curveTop - 14}" y2="${ganttTop + PLANETS.length * rowH}" stroke="#f0efec" stroke-width="2"/>
-  <text x="${tx}" y="${curveTop - 22}" text-anchor="middle" fill="#f0efec" font-size="16" font-weight="700">Today</text>
+  <line x1="${tx}" x2="${tx}" y1="${curveTop - 14}" y2="${ganttTop + PLANETS.length * rowH}" stroke="${INK}" stroke-width="2"/>
+  <text x="${tx}" y="${curveTop - 22}" text-anchor="middle" fill="${INK}" font-size="16" font-weight="700">Today</text>
 </svg>`;
 
 const png = new Resvg(svg, { font: { loadSystemFonts: true, defaultFontFamily: 'DejaVu Sans' } }).render().asPng();

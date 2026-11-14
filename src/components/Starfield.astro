@@ -1,0 +1,30 @@
+---
+// Fixed background of four-pointed sparkles. Positions come from a seeded
+// generator so every build looks the same.
+import { sparklePath } from '../lib/sparkle';
+
+let seed = 7;
+const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+const stars = Array.from({ length: 34 }, () => {
+  const size = rand() < 0.15 ? 4 + rand() * 3 : 1.6 + rand() * 2;
+  return { left: rand() * 100, top: rand() * 100, size, opacity: 0.25 + rand() * 0.6 };
+});
+---
+
+<div class="starfield" aria-hidden="true">
+  {
+    stars.map((s) => (
+      <svg
+        viewBox="-1 -1 2 2"
+        style={`left:${s.left.toFixed(2)}%;top:${s.top.toFixed(2)}%;width:${(s.size * 2).toFixed(1)}px;opacity:${s.opacity.toFixed(2)}`}
+      >
+        <path d={sparklePath(0, 0, 1)} />
+      </svg>
+    ))
+  }
+</div>
+
+<style>
+  .starfield { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+  .starfield svg { position: absolute; fill: var(--starlight, #f4eedc); }
+</style>

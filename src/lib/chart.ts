@@ -14,10 +14,18 @@ export interface ChartOptions {
   highlight?: [number, number];
   /** Formats the date in the hover tooltip. */
   hoverFormat: (d: Date) => string;
+  /** Row / peak label for a planet. Defaults to its name. */
+  label?: (p: Planet) => string;
+  /** Left margin in px (room for row labels). */
+  left?: number;
+  /** Hide the overlap scale numbers. */
+  hideScale?: boolean;
+  /** Centre row labels in the left margin (for single-glyph labels). */
+  centerLabels?: boolean;
 }
 
 const NS = 'http://www.w3.org/2000/svg';
-const M = { top: 22, right: 12, left: 72 };
+const BASE_M = { top: 22, right: 8, left: 72 };
 const CURVE_H = 120;
 const GAP = 14;
 const ROW_H = 20;
@@ -35,6 +43,8 @@ const color = (p: Planet) => `var(--planet-${p.toLowerCase()})`;
 
 export function renderChart(container: HTMLElement, o: ChartOptions) {
   container.replaceChildren();
+  const M = { ...BASE_M, left: o.left ?? BASE_M.left };
+  const label = o.label ?? ((p: Planet) => p);
   const width = Math.max(320, container.clientWidth);
   const ganttTop = M.top + CURVE_H + GAP;
   const ganttH = PLANETS.length * ROW_H;
@@ -57,9 +67,9 @@ export function renderChart(container: HTMLElement, o: ChartOptions) {
   // Y gridlines + labels (whole planets' worth of overlap)
   for (let v = 0; v <= max; v++) {
     el('line', { x1: M.left, x2: width - M.right, y1: y(v), y2: y(v), class: v ? 'grid' : 'baseline' }, svg);
-    el('text', { x: M.left - 8, y: y(v), class: 'tick', 'text-anchor': 'end', 'dominant-baseline': 'middle' }, svg).textContent = String(v);
+    if (!o.hideScale) el('text', { x: M.left - 8, y: y(v), class: 'tick', 'text-anchor': 'end', 'dominant-baseline': 'middle' }, svg).textContent = String(v);
   }
-  el('text', { x: M.left - 8, y: M.top - 10, class: 'tick', 'text-anchor': 'end' }, svg).textContent = 'Overlap';
+  if (!o.hideScale) el('text', { x: M.left - 8, y: M.top - 10, class: 'tick', 'text-anchor': 'end' }, svg).textContent = 'Overlap';
 
   // Overlap curve
   const areaPath = area<[number, number]>().x((d) => x(d[0])).y0(y(0)).y1((d) => y(d[1]))(samples)!;
@@ -70,7 +80,12 @@ export function renderChart(container: HTMLElement, o: ChartOptions) {
   // Gantt rows
   PLANETS.forEach((planet, i) => {
     const rowY = ganttTop + i * ROW_H;
-    el('text', { x: M.left - 8, y: rowY + ROW_H / 2, class: 'row-label', 'text-anchor': 'end', 'dominant-baseline': 'middle' }, svg).textContent = planet;
+    const labelAttrs = o.centerLabels
+      ? { x: M.left / 2, 'text-anchor': 'middle' }
+      : { x: M.left - 8, 'text-anchor': 'end' };
+    el('text', { ...labelAttrs, y: rowY + ROW_H / 2, class: 'row-label', 'dominant-baseline': 'central', 'data-planet': planet }, svg).textContent = label(planet);
+    // Invisible, finger-sized hit area over the label column.
+    el('rect', { x: 0, y: rowY, width: M.left, height: ROW_H, class: 'row-hit', 'data-planet': planet }, svg);
     el('line', { x1: M.left, x2: width - M.right, y1: rowY + ROW_H / 2, y2: rowY + ROW_H / 2, class: 'row-track' }, svg);
     for (const p of periods[planet]) {
       if (p.end < o.from || p.start > o.to) continue;
@@ -124,7 +139,7 @@ export function renderChart(container: HTMLElement, o: ChartOptions) {
     const fmt = (ms: number) => new Date(ms).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
     tip.innerHTML =
       `<div class="tip-date">${o.hoverFormat(new Date(t))}</div>` +
-      `<div class="tip-value">Overlap ${value.toFixed(2)}</div>` +
+      `<div class="tip-value">${active.length ? `${active.length} planet${active.length > 1 ? 's' : ''} retrograde` : ''}</div>` +
       (active.length
         ? active
             .map(({ planet, p }) => `<div class="tip-row"><span class="swatch" style="background:${color(planet)}"></span>${planet}<span class="tip-dates">${fmt(p.start)} – ${fmt(p.end)}</span></div>`)
@@ -144,7 +159,7 @@ export function renderChart(container: HTMLElement, o: ChartOptions) {
 }
 
 /** Dash pattern per planet, so the waves differ by more than colour. */
-export const DASH: Record<Planet, string> = {
+const DASH: Record<Planet, string> = {
   Mercury: '',
   Venus: '6 4',
   Mars: '2 3',
@@ -162,6 +177,8 @@ const pulseAt = (p: { start: number; end: number }, t: number) => Math.sin((Math
  */
 export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step' | 'highlight'>) {
   container.replaceChildren();
+  const M = { ...BASE_M, left: o.left ?? BASE_M.left };
+  const label = o.label ?? ((p: Planet) => p);
   const width = Math.max(320, container.clientWidth);
   const LABEL_ROWS = 3;
   const LABEL_H = 15;
@@ -178,7 +195,7 @@ export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step'
 
   for (const v of [0, 0.5, 1]) {
     el('line', { x1: M.left, x2: width - M.right, y1: y(v), y2: y(v), class: v ? 'grid' : 'baseline' }, svg);
-    el('text', { x: M.left - 8, y: y(v), class: 'tick', 'text-anchor': 'end', 'dominant-baseline': 'middle' }, svg).textContent = String(v);
+    if (!o.hideScale) el('text', { x: M.left - 8, y: y(v), class: 'tick', 'text-anchor': 'end', 'dominant-baseline': 'middle' }, svg).textContent = String(v);
   }
 
   // Waves, clipped to the plot
@@ -207,13 +224,13 @@ export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step'
   const leaders = el('g', {}, svg);
   const texts = el('g', {}, svg);
   for (const l of labels) {
-    const w = l.planet.length * 6.5 + 8;
+    const w = label(l.planet).length * 6.5 + 8;
     let row = rowEnds.findIndex((end) => l.x - w / 2 > end);
     if (row < 0) row = LABEL_ROWS - 1;
     rowEnds[row] = l.x + w / 2;
     const ly = top - 6 - row * LABEL_H;
     el('line', { x1: l.x, x2: l.x, y1: ly + 3, y2: y(1) - 3, class: 'leader' }, leaders);
-    el('text', { x: l.x, y: ly, class: 'wave-label', 'text-anchor': 'middle' }, texts).textContent = l.planet;
+    el('text', { x: l.x, y: ly, class: 'wave-label', 'text-anchor': 'middle' }, texts).textContent = label(l.planet);
   }
 
   // X axis

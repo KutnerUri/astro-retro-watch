@@ -7,9 +7,9 @@ Live: https://kutneruri.github.io/astro-retro-watch/
 Retro Watch charts the apparent retrograde periods of Mercury, Venus, Mars, Jupiter, Saturn,
 Uranus and Neptune, with a "today" line through every chart:
 
-- **Years:** an overlap curve spanning ten years around today. It rises when several planets are
-  retrograde at once. Under it is a timeline with one row per planet.
-- **Months:** a year centred on today, with one wave for each planet's retrograde period.
+- **By year:** an overlap curve spanning ten years around today. It rises when several planets are
+  retrograde at once. Under it is a timeline with one row per planet, labelled with its glyph. Tap a glyph to read about the planet.
+- **By month:** a year centred on today, with one wave for each planet's retrograde period.
 - **Retrograde dates:** for each planet, whether it's retrograde now and when its next retrograde is.
 
 Retrograde dates are available from 1900 to 2100.
@@ -71,14 +71,17 @@ bun scripts/check-retrogrades.ts           # compares with Swiss Ephemeris dates
 ### Project layout
 
 ```
-data/retrogrades.json      generated retrograde periods (don't edit by hand)
-scripts/                   data generator, accuracy check, Swiss Ephemeris fixture
-src/lib/retro.ts           data loading and the overlap function
-src/lib/chart.ts           SVG renderers: years (curve + timeline) and months (waves)
-src/lib/dates.ts           date text shared by the build and the browser
-src/lib/store.ts           shared state (the "today" date) as nanostores atoms
-src/pages/index.astro      the page
-research/NOTES.md          background research and design notes
+data/retrogrades.json        generated retrograde periods (don't edit by hand)
+scripts/                     data generator, accuracy check, share-image generator
+src/content/planets/*.md     planet notes shown when you tap a glyph (edit freely)
+src/lib/retro.ts             data loading, planet glyphs and the overlap function
+src/lib/chart.ts             SVG renderers: years (curve + timeline) and months (waves)
+src/lib/dates.ts             date text shared by the build and the browser
+src/lib/store.ts             shared state (the "today" date) as nanostores atoms
+src/components/              charts, header art, starfield, analytics
+src/styles/base.css          the theme: colours, fonts, layout
+src/pages/index.astro        the page
+research/NOTES.md            background research and design notes
 ```
 
 ### Stack
@@ -86,6 +89,7 @@ research/NOTES.md          background research and design notes
 - [Astro](https://astro.build) builds a static site, so the HTML includes real text that search engines can read.
 - The charts are plain TypeScript drawing SVG, with [`d3-scale`](https://github.com/d3/d3-scale) and [`d3-shape`](https://github.com/d3/d3-shape). There's no UI framework.
 - [nanostores](https://github.com/nanostores/nanostores) holds shared state.
+- Fonts are self-hosted with [Fontsource](https://fontsource.org): Yeseva One (title), Cinzel (headings), Jost (text) and Noto Sans Symbols (planet glyphs).
 - astronomy-engine runs only in the data script and never ships to the browser.
 
 ### Deploy

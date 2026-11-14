@@ -3,6 +3,17 @@ import data from '../../data/retrogrades.json';
 export const PLANETS = ['Mercury', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'] as const;
 export type Planet = (typeof PLANETS)[number];
 
+/** Astronomical symbols. U+FE0E asks for the text (not emoji) form of ♀ and ♂. */
+export const GLYPH: Record<Planet, string> = {
+  Mercury: '☿',
+  Venus: '♀\uFE0E',
+  Mars: '♂\uFE0E',
+  Jupiter: '♃',
+  Saturn: '♄',
+  Uranus: '⛢',
+  Neptune: '♆',
+};
+
 export interface Period {
   planet: Planet;
   start: number; // epoch ms

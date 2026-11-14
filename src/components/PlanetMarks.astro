@@ -1,0 +1,47 @@
+---
+// Header art: the seven planets in their iconic colours, arched over a dotted Earth.
+// Geometry is the tarot-card version, cropped to the inside of the card.
+import { sparklePath } from '../lib/sparkle';
+
+const planets = [
+  ['Mercury', 3.2],
+  ['Venus', 4.6],
+  ['Mars', 4],
+  ['Jupiter', 10],
+  ['Saturn', 8],
+  ['Uranus', 6],
+  ['Neptune', 5.8],
+] as const;
+const fill = (p: string) => `var(--planet-${p.toLowerCase()})`;
+
+const cx = 110;
+const cy = 178;
+const R = 78;
+const arc = planets.map(([name, r], i) => {
+  const a = Math.PI * (0.88 - (0.76 * i) / (planets.length - 1));
+  return { name, r, x: cx + R * Math.cos(a), y: cy - R * Math.sin(a) };
+});
+const stars: [number, number, number][] = [
+  [48, 70, 5],
+  [176, 82, 4],
+  [110, 60, 3],
+  [60, 210, 3],
+  [164, 214, 4],
+];
+---
+
+<svg class="mark" viewBox="20 52 180 172" role="img" aria-label="The seven planets arched over Earth">
+  {stars.map(([x, y, s]) => <path d={sparklePath(x, y, s)} class="star" />)}
+  <path d={`M ${cx - R} ${cy} A ${R} ${R} 0 0 1 ${cx + R} ${cy}`} class="orbit" />
+  <circle cx={cx} cy={cy} r="15" class="earth" />
+  {
+    arc.map((p) => (
+      <>
+        <circle cx={p.x} cy={p.y} r={p.r} fill={fill(p.name)} />
+        {p.name === 'Saturn' && (
+          <ellipse cx={p.x} cy={p.y} rx={p.r * 1.9} ry={p.r * 0.45} class="ring" transform={`rotate(-18 ${p.x} ${p.y})`} />
+        )}
+      </>
+    ))
+  }
+</svg>

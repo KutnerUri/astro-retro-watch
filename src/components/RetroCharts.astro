@@ -1,0 +1,204 @@
+---
+import { PLANETS, activeAt, nextAfter } from '../lib/retro';
+import { nextText, nowText } from '../lib/dates';
+
+// Planet notes (src/content/planets/*.md), shown when a glyph in the years chart is tapped.
+const notes = Object.values(
+  import.meta.glob<{ frontmatter: { planet: string; glyph: string; rules: string; cycle: string }; compiledContent: () => Promise<string> }>(
+    '../content/planets/*.md',
+    { eager: true },
+  ),
+);
+const notesHtml = await Promise.all(notes.map(async (n) => ({ ...n.frontmatter, html: await n.compiledContent() })));
+
+// Plain-text dates in the static HTML (rebuilt daily) so search engines can read them.
+// The page script refreshes them on load, in case the build is stale.
+const now = Date.now();
+const rows = PLANETS.map((planet) => ({
+  planet,
+  current: activeAt(planet, now),
+  next: nextAfter(planet, now)!,
+}));
+---
+
+<section>
+  <h2>By year</h2>
+  <div class="chart" id="chart-years"></div>
+  <div class="planet-card" id="planet-card" role="dialog" hidden></div>
+  {
+    notesHtml.map((n) => (
+      <template data-note={n.planet}>
+        <header>
+          <span class="glyph" style={`color:var(--planet-${n.planet.toLowerCase()})`}>{n.glyph}</span>
+          <strong>{n.planet}</strong>
+          <span class="card-status" data-status />
+        </header>
+        <dl>
+          <dt>Rules</dt>
+          <dd>{n.rules}</dd>
+          <dt>Retrograde</dt>
+          <dd>{n.cycle}</dd>
+        </dl>
+        <div class="card-body" set:html={n.html} />
+      </template>
+    ))
+  }
+</section>
+
+<section>
+  <h2>By month</h2>
+  <div class="chart" id="chart-months"></div>
+</section>
+
+<footer class="dates">
+  <h2>Retrograde dates</h2>
+  <table>
+    <thead>
+      <tr><th>Planet</th><th>Now</th><th>Next retrograde</th></tr>
+    </thead>
+    <tbody>
+      {
+        rows.map(({ planet, current, next }) => (
+          <tr data-planet={planet}>
+            <th scope="row">{planet}</th>
+            <td data-now>{nowText(current)}</td>
+            <td data-next>{nextText(next)}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</footer>
+
+<script>
+  import { renderChart, renderWaves } from '../lib/chart';
+  import { $today } from '../lib/store';
+  import { GLYPH, activeAt, nextAfter, type Planet } from '../lib/retro';
+  import { fmtDate, nextText, nowText } from '../lib/dates';
+
+  const DAY = 86_400_000;
+  const addMonths = (t: number, n: number) => {
+    const d = new Date(t);
+    return Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + n, d.getUTCDate());
+  };
+  const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  const yearsEl = document.getElementById('chart-years')!;
+  const monthsEl = document.getElementById('chart-months')!;
+  // Planets are labelled by glyph; the years chart keeps a narrow column for them,
+  // the months chart has no row labels and runs nearly edge to edge.
+  const style = { label: (p: Planet) => GLYPH[p], left: 30, hideScale: true, centerLabels: true };
+  const monthsStyle = { ...style, left: 8 };
+
+  function draw() {
+    const today = $today.get().getTime();
+    const monthsFrom = addMonths(today, -6);
+    const monthsTo = addMonths(today, 6);
+
+    renderChart(yearsEl, {
+      ...style,
+      from: addMonths(today, -60),
+      to: addMonths(today, 60),
+      today,
+      step: DAY,
+      highlight: [monthsFrom, monthsTo],
+      hoverFormat: (d) => d.toLocaleDateString(undefined, { month: 'long', year: 'numeric', timeZone: 'UTC' }),
+      ticks: (from, to) => {
+        const values: Date[] = [];
+        for (let y = from.getUTCFullYear() + 1; y <= to.getUTCFullYear(); y++) values.push(new Date(Date.UTC(y, 0, 1)));
+        const every = yearsEl.clientWidth < 600 ? 2 : 1;
+        return { values, format: (d) => (d.getUTCFullYear() % every ? '' : String(d.getUTCFullYear())) };
+      },
+    });
+
+    renderWaves(monthsEl, {
+      ...monthsStyle,
+      from: monthsFrom,
+      to: monthsTo,
+      today,
+      hoverFormat: (d) => d.toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }),
+      ticks: (from, to) => {
+        const values: Date[] = [];
+        for (let m = Date.UTC(from.getUTCFullYear(), from.getUTCMonth() + 1, 1); m <= to.getTime(); m = addMonths(m, 1)) values.push(new Date(m));
+        const narrow = monthsEl.clientWidth < 600;
+        return {
+          values,
+          format: (d) => {
+            const m = d.getUTCMonth();
+            if (m === 0) return String(d.getUTCFullYear());
+            return narrow && m % 2 ? '' : MONTH_NAMES[m];
+          },
+        };
+      },
+    });
+  }
+
+  // Planet cards: hover a glyph (mouse) or tap it (touch) in the years chart.
+  const card = document.getElementById('planet-card')!;
+  let cardPlanet: Planet | null = null;
+  let pinned = false;
+  function openCard(planet: Planet, label: SVGGraphicsElement) {
+    const tpl = document.querySelector<HTMLTemplateElement>(`template[data-note="${planet}"]`);
+    if (!tpl) return;
+    card.replaceChildren(tpl.content.cloneNode(true));
+    const t = $today.get().getTime();
+    const current = activeAt(planet, t);
+    card.querySelector('[data-status]')!.textContent = current
+      ? `Retrograde until ${fmtDate(current.end)}`
+      : `Next: ${fmtDate(nextAfter(planet, t)!.start)}`;
+    const box = label.getBoundingClientRect();
+    const host = yearsEl.parentElement!.getBoundingClientRect();
+    card.style.top = `${box.bottom - host.top + 6}px`;
+    card.hidden = false;
+    cardPlanet = planet;
+  }
+  function closeCard() {
+    card.hidden = true;
+    cardPlanet = null;
+    pinned = false;
+  }
+  const labelOf = (e: Event) => (e.target as Element).closest<SVGGraphicsElement>('.row-hit');
+  yearsEl.addEventListener('pointerover', (e) => {
+    const label = labelOf(e);
+    if (label && !pinned && (e as PointerEvent).pointerType === 'mouse') openCard(label.dataset.planet as Planet, label);
+  });
+  yearsEl.addEventListener('pointerout', (e) => {
+    if (labelOf(e) && !pinned && (e as PointerEvent).pointerType === 'mouse') closeCard();
+  });
+  yearsEl.addEventListener('click', (e) => {
+    const label = labelOf(e);
+    if (!label) return;
+    e.stopPropagation();
+    const planet = label.dataset.planet as Planet;
+    // Click pins the card. Clicking the pinned planet again closes it.
+    if (pinned && cardPlanet === planet) return closeCard();
+    openCard(planet, label);
+    pinned = true;
+  });
+  document.addEventListener('click', (e) => {
+    if (!card.hidden && !card.contains(e.target as Node)) closeCard();
+  });
+  document.addEventListener('keydown', (e) => e.key === 'Escape' && closeCard());
+
+  function updateTable() {
+    const t = $today.get().getTime();
+    for (const row of document.querySelectorAll<HTMLTableRowElement>('.dates tr[data-planet]')) {
+      const planet = row.dataset.planet as Planet;
+      row.querySelector('[data-now]')!.textContent = nowText(activeAt(planet, t));
+      row.querySelector('[data-next]')!.textContent = nextText(nextAfter(planet, t)!);
+    }
+  }
+
+  $today.subscribe(() => {
+    draw();
+    updateTable();
+  });
+  let last = yearsEl.clientWidth;
+  new ResizeObserver(() => {
+    if (yearsEl.clientWidth !== last) {
+      last = yearsEl.clientWidth;
+      draw();
+    }
+  }).observe(yearsEl);
+</script>
+
