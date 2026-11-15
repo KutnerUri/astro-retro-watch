@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "bun --bun astro dev",
     "build": "bun --bun astro build && bun scripts/gen-og.ts && bun scripts/gen-icons.ts",
-    "preview": "bun --bun astro preview"
+    "preview": "bun --bun astro preview",
+    "check": "astro check"
   },
   "dependencies": {
     "@fontsource/cinzel": "^5.3.0",
@@ -20,9 +21,12 @@
     "nanostores": "^1.5.5"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "@resvg/resvg-js": "^2.6.2",
+    "@types/bun": "^1.4.4",
     "@types/d3-scale": "^4.0.9",
     "@types/d3-shape": "^3.2.0",
-    "astronomy-engine": "^2.1.19"
+    "astronomy-engine": "^2.1.19",
+    "typescript": "^6"
   }
 }

@@ -25,12 +25,10 @@ export interface Period {
 export const periods: Record<Planet, Period[]> = Object.fromEntries(
   PLANETS.map((planet) => [
     planet,
-    (data.planets as Record<string, [string, string, number][]>)[planet].map(([s, e, arc]) => ({
-      planet,
-      start: Date.parse(s),
-      end: Date.parse(e),
-      arc,
-    })),
+    data.planets[planet].map((row) => {
+      const [s, e, arc] = row as [string, string, number];
+      return { planet, start: Date.parse(s), end: Date.parse(e), arc };
+    }),
   ]),
 ) as Record<Planet, Period[]>;
 

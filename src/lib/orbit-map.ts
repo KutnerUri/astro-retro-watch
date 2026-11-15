@@ -157,7 +157,7 @@ export function bodyFrame(b: Body, t: number, planetScale = 1) {
 }
 
 /** The dashed line of sight from Earth to a planet while it is retrograde. */
-export function sightLine(b: Body, t: number) {
+export function sightLine(b: Body, t: number): Record<string, string> {
   if (!isRetro(b, t)) return { visibility: 'hidden' };
   const [ex, ey] = at('Earth', t), [x, y] = at(b, t);
   return { x1: fixed(ex), y1: fixed(ey), x2: fixed(x), y2: fixed(y), visibility: 'visible' };

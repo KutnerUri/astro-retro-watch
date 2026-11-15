@@ -1,5 +1,6 @@
 // Compares data/retrogrades.json with Swiss Ephemeris station times for 2013–2031.
 // Run: bun scripts/check-retrogrades.ts
+export {}; // a module, so top-level await is allowed
 const old = await Bun.file('scripts/fixtures/swisseph-2013-2031.json').json() as any[];
 const neu = (await Bun.file('data/retrogrades.json').json()).planets as Record<string,[string,string][]>;
 const ms = (s: string) => Date.parse(s.endsWith('Z') ? s : s + 'Z');
