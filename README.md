@@ -51,8 +51,6 @@ The asteroids ([`src/lib/asteroids.ts`](src/lib/asteroids.ts)) are synthetic, no
 orbits drawn to the real belt's structure (Kirkwood gaps, Jupiter's forced eccentricity, Hungarias,
 Cybeles, Hildas in 3:2 resonance and Jupiter's Trojans), generated in the browser from a fixed seed.
 
-A standalone version with a date slider and distance-scale options is at `/orbits/` (not linked, noindex).
-
 ### The overlap curve
 
 Each retrograde period adds a smooth pulse: 0 when the planet turns retrograde, 1 at the middle
@@ -97,10 +95,9 @@ src/lib/orbits.ts            approximate planet positions for the orbit map
 src/lib/asteroids.ts         the orbit map's synthetic asteroid population
 src/lib/dates.ts             date text shared by the build and the browser
 src/lib/store.ts             shared state (the "today" date, the dragged focus) as nanostores atoms
-src/components/              charts, orbit map, header art, starfield, analytics
+src/components/              charts, orbit map, starfield, analytics
 src/styles/base.css          the theme: colours, fonts, layout
 src/pages/index.astro        the page, its live title and JSON-LD (WebApplication + Dataset)
-src/pages/orbits.astro       standalone orbit map prototype
 src/pages/retrogrades.json.ts  publishes the data at /retrogrades.json
 research/NOTES.md            background research and design notes
 ```
