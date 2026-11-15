@@ -65,6 +65,8 @@ h1 {
 .tagline { margin: 10px auto 0; font-size: clamp(14px, 4vw, 17px); color: var(--text-secondary); }
 
 /* ---------- Buttons ---------- */
+/* Clickable things never get text-selected by a double click or quick taps. */
+button, [role='button'], summary { user-select: none; -webkit-user-select: none; }
 /* Colour-only states. A press tints at once; on release the tint fades back. */
 :is(.help-btn, .help-close, .key-planet, .months-reset) {
   transition: box-shadow 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out;
