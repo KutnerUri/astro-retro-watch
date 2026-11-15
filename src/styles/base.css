@@ -172,6 +172,13 @@ h1 {
 .i-path { fill: none; stroke: var(--text-secondary); stroke-width: 1; stroke-linecap: round; stroke-dasharray: 2 2; opacity: 0.7; }
 .i-arc { fill: none; stroke: var(--starlight); stroke-width: 0.9; }
 .i-star { fill: var(--starlight); }
+.i-orbit { fill: none; stroke: var(--text-muted); stroke-width: 0.9; }
+.i-sun { fill: var(--starlight); }
+.i-dot { fill: var(--text-secondary); }
+.i-ruler { fill: none; stroke: var(--starlight); stroke-width: 1; stroke-linecap: round; }
+.i-earth { fill: #2f74e0; }
+.i-rock { fill: var(--text-secondary); }
+.help-card a { color: inherit; text-decoration: underline; text-decoration-color: var(--text-muted); text-underline-offset: 2px; }
 .help-card b { color: var(--text-primary); font-weight: 500; }
 .help-close {
   /* The ×, top-right, level with the title; pulled out so its circle doesn't widen the card's edge. */
