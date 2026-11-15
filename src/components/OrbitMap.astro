@@ -102,10 +102,12 @@
   .om-stage { position: relative; max-width: 520px; margin: 4px auto 0; }
   .om-svg { display: block; width: 100%; aspect-ratio: 1; }
   .om-actions { position: absolute; right: 4px; bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  /* The ? stays 22px like the others; the pill is 2px taller so the two look the same size side by side. */
+  .om-actions .help-btn { margin: 0; }
   .om-play {
-    display: flex; align-items: center; gap: 6px;
-    font: 500 12px 'Jost', sans-serif; color: var(--starlight); background: var(--card);
-    border: 1px solid var(--rule); border-radius: 999px; padding: 4px 12px; cursor: pointer;
+    box-sizing: border-box; height: 24px; display: flex; align-items: center; gap: 6px;
+    font: 500 12px/1 'Jost', sans-serif; color: var(--starlight); background: var(--card);
+    border: 1px solid var(--rule); border-radius: 999px; padding: 0 11px 0 10px; cursor: pointer;
   }
   .om-icon { display: block; width: 9px; height: 9px; fill: currentColor; }
   .om-orbit { fill: none; stroke: var(--rule); stroke-width: 0.25; }
