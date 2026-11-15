@@ -2,7 +2,7 @@
 
 **See which planets are retrograde, and when their retrogrades overlap.**
 
-Live: https://kutneruri.github.io/astro-retro-watch/
+Live: https://retrograde.nefzen.dev/
 
 Retro Watch charts the apparent retrograde periods of Mercury, Venus, Mars, Jupiter, Saturn,
 Uranus and Neptune, with a "today" line through every chart:
@@ -15,7 +15,7 @@ Uranus and Neptune, with a "today" line through every chart:
 - **Retrograde dates:** for each planet, whether it's retrograde now and when its next retrograde is.
 
 Retrograde dates are available from 1900 to 2100, and the data is published as
-[`retrogrades.json`](https://kutneruri.github.io/astro-retro-watch/retrogrades.json).
+[`retrogrades.json`](https://retrograde.nefzen.dev/retrogrades.json).
 
 ## How it works
 
@@ -71,7 +71,7 @@ Requires [Bun](https://bun.sh).
 
 ```bash
 bun install
-bun run dev      # http://localhost:4321/astro-retro-watch/
+bun run dev      # http://localhost:4321/
 bun run build    # static site in dist/
 ```
 
