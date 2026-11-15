@@ -97,8 +97,9 @@ import MapSvg from './MapSvg.astro';
 
     // Labels sit on whole device pixels, so text moves in clean 1px steps instead of being re-rounded every frame.
     const mapSvg = root.querySelector<SVGSVGElement>('.om-svg')!;
+    let mapWidth = mapSvg.clientWidth; // kept current by the ResizeObserver below
     const snap = (v: number) => {
-      const unitsPerPx = 200 / ((mapSvg.clientWidth || 200) * (window.devicePixelRatio || 1));
+      const unitsPerPx = 200 / ((mapWidth || 200) * (window.devicePixelRatio || 1));
       return (Math.round(v / unitsPerPx) * unitsPerPx).toFixed(3);
     };
 
@@ -129,7 +130,8 @@ import MapSvg from './MapSvg.astro';
 
     // Planet labels stay ~11px on screen whatever the map's size (SVG units shrink on narrow screens).
     new ResizeObserver(([entry]) => {
-      const pxPerUnit = entry.contentRect.width / 200;
+      mapWidth = entry.contentRect.width;
+      const pxPerUnit = mapWidth / 200;
       if (pxPerUnit > 0) mapSvg.style.setProperty('--om-label', `${Math.max(3.6, 11 / pxPerUnit).toFixed(2)}px`);
     }).observe(mapSvg);
 

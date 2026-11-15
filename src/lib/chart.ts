@@ -3,6 +3,8 @@ import { area, line } from 'd3-shape';
 import { PLANETS, periods, sampleOverlap, type Period, type Planet } from './retro';
 
 export interface ChartOptions {
+  /** Container width in px. Passed in (from a ResizeObserver) so drawing never has to measure the page. */
+  width: number;
   from: number;
   to: number;
   today: number;
@@ -63,10 +65,10 @@ const tipLeft = (px: number, w: number, width: number) =>
 const color = (p: Planet) => `var(--planet-${p.toLowerCase()})`;
 
 export function renderChart(container: HTMLElement, o: ChartOptions) {
+  const width = Math.max(320, o.width);
   container.replaceChildren();
   const M = { ...BASE_M, left: o.left ?? BASE_M.left };
   const label = o.label ?? ((p: Planet) => p);
-  const width = Math.max(320, container.clientWidth);
   const ganttTop = M.top + CURVE_H + GAP;
   const ganttH = PLANETS.length * ROW_H;
   const height = ganttTop + ganttH + AXIS_H;
@@ -312,10 +314,10 @@ const waveAt = (p: Period, t: number) => height01(p.arc) * pulseAt(p, t);
  * the pulses that the overlap curve adds together.
  */
 export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step' | 'highlight'>) {
+  const width = Math.max(320, o.width);
   container.replaceChildren();
   const M = { ...BASE_M, left: o.left ?? BASE_M.left };
   const label = o.label ?? ((p: Planet) => p);
-  const width = Math.max(320, container.clientWidth);
   const LABEL_H = 15;
   const top = M.top + 2 * LABEL_H;
   const plotH = 230;

@@ -136,6 +136,8 @@ const rows = PLANETS.map((planet) => ({
 
   const yearsEl = document.getElementById('chart-years')!;
   const monthsEl = document.getElementById('chart-months')!;
+  // Chart widths, kept current by the ResizeObserver at the end. Read once here for the first draw.
+  const widths = new Map([yearsEl, monthsEl].map((e) => [e, e.clientWidth]));
   // Planets are labelled by glyph; the years chart keeps a narrow column for them,
   // the months chart has no row labels and runs edge to edge.
   const style = { label: (p: Planet) => GLYPH[p], left: 30, hideScale: true, centerLabels: true };
@@ -148,7 +150,7 @@ const rows = PLANETS.map((planet) => ({
   // the container width.
   const HALF_WINDOW = MONTHS_EACH_SIDE * 30.44 * DAY;
   const monthsWindow = (center: number): [number, number] => {
-    const px = Math.max(320, monthsEl.clientWidth) * (window.devicePixelRatio || 1);
+    const px = Math.max(320, widths.get(monthsEl)!) * (window.devicePixelRatio || 1);
     const step = (2 * HALF_WINDOW) / px; // ms per device pixel
     const c = Math.round(center / step) * step;
     return [c - HALF_WINDOW, c + HALF_WINDOW];
@@ -159,6 +161,7 @@ const rows = PLANETS.map((planet) => ({
     const today = $today.get().getTime();
     years = renderChart(yearsEl, {
       ...style,
+      width: widths.get(yearsEl)!,
       from: addMonths(today, -60),
       to: addMonths(today, 60),
       today,
@@ -174,7 +177,7 @@ const rows = PLANETS.map((planet) => ({
       ticks: (from, to) => {
         const values: Date[] = [];
         for (let y = from.getUTCFullYear() + 1; y <= to.getUTCFullYear(); y++) values.push(new Date(Date.UTC(y, 0, 1)));
-        const every = yearsEl.clientWidth < 600 ? 2 : 1;
+        const every = widths.get(yearsEl)! < 600 ? 2 : 1;
         return { values, format: (d) => (d.getUTCFullYear() % every ? '' : String(d.getUTCFullYear())) };
       },
     });
@@ -187,6 +190,7 @@ const rows = PLANETS.map((planet) => ({
     resetButton.hidden = $focus.get() === null;
     renderWaves(monthsEl, {
       ...monthsStyle,
+      width: widths.get(monthsEl)!,
       from: monthsFrom,
       to: monthsTo,
       today,
@@ -302,12 +306,20 @@ const rows = PLANETS.map((planet) => ({
     draw();
     updateTable();
   });
-  let last = yearsEl.clientWidth;
-  new ResizeObserver(() => {
-    if (yearsEl.clientWidth !== last) {
-      last = yearsEl.clientWidth;
-      draw();
+  // Redraw when either chart's width changes. A ResizeObserver reports sizes after layout, so drawing (every frame
+  // during ▶ Play) never has to measure the page itself.
+  const ro = new ResizeObserver((entries) => {
+    let changed = false;
+    for (const e of entries) {
+      const w = Math.round(e.contentRect.width); // whole px, like clientWidth
+      if (w !== widths.get(e.target as HTMLElement)) {
+        widths.set(e.target as HTMLElement, w);
+        changed = true;
+      }
     }
-  }).observe(yearsEl);
+    if (changed) draw();
+  });
+  ro.observe(yearsEl);
+  ro.observe(monthsEl);
 </script>
 
