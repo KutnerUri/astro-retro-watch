@@ -68,7 +68,7 @@ const { compact = false } = Astro.props;
       <div class="om-actions">
         <button class="help-btn" type="button" popovertarget="help-orbits" aria-label="How to read this map">?</button>
         <button class="om-play" data-om="play-live" type="button" aria-pressed="false" aria-label="Play: two days per second">
-          <span aria-hidden="true">▶︎</span> Play
+          <svg class="om-icon" viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 1 L9 5 L2.5 9 Z" /></svg><span class="om-label">Play</span>
         </button>
       </div>
     )}
@@ -154,7 +154,7 @@ const { compact = false } = Astro.props;
     font: 500 12px 'Jost', sans-serif; color: var(--starlight); background: var(--card);
     border: 1px solid var(--rule); border-radius: 999px; padding: 4px 12px; cursor: pointer;
   }
-  .om-play span { font-size: 10px; }
+  .om-icon { display: block; width: 9px; height: 9px; fill: currentColor; }
   .om-note { max-width: 640px; margin: 16px auto 0; color: var(--text-muted); font-size: 13px; }
   .om-orbit { fill: none; stroke: var(--rule); stroke-width: 0.25; }
   .om-scale-ring { fill: none; stroke: var(--grid); stroke-width: 0.2; stroke-dasharray: 0.6 1; }
@@ -421,13 +421,17 @@ const { compact = false } = Astro.props;
     // months window).
     function setupPlayback() {
       const btn = q<HTMLButtonElement>('play-live');
-      const icon = btn.querySelector('span')!;
+      const icon = btn.querySelector('.om-icon path')!;
+      const label = btn.querySelector('.om-label')!;
+      // SVG shapes rather than ▶/⏸ characters, whose glyphs sit at different heights in the line.
+      const PLAY = 'M2.5 1 L9 5 L2.5 9 Z';
+      const PAUSE = 'M2 1 H4.2 V9 H2 Z M5.8 1 H8 V9 H5.8 Z';
       const LAST = (60 - 4) * 30.44 * DAY;
       const DAYS_PER_SECOND = 2;
       let frame = 0, last = 0;
       const show = (playing: boolean) => {
-        icon.textContent = playing ? '⏸\uFE0E' : '▶\uFE0E';
-        btn.lastChild!.textContent = playing ? ' Pause' : ' Play';
+        icon.setAttribute('d', playing ? PAUSE : PLAY);
+        label.textContent = playing ? 'Pause' : 'Play';
         btn.setAttribute('aria-pressed', String(playing));
         btn.setAttribute('aria-label', playing ? 'Pause' : 'Play: two days per second');
       };
@@ -444,6 +448,10 @@ const { compact = false } = Astro.props;
         $focus.set(next);
         frame = requestAnimationFrame(step);
       };
+      // "Back to today" clears the focus: stop rather than carry on from today.
+      $focus.listen((v) => {
+        if (frame && v === null) stop();
+      });
       btn.addEventListener('click', () => {
         if (frame) return stop();
         last = 0;
