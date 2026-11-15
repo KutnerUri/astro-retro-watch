@@ -82,6 +82,10 @@
         <span><b>Distance is on a <a href="https://en.wikipedia.org/wiki/Logarithmic_scale" target="_blank" rel="noopener">logarithmic scale</a>.</b> (Space is absurdly big)</span>
       </li>
       <li>
+        <svg class="help-icon" viewBox="0 0 32 32" aria-hidden="true"><circle class="i-sun" cx="16" cy="16" r="14.5" /><circle class="i-hole" cx="8.15" cy="16" r="3.3" /><circle class="i-hole" cx="18.05" cy="16" r="2.6" /><circle class="i-ring" cx="18.05" cy="16" r="4.30" /><circle class="i-hole" cx="25.90" cy="16" r="1.25" /></svg>
+        <span><b>Planets are drawn bigger.</b> Compared to the distance between them, they’d be too small to see, even on a logarithmic scale.</span>
+      </li>
+      <li>
         <svg class="help-icon" viewBox="0 0 32 32" aria-hidden="true"><path class="i-path" d="M8 23 L24 9" /><circle class="i-earth" cx="7" cy="24" r="2.6" /><circle class="i-dot" cx="25" cy="8" r="3" /></svg>
         <span><b>Dashed lines</b> show retrogrades.</span>
       </li>
@@ -122,13 +126,16 @@
   const DAY = 86_400_000;
   const NS = 'http://www.w3.org/2000/svg';
 
-  // Planet sizes: square root of the real equatorial radius (km). Jupiter : Saturn stays 1.1 : 1, and
-  // Mercury to Jupiter spans ~5×. The Sun would be ~12 units on this scale, so it gets a fixed size.
+  // Sizes: the Sun and the planets on one log scale of real equatorial radius (km). True sizes would be
+  // specks next to the distances, so sizes get their own scale: Mercury (smallest) is pinned at 0.7 units and
+  // the Sun at 5, and every ×10 in real radius adds the same amount in between.
   const RADIUS_KM: Record<Body | 'Sun', number> = {
     Sun: 695_700, Mercury: 2_440, Venus: 6_052, Earth: 6_371, Mars: 3_390,
     Jupiter: 69_911, Saturn: 58_232, Uranus: 25_362, Neptune: 24_622,
   };
-  const size = (b: Body | 'Sun') => (b === 'Sun' ? 4.5 : 0.7 * Math.sqrt(RADIUS_KM[b] / RADIUS_KM.Mercury));
+  const MIN_SIZE = 0.7, SUN_SIZE = 5;
+  const size = (b: Body | 'Sun') =>
+    MIN_SIZE + ((SUN_SIZE - MIN_SIZE) * Math.log(RADIUS_KM[b] / RADIUS_KM.Mercury)) / Math.log(RADIUS_KM.Sun / RADIUS_KM.Mercury);
 
   const EARTH_SEA = '#2f74e0', EARTH_LAND = '#3fae5a';
   const colour = (b: Body) => (b === 'Earth' ? EARTH_SEA : `var(--planet-${b.toLowerCase()})`);

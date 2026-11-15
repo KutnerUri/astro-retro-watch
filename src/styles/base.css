@@ -172,6 +172,8 @@ button, [role='button'], summary { user-select: none; -webkit-user-select: none;
 .i-orbit { fill: none; stroke: var(--text-muted); stroke-width: 0.9; }
 .i-sun { fill: var(--starlight); }
 .i-dot { fill: var(--text-secondary); }
+.i-hole { fill: var(--card); }
+.i-ring { fill: none; stroke: var(--card); stroke-width: 1; }
 .i-ruler { fill: none; stroke: var(--starlight); stroke-width: 1; stroke-linecap: round; }
 .i-earth { fill: #2f74e0; }
 .i-rock { fill: var(--text-secondary); }
