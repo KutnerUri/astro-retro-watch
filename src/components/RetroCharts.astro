@@ -183,12 +183,13 @@ const rows = PLANETS.map((planet) => ({
     });
   }
 
-  function drawMonths() {
+  let months: ReturnType<typeof renderWaves> | null = null;
+
+  /** Builds the months chart (on load, a new day or a width change). */
+  function buildMonths() {
     const today = $today.get().getTime();
     const [monthsFrom, monthsTo] = monthsWindow($focus.get() ?? today);
-    years?.setWindow(monthsFrom, monthsTo);
-    resetButton.hidden = $focus.get() === null;
-    renderWaves(monthsEl, {
+    months = renderWaves(monthsEl, {
       ...monthsStyle,
       width: widths.get(monthsEl)!,
       from: monthsFrom,
@@ -210,19 +211,28 @@ const rows = PLANETS.map((planet) => ({
     });
   }
 
-  function draw() {
-    drawYears();
-    drawMonths();
+  /** Slides the months chart (and the years chart's window) to the focused date. */
+  function moveMonths() {
+    const [monthsFrom, monthsTo] = monthsWindow($focus.get() ?? $today.get().getTime());
+    years?.setWindow(monthsFrom, monthsTo);
+    months?.setWindow(monthsFrom, monthsTo);
+    resetButton.hidden = $focus.get() === null;
   }
 
-  // Redraw the months chart at most once per frame while dragging.
+  function draw() {
+    drawYears();
+    buildMonths();
+    moveMonths();
+  }
+
+  // Slide the months chart at most once per frame while dragging or playing.
   let pending = false;
   $focus.listen(() => {
     if (pending) return;
     pending = true;
     requestAnimationFrame(() => {
       pending = false;
-      drawMonths();
+      moveMonths();
     });
   });
   const resetButton = document.getElementById('months-reset') as HTMLButtonElement;

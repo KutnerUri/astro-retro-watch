@@ -312,8 +312,13 @@ const waveAt = (p: Period, t: number) => height01(p.arc) * pulseAt(p, t);
 /**
  * One sin² wave per retrograde period, per planet, on a shared 0–1 scale:
  * the pulses that the overlap curve adds together.
+ *
+ * Built once; `setWindow` then slides it. The window keeps its length, so sliding is a plain horizontal shift:
+ * waves, ticks and the Today line are drawn for a wider span around the window (the "strip") and only
+ * translated, and the strip is redrawn only when the window nears its edge. Peak labels depend on where the
+ * window's edges cut the waves, so they are placed again on every move, reusing their elements.
  */
-export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step' | 'highlight'>) {
+export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step' | 'highlight' | 'onWindowMove'>) {
   const width = Math.max(320, o.width);
   container.replaceChildren();
   const M = { ...BASE_M, left: o.left ?? BASE_M.left };
@@ -323,9 +328,14 @@ export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step'
   const plotH = 230;
   const axisY = top + plotH;
   const height = axisY + AXIS_H;
+  const span = o.to - o.from;
+  const pxPerMs = (width - M.left - M.right) / span;
 
+  // `x` maps time to px for the current window (hover and labels use it); the strip is drawn in its own
+  // coordinates, starting at `stripFrom`, and translated by `x(stripFrom)`.
   const x = scaleUtc().domain([o.from, o.to]).range([M.left, width - M.right]);
   const y = scaleLinear().domain([0, 1]).range([axisY, top]);
+  const sx = (t: number) => (t - stripFrom) * pxPerMs;
 
   const svg = el('svg', { width, height, viewBox: `0 0 ${width} ${height}`, role: 'img' }, container);
   svg.setAttribute('aria-label', 'Retrograde pulse for each planet');
@@ -337,56 +347,97 @@ export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step'
     el('text', { x: M.left + 2, y: y(height01(deg)) - 3, class: 'tick' }, svg).textContent = `${deg}°`;
   }
 
-  // Waves, clipped to the plot
+  // Waves, clipped to the plot; ticks and the Today line, not clipped (the svg's own edge cuts them).
   const clipId = `clip-${container.id}`;
   const clip = el('clipPath', { id: clipId }, el('defs', {}, svg));
   el('rect', { x: M.left, y: 0, width: width - M.left - M.right, height: axisY + 1 }, clip);
-  const waves = el('g', { 'clip-path': `url(#${clipId})` }, svg);
+  const waves = el('g', {}, el('g', { 'clip-path': `url(#${clipId})` }, svg));
+  const axis = el('g', {}, svg);
+  const leaders = el('g', {}, svg);
+  const texts = el('g', {}, svg);
 
-  const labels: { x: number; y: number; planet: Planet }[] = [];
-  const visible = PLANETS.flatMap((planet) => periods[planet].filter((p) => p.end > o.from && p.start < o.to));
-  for (const p of visible) {
-    const n = 120;
-    const pts: [number, number][] = Array.from({ length: n + 1 }, (_, k) => {
-      const t = p.start + ((p.end - p.start) * k) / n;
-      return [x(t), y(waveAt(p, t))];
-    });
-    el('path', { d: line()(pts)!, class: 'wave', stroke: color(p.planet), 'stroke-dasharray': DASH[p.planet] }, waves);
-    // Label at the peak; if the peak is outside the window, label where the wave meets the edge.
-    const mid = (p.start + p.end) / 2;
-    const at = Math.min(Math.max(mid, o.from), o.to);
-    if (waveAt(p, at) > 0.02) labels.push({ x: x(at), y: y(waveAt(p, at)), planet: p.planet });
+  let stripFrom = 0, stripTo = 0;
+  function drawStrip(from: number, to: number) {
+    stripFrom = from - span;
+    stripTo = to + span;
+    waves.replaceChildren();
+    axis.replaceChildren();
+    for (const planet of PLANETS) {
+      for (const p of periods[planet]) {
+        if (p.end <= stripFrom || p.start >= stripTo) continue;
+        const n = 120;
+        const pts: [number, number][] = Array.from({ length: n + 1 }, (_, k) => {
+          const t = p.start + ((p.end - p.start) * k) / n;
+          return [sx(t), y(waveAt(p, t))];
+        });
+        el('path', { d: line()(pts)!, class: 'wave', stroke: color(p.planet), 'stroke-dasharray': DASH[p.planet] }, waves);
+      }
+    }
+    const { values, format } = o.ticks(new Date(stripFrom), new Date(stripTo));
+    for (const d of values) {
+      const tx = sx(d.getTime());
+      el('line', { x1: tx, x2: tx, y1: axisY, y2: axisY + 4, class: 'baseline' }, axis);
+      const text = format(d);
+      if (text) el('text', { x: tx, y: axisY + 16, class: 'tick', 'text-anchor': 'middle' }, axis).textContent = text;
+    }
+    const tx = sx(o.today);
+    el('line', { x1: tx, x2: tx, y1: M.top - 4, y2: axisY, class: 'today' }, axis);
+    el('text', { x: tx, y: M.top - 8, class: 'today-label', 'text-anchor': 'middle' }, axis).textContent = 'Today';
   }
 
   // Direct labels just above each peak. Taller peaks are placed first; a label that would
   // overlap one already placed moves up a step, with a leader line back to its peak.
-  labels.sort((a, b) => a.y - b.y);
-  const placed: { x: number; y: number; w: number }[] = [];
-  const leaders = el('g', {}, svg);
-  const texts = el('g', {}, svg);
-  for (const l of labels) {
-    const w = label(l.planet).length * 9 + 6;
-    l.x = Math.min(Math.max(l.x, M.left + w / 2), width - M.right - w / 2);
-    let ly = l.y - 7;
-    while (placed.some((q) => Math.abs(q.x - l.x) < (q.w + w) / 2 && Math.abs(q.y - ly) < LABEL_H)) ly -= LABEL_H;
-    placed.push({ x: l.x, y: ly, w });
-    if (ly < l.y - 7) el('line', { x1: l.x, x2: l.x, y1: ly + 3, y2: l.y - 3, class: 'leader' }, leaders);
-    el('text', { x: l.x, y: ly, class: 'wave-label', 'text-anchor': 'middle' }, texts).textContent = label(l.planet);
+  // Elements are reused between moves: extra ones are hidden.
+  const pool = (g: Element, tag: 'text' | 'line', n: number) => {
+    while (g.childElementCount < n) el(tag, tag === 'text' ? { class: 'wave-label', 'text-anchor': 'middle' } : { class: 'leader' }, g);
+    for (let i = 0; i < g.childElementCount; i++) g.children[i].setAttribute('display', i < n ? 'inline' : 'none');
+    return g.children;
+  };
+  function placeLabels(from: number, to: number) {
+    const labels: { x: number; y: number; planet: Planet }[] = [];
+    for (const planet of PLANETS) {
+      for (const p of periods[planet]) {
+        if (p.end <= from || p.start >= to) continue;
+        // Label at the peak; if the peak is outside the window, label where the wave meets the edge.
+        const at = Math.min(Math.max((p.start + p.end) / 2, from), to);
+        if (waveAt(p, at) > 0.02) labels.push({ x: x(at), y: y(waveAt(p, at)), planet });
+      }
+    }
+    labels.sort((a, b) => a.y - b.y);
+    const placed: { x: number; y: number; w: number }[] = [];
+    const lines: { x: number; y1: number; y2: number }[] = [];
+    for (const l of labels) {
+      const w = label(l.planet).length * 9 + 6;
+      l.x = Math.min(Math.max(l.x, M.left + w / 2), width - M.right - w / 2);
+      let ly = l.y - 7;
+      while (placed.some((q) => Math.abs(q.x - l.x) < (q.w + w) / 2 && Math.abs(q.y - ly) < LABEL_H)) ly -= LABEL_H;
+      placed.push({ x: l.x, y: ly, w });
+      if (ly < l.y - 7) lines.push({ x: l.x, y1: ly + 3, y2: l.y - 3 });
+    }
+    const textEls = pool(texts, 'text', labels.length);
+    labels.forEach((l, i) => {
+      const t = textEls[i];
+      t.setAttribute('x', String(l.x));
+      t.setAttribute('y', String(placed[i].y));
+      const text = label(l.planet);
+      if (t.textContent !== text) t.textContent = text;
+    });
+    const lineEls = pool(leaders, 'line', lines.length);
+    lines.forEach((l, i) => {
+      for (const [k, v] of [['x1', l.x], ['x2', l.x], ['y1', l.y1], ['y2', l.y2]] as const) lineEls[i].setAttribute(k, String(v));
+    });
   }
 
-  // X axis
-  const { values, format } = o.ticks(new Date(o.from), new Date(o.to));
-  for (const d of values) {
-    const tx = x(d);
-    el('line', { x1: tx, x2: tx, y1: axisY, y2: axisY + 4, class: 'baseline' }, svg);
-    const label = format(d);
-    if (label) el('text', { x: tx, y: axisY + 16, class: 'tick', 'text-anchor': 'middle' }, svg).textContent = label;
+  function setWindow(from: number, to: number) {
+    x.domain([from, to]);
+    // Redraw the strip once the window is within a quarter window of its edge.
+    if (from - span / 4 < stripFrom || to + span / 4 > stripTo) drawStrip(from, to);
+    const shift = `translate(${x(stripFrom)} 0)`;
+    waves.setAttribute('transform', shift);
+    axis.setAttribute('transform', shift);
+    placeLabels(from, to);
   }
-
-  // Today line
-  const tx = x(o.today);
-  el('line', { x1: tx, x2: tx, y1: M.top - 4, y2: axisY, class: 'today' }, svg);
-  el('text', { x: tx, y: M.top - 8, class: 'today-label', 'text-anchor': 'middle' }, svg).textContent = 'Today';
+  setWindow(o.from, o.to);
 
   // Hover: crosshair, a dot on each active wave, tooltip with values
   const cross = el('line', { y1: top, y2: axisY, class: 'crosshair', visibility: 'hidden' }, svg);
@@ -437,4 +488,11 @@ export function renderWaves(container: HTMLElement, o: Omit<ChartOptions, 'step'
     dots.replaceChildren();
     tip.hidden = true;
   }
+  return {
+    /** Slides the chart to show another window of the same length. */
+    setWindow(from: number, to: number) {
+      hide();
+      setWindow(from, to);
+    },
+  };
 }
