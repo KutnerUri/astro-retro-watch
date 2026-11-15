@@ -1,4 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#07080d"/>
-  <path d="M3 24 C 8 24, 9 8, 13 8 S 17 20, 19 20 S 22 12, 24 12 S 27 24, 29 24" fill="none" stroke="#f4eedc" stroke-width="2.6" stroke-linecap="round"/>
+  <!-- A close-up of the map: the Sun in the lower left, two orbits sweeping to the upper right, Earth and Mars on them.
+       Sizes and angles step by the golden ratio: Sun × φ = inner orbit, × φ = outer orbit;
+       Earth ÷ φ = Mars; Earth at 30°, Mars at 30° × φ. scripts/gen-icons.ts renders the PNG and ICO versions. -->
+  <clipPath id="tile"><rect width="32" height="32" rx="7"/></clipPath>
+  <g clip-path="url(#tile)">
+    <rect width="32" height="32" fill="#07080d"/>
+    <circle cx="5" cy="27" r="16.00" fill="none" stroke="#7c7e96" stroke-width="2.6"/>
+    <circle cx="5" cy="27" r="25.89" fill="none" stroke="#7c7e96" stroke-width="2.6"/>
+    <circle cx="5" cy="27" r="9.89" fill="#f4eedc"/>
+    <!-- Earth (the map's sea blue) and Mars, a little smaller, each with a dark rim so it stands off its orbit line. -->
+    <circle cx="18.86" cy="19.0" r="5.50" fill="#2f74e0" stroke="#07080d" stroke-width="1.6"/>
+    <circle cx="22.14" cy="7.6" r="3.40" fill="#e8412f" stroke="#07080d" stroke-width="1.6"/>
+  </g>
 </svg>

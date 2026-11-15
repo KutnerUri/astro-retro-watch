@@ -78,7 +78,11 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [site, app, dataset
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <!-- Icons: the SVG for current browsers, the ICO as a fallback; the PNGs and ICO are made by scripts/gen-icons.ts. -->
+    <link rel="icon" href={`${base}favicon.ico`} sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} />
+    <link rel="manifest" href={`${base}site.webmanifest`} />
     <meta name="theme-color" content="#07080d" />
 
     <meta property="og:type" content="website" />
