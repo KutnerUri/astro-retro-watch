@@ -14,6 +14,7 @@ import MapSvg from './MapSvg.astro';
       <button class="om-play" data-om="play-live" type="button" aria-pressed="false" aria-label="Play: two days per second">
         <svg class="om-icon" viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 1 L9 5 L2.5 9 Z" /></svg><span class="om-label">Play</span>
       </button>
+      <button class="om-play om-speed" data-om="speed" type="button" title="2 days per second" aria-label="Speed: 2 days per second">×172.8k</button>
     </div>
   </div>
 
@@ -43,6 +44,10 @@ import MapSvg from './MapSvg.astro';
         <svg class="help-icon" viewBox="0 0 32 32" aria-hidden="true"><g class="i-rock"><circle cx="25.8" cy="16.0" r="0.60" /><circle cx="27.2" cy="17.1" r="0.50" /><circle cx="26.3" cy="17.5" r="0.60" /><circle cx="27.6" cy="18.4" r="0.60" /><circle cx="26.5" cy="19.2" r="0.60" /><circle cx="25.3" cy="19.8" r="0.45" /><circle cx="26.4" cy="21.0" r="0.45" /><circle cx="25.3" cy="21.1" r="0.60" /><circle cx="25.9" cy="22.9" r="0.60" /><circle cx="24.5" cy="23.2" r="0.50" /><circle cx="23.4" cy="23.0" r="0.60" /><circle cx="23.9" cy="24.7" r="0.60" /><circle cx="23.0" cy="24.2" r="0.60" /><circle cx="21.8" cy="24.0" r="0.45" /><circle cx="21.9" cy="25.7" r="0.45" /><circle cx="20.5" cy="25.4" r="0.50" /><circle cx="20.5" cy="27.1" r="0.60" /><circle cx="19.0" cy="26.6" r="0.60" /><circle cx="18.4" cy="25.8" r="0.50" /><circle cx="17.7" cy="27.5" r="0.60" /><circle cx="17.1" cy="26.6" r="0.60" /><circle cx="16.2" cy="28.1" r="0.60" /><circle cx="14.8" cy="27.2" r="0.45" /><circle cx="14.3" cy="26.2" r="0.50" /><circle cx="13.2" cy="27.5" r="0.60" /><circle cx="12.9" cy="26.4" r="0.45" /><circle cx="12.3" cy="25.3" r="0.45" /><circle cx="11.1" cy="26.3" r="0.50" /><circle cx="10.8" cy="25.2" r="0.45" /><circle cx="9.0" cy="25.8" r="0.45" /><circle cx="9.2" cy="24.8" r="0.45" /><circle cx="9.1" cy="23.5" r="0.60" /><circle cx="7.5" cy="24.0" r="0.45" /><circle cx="7.6" cy="22.7" r="0.45" /><circle cx="7.8" cy="21.4" r="0.50" /><circle cx="6.3" cy="21.8" r="0.50" /><circle cx="6.7" cy="20.6" r="0.50" /><circle cx="4.9" cy="20.2" r="0.45" /><circle cx="5.6" cy="19.5" r="0.60" /><circle cx="6.3" cy="18.5" r="0.45" /><circle cx="4.6" cy="17.7" r="0.50" /><circle cx="5.4" cy="17.0" r="0.60" /><circle cx="3.9" cy="16.2" r="0.60" /><circle cx="4.8" cy="15.4" r="0.60" /><circle cx="5.9" cy="14.3" r="0.50" /><circle cx="4.6" cy="13.3" r="0.45" /><circle cx="5.6" cy="12.9" r="0.45" /><circle cx="6.7" cy="12.7" r="0.60" /><circle cx="5.7" cy="11.2" r="0.45" /><circle cx="6.8" cy="10.9" r="0.50" /><circle cx="6.3" cy="9.0" r="0.60" /><circle cx="7.4" cy="9.0" r="0.45" /><circle cx="8.4" cy="9.3" r="0.45" /><circle cx="8.0" cy="7.6" r="0.50" /><circle cx="9.1" cy="7.8" r="0.60" /><circle cx="9.0" cy="6.0" r="0.50" /><circle cx="10.3" cy="6.3" r="0.45" /><circle cx="11.3" cy="6.8" r="0.60" /><circle cx="11.8" cy="5.0" r="0.45" /><circle cx="12.8" cy="5.6" r="0.50" /><circle cx="13.8" cy="6.2" r="0.45" /><circle cx="14.6" cy="4.6" r="0.50" /><circle cx="15.4" cy="5.5" r="0.45" /><circle cx="16.3" cy="4.0" r="0.45" /><circle cx="16.9" cy="4.9" r="0.50" /><circle cx="17.8" cy="5.9" r="0.60" /><circle cx="18.4" cy="4.6" r="0.45" /><circle cx="19.0" cy="5.6" r="0.60" /><circle cx="19.8" cy="6.9" r="0.45" /><circle cx="21.0" cy="5.8" r="0.50" /><circle cx="21.4" cy="7.1" r="0.60" /><circle cx="22.5" cy="6.0" r="0.45" /><circle cx="22.6" cy="7.2" r="0.45" /><circle cx="22.9" cy="8.6" r="0.50" /><circle cx="24.4" cy="8.0" r="0.60" /><circle cx="24.3" cy="9.3" r="0.50" /><circle cx="26.2" cy="9.4" r="0.60" /><circle cx="25.7" cy="10.4" r="0.60" /><circle cx="25.2" cy="11.4" r="0.60" /><circle cx="27.1" cy="12.0" r="0.45" /><circle cx="26.3" cy="12.6" r="0.60" /><circle cx="25.7" cy="13.9" r="0.60" /><circle cx="27.3" cy="14.4" r="0.50" /><circle cx="26.5" cy="15.0" r="0.45" /></g></svg>
         <span><b>The asteroids are an approximation.</b> There are over a million out there, and we didn’t draw them all.</span>
       </li>
+      <li>
+        <svg class="help-icon" viewBox="0 0 32 32" aria-hidden="true"><path class="i-play" d="M11 8 L24 16 L11 24 Z" /></svg>
+        <span><b>×1</b> is real time, just leave it open.</span>
+      </li>
     </ul>
   </div>
 </figure>
@@ -59,6 +64,8 @@ import MapSvg from './MapSvg.astro';
     font: 500 12px/1 'Jost', sans-serif; color: var(--starlight); background: var(--card);
     border: 1px solid var(--rule); border-radius: 999px; padding: 0 11px 0 10px; cursor: pointer;
   }
+  /* Wide enough for the longest label (×172.8k), so cycling never nudges Play sideways. */
+  .om-speed { width: 68px; padding: 0; justify-content: center; }
   .om-icon { display: block; width: 9px; height: 9px; fill: currentColor; }
   .om-orbit { fill: none; stroke: var(--rule); stroke-width: 0.25; }
   .om-scale-ring { fill: none; stroke: var(--grid); stroke-width: 0.2; stroke-dasharray: 0.6 1; }
@@ -137,9 +144,9 @@ import MapSvg from './MapSvg.astro';
 
     setupPlayback();
 
-    // ▶ Play: moves the shared focus date forward two days per second, so the map, the months chart and the
-    // years window all follow. Stops by itself where the years chart ends (5 years ahead, minus half the
-    // months window).
+    // ▶ Play: moves the shared focus date forward at the chosen speed (two days per second to start), so
+    // the map, the months chart and the years window all follow. Stops by itself where the years chart ends
+    // (5 years ahead, minus half the months window).
     function setupPlayback() {
       const btn = root.querySelector<HTMLButtonElement>('[data-om="play-live"]')!;
       const icon = btn.querySelector('.om-icon path')!;
@@ -148,13 +155,20 @@ import MapSvg from './MapSvg.astro';
       const PLAY = 'M2.5 1 L9 5 L2.5 9 Z';
       const PAUSE = 'M2 1 H4.2 V9 H2 Z M5.8 1 H8 V9 H5.8 Z';
       const LAST = (60 - 4) * 30.44 * DAY;
-      const DAYS_PER_SECOND = 2;
+      // The speed pill cycles through these; the labels are the speed-up over real time (a day is 86,400 s).
+      const SPEEDS = [
+        { daysPerSecond: 2, label: '×172.8k', name: '2 days per second' },
+        { daysPerSecond: 5, label: '×432k', name: '5 days per second' },
+        { daysPerSecond: 10, label: '×864k', name: '10 days per second' },
+        { daysPerSecond: 1 / 86_400, label: '×1', name: 'real time' },
+      ];
+      let speed = SPEEDS[0];
       let frame = 0, last = 0;
       const show = (playing: boolean) => {
         icon.setAttribute('d', playing ? PAUSE : PLAY);
         label.textContent = playing ? 'Pause' : 'Play';
         btn.setAttribute('aria-pressed', String(playing));
-        btn.setAttribute('aria-label', playing ? 'Pause' : 'Play: two days per second');
+        btn.setAttribute('aria-label', playing ? 'Pause' : `Play: ${speed.name}`);
       };
       const stop = () => {
         cancelAnimationFrame(frame);
@@ -164,7 +178,7 @@ import MapSvg from './MapSvg.astro';
       const step = (ts: number) => {
         const dt = last ? ts - last : 0;
         last = ts;
-        const next = ($focus.get() ?? now) + (dt / 1000) * DAYS_PER_SECOND * DAY;
+        const next = ($focus.get() ?? now) + (dt / 1000) * speed.daysPerSecond * DAY;
         if (next > now + LAST) return stop();
         $focus.set(next);
         frame = requestAnimationFrame(step);
@@ -178,6 +192,15 @@ import MapSvg from './MapSvg.astro';
         last = 0;
         show(true);
         frame = requestAnimationFrame(step);
+      });
+      // Takes effect on the next frame when playing; when paused, updates what Play will announce.
+      const speedBtn = root.querySelector<HTMLButtonElement>('[data-om="speed"]')!;
+      speedBtn.addEventListener('click', () => {
+        speed = SPEEDS[(SPEEDS.indexOf(speed) + 1) % SPEEDS.length];
+        speedBtn.textContent = speed.label;
+        speedBtn.title = speed.name;
+        speedBtn.setAttribute('aria-label', `Speed: ${speed.name}`);
+        if (!frame) show(false);
       });
     }
     // Follow the shared "today" (subscribe also fires once now, for the first draw), and the charts' focus

@@ -159,6 +159,7 @@ button, [role='button'], summary { user-select: none; -webkit-user-select: none;
 /* Tiny drawings of the chart parts, standing in for bullets. */
 /* Square boxes, drawings centred in them; the first text line is 24px tall. */
 .help-icon { width: 32px; height: 32px; margin-top: -4px; overflow: visible; }
+.i-play { fill: var(--starlight); stroke: var(--starlight); stroke-width: 1.5; stroke-linejoin: round; }
 .i-line { fill: none; stroke: var(--starlight); stroke-width: 1.6; stroke-linejoin: round; }
 .i-bar { fill: var(--planet-jupiter); }
 .i-wave { fill: none; stroke: var(--planet-uranus); stroke-width: 2; }
