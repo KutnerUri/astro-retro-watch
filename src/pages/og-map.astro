@@ -1,0 +1,38 @@
+---
+// The share image's source: a bare SVG (no <html>), which scripts/gen-og.ts turns into dist/og.png after the
+// build and then deletes. The map fills the width (top and bottom cropped), with bigger planets so they read
+// at feed size.
+//
+// resvg can't read CSS variables, so the .om-* styles are repeated here with plain values from
+// src/styles/base.css (the page's versions are in OrbitMap.astro).
+import MapSvg from '../components/MapSvg.astro';
+
+const W = 1200, H = 630;
+const unitsH = (200 * H) / W;
+const colours = {
+  Mercury: '#9aa0d0', Venus: '#f4e9c8', Mars: '#e8412f', Jupiter: '#efb27a',
+  Saturn: '#a8861c', Uranus: '#33b8c8', Neptune: '#4d6cf2',
+};
+---
+
+<MapSvg
+  xmlns="http://www.w3.org/2000/svg"
+  width={W}
+  height={H}
+  viewBox={`-100 ${-unitsH / 2} 200 ${unitsH}`}
+  t={Date.now()}
+  colours={colours}
+  planetScale={2}
+  sunScale={1.5}
+>
+  <style is:inline>
+    .om-orbit { fill: none; stroke: #34374d; stroke-width: 0.25; }
+    .om-scale-ring { fill: none; stroke: #1a1c28; stroke-width: 0.2; stroke-dasharray: 0.6 1; }
+    .om-sun { fill: #f4eedc; filter: url(#om-glow); }
+    .om-rocks { fill: none; stroke: #7c7e96; stroke-linecap: round; stroke-width: 0.42; opacity: 0.55; }
+    .om-rocks.trojan { stroke: #efb27a; opacity: 0.4; }
+    .om-sight { stroke: #f4eedc; stroke-width: 0.25; stroke-dasharray: 0.8 0.8; opacity: 0.55; }
+    .om-glyph { font-size: 3.6px; font-family: 'Noto Sans Symbols'; dominant-baseline: central; }
+  </style>
+  <rect x="-100" y={-unitsH / 2} width="200" height={unitsH} fill="#07080d" />
+</MapSvg>

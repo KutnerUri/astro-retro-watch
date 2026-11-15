@@ -1,78 +1,65 @@
 /**
- * Generates public/og.png, the 1200×630 image shown when the site is shared.
- * It draws the years view as of today, so it runs before every (daily) build.
+ * Generates dist/og.png, the 1200×630 image shown when the site is shared, after `astro build`: it reads the
+ * bare SVG that src/pages/og-map.astro built (the orbit map as of the build), renders it to PNG and removes
+ * that page from the output.
  *
- * Run: bun scripts/gen-og.ts
+ * Run: bun scripts/gen-og.ts (after astro build)
  */
 import { Resvg } from '@resvg/resvg-js';
-import { scaleLinear, scaleUtc } from 'd3-scale';
-import { area, line } from 'd3-shape';
-import { PLANETS, periods, sampleOverlap } from '../src/lib/retro';
+import { rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { inflateSync } from 'node:zlib';
 
-const W = 1200;
-const H = 630;
-const DAY = 86_400_000;
-// Same as the --planet-* colours in src/styles/base.css.
-const COLORS = ['#9aa0d0', '#f4e9c8', '#e8412f', '#efb27a', '#a8861c', '#33b8c8', '#4d6cf2'];
-const BG = '#07080d';
-const INK = '#f4eedc';
+const dist = fileURLToPath(new URL('../dist/', import.meta.url));
+const page = join(dist, 'og-map');
 
-const today = Date.now();
-const addYears = (t: number, n: number) => {
-  const d = new Date(t);
-  return Date.UTC(d.getUTCFullYear() + n, d.getUTCMonth(), d.getUTCDate());
-};
-const from = addYears(today, -5);
-const to = addYears(today, 5);
-
-const left = 140;
-const right = W - 60;
-const curveTop = 200;
-const curveBottom = 400;
-const ganttTop = 422;
-const rowH = 22;
-
-const x = scaleUtc().domain([from, to]).range([left, right]);
-const samples = sampleOverlap(from, to, DAY);
-const max = Math.max(3, Math.ceil(Math.max(...samples.map((s) => s[1]))));
-const y = scaleLinear().domain([0, max]).range([curveBottom, curveTop]);
-
-const areaPath = area<[number, number]>().x((d) => x(d[0])).y0(curveBottom).y1((d) => y(d[1]))(samples);
-const linePath = line<[number, number]>().x((d) => x(d[0])).y((d) => y(d[1]))(samples);
-
-const bars = PLANETS.flatMap((planet, i) => {
-  const rowY = ganttTop + i * rowH;
-  const label = `<text x="${left - 14}" y="${rowY + rowH / 2 + 5}" text-anchor="end" fill="#b7b8cc" font-size="15">${planet}</text>`;
-  const rects = periods[planet]
-    .filter((p) => p.end > from && p.start < to)
-    .map((p) => {
-      const a = Math.max(x(p.start), left);
-      const b = Math.min(x(p.end), right);
-      return `<rect x="${a}" y="${rowY + 5}" width="${Math.max(3, b - a)}" height="12" rx="3" fill="${COLORS[i]}"/>`;
-    });
-  return [label, ...rects];
-});
-
-const years: string[] = [];
-for (let yr = new Date(from).getUTCFullYear() + 1; yr <= new Date(to).getUTCFullYear(); yr++) {
-  const tx = x(Date.UTC(yr, 0, 1));
-  years.push(`<text x="${tx}" y="${ganttTop + PLANETS.length * rowH + 22}" text-anchor="middle" fill="#7c7e96" font-size="14">${yr}</text>`);
+// WOFF 1.0 -> TTF: unpack each (zlib-compressed) table and lay them out again behind a plain sfnt header.
+// resvg can't read WOFF, and @fontsource only ships web formats.
+function woffToTtf(woff: Uint8Array): Uint8Array {
+  const v = new DataView(woff.buffer, woff.byteOffset, woff.byteLength);
+  const n = v.getUint16(12);
+  const tables = Array.from({ length: n }, (_, i) => {
+    const o = 44 + i * 20;
+    const [tag, off, comp, orig, sum] = [0, 4, 8, 12, 16].map((k) => v.getUint32(o + k));
+    const raw = woff.subarray(off, off + comp);
+    return { tag, sum, data: comp < orig ? new Uint8Array(inflateSync(raw)) : raw };
+  });
+  const head = 12 + 16 * n;
+  const out = new Uint8Array(tables.reduce((s, t) => s + ((t.data.length + 3) & ~3), head));
+  const w = new DataView(out.buffer);
+  const es = Math.floor(Math.log2(n));
+  w.setUint32(0, v.getUint32(4));
+  w.setUint16(4, n);
+  w.setUint16(6, 16 << es);
+  w.setUint16(8, es);
+  w.setUint16(10, n * 16 - (16 << es));
+  let at = head;
+  tables.forEach((t, i) => {
+    const o = 12 + i * 16;
+    w.setUint32(o, t.tag);
+    w.setUint32(o + 4, t.sum);
+    w.setUint32(o + 8, at);
+    w.setUint32(o + 12, t.data.length);
+    out.set(t.data, at);
+    at += (t.data.length + 3) & ~3;
+  });
+  return out;
 }
 
-const tx = x(today);
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Helvetica, Arial, DejaVu Sans, sans-serif">
-  <rect width="${W}" height="${H}" fill="${BG}"/>
-  <text x="${left - 80}" y="96" fill="${INK}" font-size="60" font-weight="700">Retro Watch</text>
-  <text x="${left - 80}" y="142" fill="#b7b8cc" font-size="26">Which planets are retrograde, and when they overlap</text>
-  <path d="${areaPath}" fill="${INK}" fill-opacity="0.08"/>
-  <path d="${linePath}" fill="none" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>
-  <line x1="${left}" x2="${right}" y1="${curveBottom}" y2="${curveBottom}" stroke="#34374d"/>
-  ${bars.join('\n  ')}
-  ${years.join('\n  ')}
-  <line x1="${tx}" x2="${tx}" y1="${curveTop - 14}" y2="${ganttTop + PLANETS.length * rowH}" stroke="${INK}" stroke-width="2"/>
-  <text x="${tx}" y="${curveTop - 22}" text-anchor="middle" fill="${INK}" font-size="16" font-weight="700">Today</text>
-</svg>`;
+// The planet symbols' font, as on the page. This resvg version ignores in-memory fonts, so it goes to a temp file.
+const woff = new URL('../node_modules/@fontsource/noto-sans-symbols/files/noto-sans-symbols-symbols-400-normal.woff', import.meta.url);
+const fontPath = join(tmpdir(), 'retro-watch-noto-sans-symbols.ttf');
+await Bun.write(fontPath, woffToTtf(new Uint8Array(await Bun.file(woff).arrayBuffer())));
 
-const png = new Resvg(svg, { font: { loadSystemFonts: true, defaultFontFamily: 'DejaVu Sans' } }).render().asPng();
-await Bun.write(new URL('../public/og.png', import.meta.url), png);
-console.log(`public/og.png ${(png.length / 1024).toFixed(0)} KB`);
+// Astro puts a doctype in front of every page; the rest is the SVG.
+const svg = (await Bun.file(join(page, 'index.html')).text()).replace(/^<!DOCTYPE html>/i, '');
+
+// System fonts are the fallback for ⊕ (Earth), which the Noto subset lacks; the page falls back the same way.
+const png = new Resvg(svg, { font: { fontFiles: [fontPath], loadSystemFonts: true, defaultFontFamily: 'Noto Sans Symbols' } })
+  .render()
+  .asPng();
+await Bun.write(join(dist, 'og.png'), png);
+await rm(page, { recursive: true });
+console.log(`dist/og.png ${(png.length / 1024).toFixed(0)} KB`);

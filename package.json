@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "bun --bun astro dev",
-    "build": "bun scripts/gen-og.ts && bun --bun astro build",
+    "build": "bun --bun astro build && bun scripts/gen-og.ts",
     "preview": "bun --bun astro preview"
   },
   "dependencies": {

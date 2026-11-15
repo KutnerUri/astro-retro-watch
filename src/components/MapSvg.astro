@@ -1,0 +1,112 @@
+---
+// One frame of the orbit map at time `t`, as SVG. Styled by `.om-*` classes, which the page (OrbitMap.astro) and
+// the share image (pages/og-map.astro) each define. On the page, OrbitMap's script then moves this frame along
+// in time, finding its parts by their data-om attributes.
+import { BODIES, type Body } from '../lib/orbits';
+import {
+  EARTH_SEA, SCALE_RINGS, SURFACE, asteroidPaths, bodyFrame, glyph, orbitPath, ringShapes, sightLine, size,
+} from '../lib/orbit-map';
+
+interface Props {
+  t: number;
+  /** Planet colours: CSS variables on the page, plain hex where CSS variables aren't available. */
+  colours?: Partial<Record<Body, string>>;
+  planetScale?: number;
+  sunScale?: number;
+  viewBox?: string;
+  [attr: string]: unknown;
+}
+const { t, colours = {}, planetScale = 1, sunScale = 1, viewBox = '-100 -100 200 200', ...attrs } = Astro.props;
+const colour = (b: Body) => colours[b] ?? (b === 'Earth' ? EARTH_SEA : `var(--planet-${b.toLowerCase()})`);
+const { rocks, trojans } = asteroidPaths(t);
+const bodies = BODIES.map((b) => ({ b, colour: colour(b), f: bodyFrame(b, t, planetScale) }));
+---
+
+<svg viewBox={viewBox} {...attrs}>
+  <defs>
+    <filter id="om-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="0.9" result="b" />
+      <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <clipPath id="om-disc-clip"><circle r="1" /></clipPath>
+    <!-- Jupiter, classic side view: grey poles, cream zones, the rust North and South Equatorial Belts. -->
+    <linearGradient id="om-jupiter-bands" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b9b0a0" />
+      <stop offset="0.15" stop-color="#c9b79a" />
+      <stop offset="0.25" stop-color="#ead9bb" />
+      <stop offset="0.32" stop-color="#dcb08a" />
+      <stop offset="0.37" stop-color="#eedfc2" />
+      <stop offset="0.43" stop-color="#c27a45" />
+      <stop offset="0.48" stop-color="#cf8a52" />
+      <stop offset="0.52" stop-color="#f1e4cc" />
+      <stop offset="0.58" stop-color="#f0e2c8" />
+      <stop offset="0.63" stop-color="#c98450" />
+      <stop offset="0.68" stop-color="#d39a68" />
+      <stop offset="0.73" stop-color="#ecdcc0" />
+      <stop offset="0.82" stop-color="#d8b994" />
+      <stop offset="0.9" stop-color="#c8b9a2" />
+      <stop offset="1" stop-color="#b5ab9a" />
+    </linearGradient>
+    <!-- Saturn: smooth butterscotch with barely-there bands. -->
+    <linearGradient id="om-saturn-bands" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cdbf9c" />
+      <stop offset="0.2" stop-color="#e2d3ac" />
+      <stop offset="0.4" stop-color="#ebdebb" />
+      <stop offset="0.5" stop-color="#eee2c2" />
+      <stop offset="0.6" stop-color="#e6d7b1" />
+      <stop offset="0.78" stop-color="#dccba3" />
+      <stop offset="1" stop-color="#c8b996" />
+    </linearGradient>
+    <radialGradient id="om-limb">
+      <stop offset="0.55" stop-color="#000" stop-opacity="0" />
+      <stop offset="1" stop-color="#000" stop-opacity="0.15" />
+    </radialGradient>
+    <linearGradient id="om-night">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45" />
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0" />
+      <stop offset="0.6" stop-color="#000" stop-opacity="0" />
+      <stop offset="1" stop-color="#000" stop-opacity="0.25" />
+    </linearGradient>
+  </defs>
+  <slot />
+
+  <!-- Distance rings (1, 5, 10, 20, 30 AU) and one full orbit per planet (the true, eccentric path). -->
+  <g>{SCALE_RINGS.map((r) => <circle class="om-scale-ring" r={r.toFixed(2)} />)}</g>
+  <g>{BODIES.map((b) => <path class="om-orbit" d={orbitPath(b, t)} />)}</g>
+
+  <path class="om-rocks" data-om="rocks" d={rocks} />
+  <path class="om-rocks trojan" data-om="trojans" d={trojans} />
+
+  <!-- Tails: a line back along the orbit, fading out. -->
+  <g>
+    {bodies.map(({ b, colour, f }) => (
+      <>
+        <linearGradient id={`om-tail-${b}`} data-om-grad={b} gradientUnits="userSpaceOnUse" {...f.grad}>
+          <stop offset="0" stop-color={colour} stop-opacity="0.8" />
+          <stop offset="1" stop-color={colour} stop-opacity="0" />
+        </linearGradient>
+        <path data-om-tail={b} d={f.tail} fill="none" stroke={`url(#om-tail-${b})`} stroke-width="0.5" stroke-linecap="round" />
+      </>
+    ))}
+  </g>
+
+  <g>{BODIES.map((b) => <line class="om-sight" data-om-sight={b} {...sightLine(b, t)} />)}</g>
+
+  <!-- Planet discs in unit coordinates: far half of the rings, base colour, surface detail, limb darkening, the
+       shade (sunlit toward the Sun, dark on the far side), then the near half of the rings. -->
+  <circle class="om-sun" r={size('Sun') * sunScale} />
+  {bodies.map(({ b, colour, f }) => (
+    <g data-om-body={b}>
+      <g data-om="disc" transform={f.disc}>
+        {ringShapes(b, 'back').map(([Tag, a]) => <Tag {...a} />)}
+        <circle r="1" fill={colour} />
+        <g clip-path="url(#om-disc-clip)">{(SURFACE[b] ?? []).map(([Tag, a]) => <Tag {...a} />)}</g>
+        <circle r="1" fill="url(#om-limb)" />
+        <circle data-om="shade" r="1" fill="url(#om-night)" transform={f.shade} />
+        {ringShapes(b, 'front').map(([Tag, a]) => <Tag {...a} />)}
+      </g>
+      <text class="om-glyph" fill={colour} x={f.labelX.toFixed(2)} y={f.y.toFixed(2)}>{glyph(b)}</text>
+      <title>{f.title}</title>
+    </g>
+  ))}
+</svg>
