@@ -10,59 +10,66 @@ const { compact = false } = Astro.props;
 
 <figure class:list={['orbit-map', { 'om-compact': compact }]}>
   {!compact && <div class="om-date" data-om-date></div>}
-  <svg class="om-svg" viewBox="-100 -100 200 200" role="img" aria-label="Planet positions seen from above the solar system">
-    <defs>
-      <filter id="om-glow" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="0.9" result="b" />
-        <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
-      </filter>
-      <clipPath id="om-disc-clip"><circle r="1" /></clipPath>
-      <!-- Jupiter, classic side view: grey poles, cream zones, the rust North and South Equatorial Belts. -->
-      <linearGradient id="om-jupiter-bands" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#b9b0a0" />
-        <stop offset="0.15" stop-color="#c9b79a" />
-        <stop offset="0.25" stop-color="#ead9bb" />
-        <stop offset="0.32" stop-color="#dcb08a" />
-        <stop offset="0.37" stop-color="#eedfc2" />
-        <stop offset="0.43" stop-color="#c27a45" />
-        <stop offset="0.48" stop-color="#cf8a52" />
-        <stop offset="0.52" stop-color="#f1e4cc" />
-        <stop offset="0.58" stop-color="#f0e2c8" />
-        <stop offset="0.63" stop-color="#c98450" />
-        <stop offset="0.68" stop-color="#d39a68" />
-        <stop offset="0.73" stop-color="#ecdcc0" />
-        <stop offset="0.82" stop-color="#d8b994" />
-        <stop offset="0.9" stop-color="#c8b9a2" />
-        <stop offset="1" stop-color="#b5ab9a" />
-      </linearGradient>
-      <!-- Saturn: smooth butterscotch with barely-there bands. -->
-      <linearGradient id="om-saturn-bands" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#cdbf9c" />
-        <stop offset="0.2" stop-color="#e2d3ac" />
-        <stop offset="0.4" stop-color="#ebdebb" />
-        <stop offset="0.5" stop-color="#eee2c2" />
-        <stop offset="0.6" stop-color="#e6d7b1" />
-        <stop offset="0.78" stop-color="#dccba3" />
-        <stop offset="1" stop-color="#c8b996" />
-      </linearGradient>
-      <radialGradient id="om-limb">
-        <stop offset="0.55" stop-color="#000" stop-opacity="0" />
-        <stop offset="1" stop-color="#000" stop-opacity="0.15" />
-      </radialGradient>
-      <linearGradient id="om-night">
-        <stop offset="0" stop-color="#fff" stop-opacity="0.45" />
-        <stop offset="0.5" stop-color="#fff" stop-opacity="0" />
-        <stop offset="0.6" stop-color="#000" stop-opacity="0" />
-        <stop offset="1" stop-color="#000" stop-opacity="0.25" />
-      </linearGradient>
-    </defs>
-    <g data-om="scale"></g>
-    <g data-om="orbits"></g>
-    <g data-om="belt"></g>
-    <g data-om="tails"></g>
-    <g data-om="sights"></g>
-    <g data-om="bodies"></g>
-  </svg>
+  <div class="om-stage">
+    <svg class="om-svg" viewBox="-100 -100 200 200" role="img" aria-label="Planet positions seen from above the solar system">
+      <defs>
+        <filter id="om-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="0.9" result="b" />
+          <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+        <clipPath id="om-disc-clip"><circle r="1" /></clipPath>
+        <!-- Jupiter, classic side view: grey poles, cream zones, the rust North and South Equatorial Belts. -->
+        <linearGradient id="om-jupiter-bands" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#b9b0a0" />
+          <stop offset="0.15" stop-color="#c9b79a" />
+          <stop offset="0.25" stop-color="#ead9bb" />
+          <stop offset="0.32" stop-color="#dcb08a" />
+          <stop offset="0.37" stop-color="#eedfc2" />
+          <stop offset="0.43" stop-color="#c27a45" />
+          <stop offset="0.48" stop-color="#cf8a52" />
+          <stop offset="0.52" stop-color="#f1e4cc" />
+          <stop offset="0.58" stop-color="#f0e2c8" />
+          <stop offset="0.63" stop-color="#c98450" />
+          <stop offset="0.68" stop-color="#d39a68" />
+          <stop offset="0.73" stop-color="#ecdcc0" />
+          <stop offset="0.82" stop-color="#d8b994" />
+          <stop offset="0.9" stop-color="#c8b9a2" />
+          <stop offset="1" stop-color="#b5ab9a" />
+        </linearGradient>
+        <!-- Saturn: smooth butterscotch with barely-there bands. -->
+        <linearGradient id="om-saturn-bands" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#cdbf9c" />
+          <stop offset="0.2" stop-color="#e2d3ac" />
+          <stop offset="0.4" stop-color="#ebdebb" />
+          <stop offset="0.5" stop-color="#eee2c2" />
+          <stop offset="0.6" stop-color="#e6d7b1" />
+          <stop offset="0.78" stop-color="#dccba3" />
+          <stop offset="1" stop-color="#c8b996" />
+        </linearGradient>
+        <radialGradient id="om-limb">
+          <stop offset="0.55" stop-color="#000" stop-opacity="0" />
+          <stop offset="1" stop-color="#000" stop-opacity="0.15" />
+        </radialGradient>
+        <linearGradient id="om-night">
+          <stop offset="0" stop-color="#fff" stop-opacity="0.45" />
+          <stop offset="0.5" stop-color="#fff" stop-opacity="0" />
+          <stop offset="0.6" stop-color="#000" stop-opacity="0" />
+          <stop offset="1" stop-color="#000" stop-opacity="0.25" />
+        </linearGradient>
+      </defs>
+      <g data-om="scale"></g>
+      <g data-om="orbits"></g>
+      <g data-om="belt"></g>
+      <g data-om="tails"></g>
+      <g data-om="sights"></g>
+      <g data-om="bodies"></g>
+    </svg>
+    {compact && (
+      <button class="om-play" data-om="play-live" type="button" aria-pressed="false" aria-label="Play: two days per second">
+        <span aria-hidden="true">▶︎</span> Play
+      </button>
+    )}
+  </div>
 
   {!compact && (
   <div class="om-controls">
@@ -105,12 +112,19 @@ const { compact = false } = Astro.props;
 <style is:global>
   .orbit-map { margin: 0; }
   .om-date { text-align: center; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
-  .om-svg { display: block; width: 100%; max-width: 640px; margin: 8px auto; aspect-ratio: 1; }
+  .om-stage { position: relative; max-width: 640px; margin: 8px auto; }
+  .om-svg { display: block; width: 100%; aspect-ratio: 1; }
   .om-controls { display: grid; gap: 10px; max-width: 640px; margin: 0 auto; color: var(--text-secondary); font-size: 14px; }
   .om-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
   .om-row input[type='range'] { flex: 1; min-width: 200px; }
   .om-row button, .om-row select { font: inherit; background: var(--card); color: var(--text-primary); border: 1px solid var(--rule); border-radius: 6px; padding: 4px 10px; }
-  .om-compact .om-svg { max-width: 520px; margin: 4px auto 0; }
+  .om-compact .om-stage { max-width: 520px; margin: 4px auto 0; }
+  .om-play {
+    position: absolute; right: 4px; bottom: 4px; display: flex; align-items: center; gap: 6px;
+    font: 500 12px 'Jost', sans-serif; color: var(--starlight); background: var(--card);
+    border: 1px solid var(--rule); border-radius: 999px; padding: 4px 12px; cursor: pointer;
+  }
+  .om-play span { font-size: 10px; }
   .om-note { max-width: 640px; margin: 16px auto 0; color: var(--text-muted); font-size: 13px; }
   .om-orbit { fill: none; stroke: var(--rule); stroke-width: 0.25; }
   .om-scale-ring { fill: none; stroke: var(--grid); stroke-width: 0.2; stroke-dasharray: 0.6 1; }
@@ -119,7 +133,7 @@ const { compact = false } = Astro.props;
   .om-rocks { fill: none; stroke: var(--text-muted); stroke-linecap: round; stroke-width: 0.42; opacity: 0.55; }
   .om-rocks.trojan { stroke: var(--planet-jupiter); opacity: 0.4; }
   .om-sight { stroke: var(--starlight); stroke-width: 0.25; stroke-dasharray: 0.8 0.8; opacity: 0.55; }
-  .om-glyph { font-size: var(--om-label, 3.6px); font-family: 'Noto Sans Symbols', system-ui, sans-serif; dominant-baseline: central; }
+  .om-glyph { text-rendering: geometricPrecision; font-size: var(--om-label, 3.6px); font-family: 'Noto Sans Symbols', system-ui, sans-serif; dominant-baseline: central; }
 </style>
 
 <script>
@@ -178,6 +192,7 @@ const { compact = false } = Astro.props;
 
     // Distance rings and one full orbit per planet (the true, eccentric path).
     function drawStatic() {
+      rocksAt = -Infinity;
       const scaleG = q('scale'), orbitsG = q('orbits');
       scaleG.replaceChildren();
       orbitsG.replaceChildren();
@@ -212,21 +227,11 @@ const { compact = false } = Astro.props;
       const d = position(b, t + DAY / 2).lon - position(b, t - DAY / 2).lon;
       return ((((d * 180) / Math.PI) % 360) + 360) % 360;
     };
-    function drawTail(b: Body, t: number, parent: Element) {
+    function tailPoints(b: Body, t: number) {
       const w = angularSpeed(b, t);
       const span = ((60 * (w / REF_SPEED) ** 0.4) / w) * DAY;
       const N = 32;
-      const pts = Array.from({ length: N + 1 }, (_, i) => at(b, t - (i / N) * span));
-      const id = `om-tail-${b}`;
-      const grad = el('linearGradient', {
-        id, gradientUnits: 'userSpaceOnUse', x1: pts[0][0], y1: pts[0][1], x2: pts[N][0], y2: pts[N][1],
-      }, parent);
-      el('stop', { offset: 0, 'stop-color': colour(b), 'stop-opacity': 0.8 }, grad);
-      el('stop', { offset: 1, 'stop-color': colour(b), 'stop-opacity': 0 }, grad);
-      el('path', {
-        d: `M${pts.map((p) => p.map((v) => v.toFixed(2)).join(' ')).join('L')}`,
-        fill: 'none', stroke: `url(#${id})`, 'stroke-width': 0.5, 'stroke-linecap': 'round',
-      }, parent);
+      return Array.from({ length: N + 1 }, (_, i) => at(b, t - (i / N) * span));
     }
 
     // Faces use the classic side-on look people recognise (like the blue-marble Earth). Unit-disc coordinates.
@@ -290,40 +295,83 @@ const { compact = false } = Astro.props;
       }
     }
 
-    function draw() {
-      const t = ($focus.get() ?? now) + offsetDays * DAY;
-      const dateEl = root.querySelector('[data-om-date]');
-      if (dateEl) dateEl.textContent =
-        new Date(t).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+    // Planets are built once and then only moved: rebuilding ~190 elements every frame made playback judder.
+    interface Parts { disc: Element; shade: Element; label: Element; title: Element; tail: Element; grad: Element; sight: Element }
+    let parts: Record<Body, Parts> | null = null;
+    // Labels sit on whole device pixels, so text moves in clean 1px steps instead of being re-rounded every frame.
+    const mapSvg = root.querySelector<SVGSVGElement>('.om-svg')!;
+    const snap = (v: number) => {
+      const unitsPerPx = 200 / ((mapSvg.clientWidth || 200) * (window.devicePixelRatio || 1));
+      return (Math.round(v / unitsPerPx) * unitsPerPx).toFixed(3);
+    };
+    const set = (e: Element, attrs: Record<string, string | number>) => {
+      for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, String(v));
+    };
+    const fixed = (n: number) => n.toFixed(2);
+    function buildBodies() {
       const tailsG = q('tails'), bodiesG = q('bodies'), sightsG = q('sights');
       tailsG.replaceChildren();
       bodiesG.replaceChildren();
       sightsG.replaceChildren();
-      drawAsteroids(t);
       el('circle', { class: 'om-sun', r: size('Sun') }, bodiesG);
-      const earth = at('Earth', t);
-
+      parts = {} as Record<Body, Parts>;
       for (const b of BODIES) {
-        drawTail(b, t, tailsG);
-        const p = position(b, t);
-        const [x, y] = toXY(p.lon, p.r);
-        const r = size(b);
-        const retroNow = isRetro(b, t);
-        if (retroNow) el('line', { class: 'om-sight', x1: earth[0], y1: earth[1], x2: x, y2: y }, sightsG);
+        const id = `om-tail-${b}`;
+        const grad = el('linearGradient', { id, gradientUnits: 'userSpaceOnUse' }, tailsG);
+        el('stop', { offset: 0, 'stop-color': colour(b), 'stop-opacity': 0.8 }, grad);
+        el('stop', { offset: 1, 'stop-color': colour(b), 'stop-opacity': 0 }, grad);
+        const tail = el('path', { fill: 'none', stroke: `url(#${id})`, 'stroke-width': 0.5, 'stroke-linecap': 'round' }, tailsG);
+        const sight = el('line', { class: 'om-sight', visibility: 'hidden' }, sightsG);
         const g = el('g', {}, bodiesG);
         // Disc drawn in unit coordinates: base colour, surface detail, shading, then rings on top.
-        const disc = el('g', { transform: `translate(${x} ${y}) scale(${r})` }, g);
+        const disc = el('g', {}, g);
         drawRings(b, disc, 'back');
         el('circle', { r: 1, fill: colour(b) }, disc);
         const surface = el('g', { 'clip-path': 'url(#om-disc-clip)' }, disc);
         drawSurface(b, surface);
         el('circle', { r: 1, fill: 'url(#om-limb)' }, disc);
-        // Sunlit highlight toward the Sun, shade on the far side: rotate so the dark end points away from it.
-        el('circle', { r: 1, fill: 'url(#om-night)', transform: `rotate(${(Math.atan2(y, x) * 180) / Math.PI})` }, disc);
+        // Sunlit highlight toward the Sun, shade on the far side (rotated in draw so the dark end points away).
+        const shade = el('circle', { r: 1, fill: 'url(#om-night)' }, disc);
         drawRings(b, disc, 'front');
-        const lab = el('text', { class: 'om-glyph', x: x + r * ringExtent(b) + 1, y, fill: colour(b) }, g);
-        lab.textContent = glyph(b);
-        el('title', {}, g).textContent =
+        const label = el('text', { class: 'om-glyph', fill: colour(b) }, g);
+        label.textContent = glyph(b);
+        const title = el('title', {}, g);
+        parts[b] = { disc, shade, label, title, tail, grad, sight };
+      }
+    }
+
+    // Asteroids move under 0.6° a day, so during playback they only need redrawing a few times a second.
+    let rocksAt = -Infinity;
+    function draw() {
+      const t = ($focus.get() ?? now) + offsetDays * DAY;
+      const dateEl = root.querySelector('[data-om-date]');
+      if (dateEl) dateEl.textContent =
+        new Date(t).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+      if (!parts) buildBodies();
+      if (Math.abs(t - rocksAt) >= DAY / 4) {
+        drawAsteroids(t);
+        rocksAt = t;
+      }
+      const earth = at('Earth', t);
+
+      for (const b of BODIES) {
+        const { disc, shade, label, title, tail, grad, sight } = parts![b];
+        const pts = tailPoints(b, t);
+        const end = pts[pts.length - 1];
+        set(grad, { x1: fixed(pts[0][0]), y1: fixed(pts[0][1]), x2: fixed(end[0]), y2: fixed(end[1]) });
+        tail.setAttribute('d', `M${pts.map((p) => p.map(fixed).join(' ')).join('L')}`);
+
+        const p = position(b, t);
+        const [x, y] = toXY(p.lon, p.r);
+        const r = size(b);
+        disc.setAttribute('transform', `translate(${fixed(x)} ${fixed(y)}) scale(${r})`);
+        shade.setAttribute('transform', `rotate(${((Math.atan2(y, x) * 180) / Math.PI).toFixed(1)})`);
+        set(label, { x: snap(x + r * ringExtent(b) + 1), y: snap(y) });
+
+        const retroNow = isRetro(b, t);
+        if (retroNow) set(sight, { x1: fixed(earth[0]), y1: fixed(earth[1]), x2: fixed(x), y2: fixed(y), visibility: 'visible' });
+        else sight.setAttribute('visibility', 'hidden');
+        title.textContent =
           `${b}: ${p.r.toFixed(2)} AU from the Sun, ${speedKms(b, p.r).toFixed(1)} km/s${retroNow ? ', retrograde from Earth' : ''}`;
       }
     }
@@ -336,6 +384,43 @@ const { compact = false } = Astro.props;
     }).observe(svg);
 
     if (!compact) setupControls();
+    else setupPlayback();
+
+    // ▶ Play: moves the shared focus date forward two days per second, so the map, the months chart and the
+    // years window all follow. Stops by itself where the years chart ends (5 years ahead, minus half the
+    // months window).
+    function setupPlayback() {
+      const btn = q<HTMLButtonElement>('play-live');
+      const icon = btn.querySelector('span')!;
+      const LAST = (60 - 4) * 30.44 * DAY;
+      const DAYS_PER_SECOND = 2;
+      let frame = 0, last = 0;
+      const show = (playing: boolean) => {
+        icon.textContent = playing ? '⏸\uFE0E' : '▶\uFE0E';
+        btn.lastChild!.textContent = playing ? ' Pause' : ' Play';
+        btn.setAttribute('aria-pressed', String(playing));
+        btn.setAttribute('aria-label', playing ? 'Pause' : 'Play: two days per second');
+      };
+      const stop = () => {
+        cancelAnimationFrame(frame);
+        frame = 0;
+        show(false);
+      };
+      const step = (ts: number) => {
+        const dt = last ? ts - last : 0;
+        last = ts;
+        const next = ($focus.get() ?? now) + (dt / 1000) * DAYS_PER_SECOND * DAY;
+        if (next > now + LAST) return stop();
+        $focus.set(next);
+        frame = requestAnimationFrame(step);
+      };
+      btn.addEventListener('click', () => {
+        if (frame) return stop();
+        last = 0;
+        show(true);
+        frame = requestAnimationFrame(step);
+      });
+    }
     function setupControls() {
       const scrub = q<HTMLInputElement>('scrub');
       const setOffset = (d: number) => {

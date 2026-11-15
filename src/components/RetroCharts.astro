@@ -126,9 +126,11 @@ const rows = PLANETS.map((planet) => ({
   import { fmtDate, nextText, nowText } from '../lib/dates';
 
   const DAY = 86_400_000;
+  // Keeps the time of day, so the months window glides with playback instead of snapping to midnight.
   const addMonths = (t: number, n: number) => {
     const d = new Date(t);
-    return Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + n, d.getUTCDate());
+    const midnight = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+    return Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + n, d.getUTCDate()) + (t - midnight);
   };
   const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -140,10 +142,17 @@ const rows = PLANETS.map((planet) => ({
   const monthsStyle = { ...style, left: 0 };
 
   const MONTHS_EACH_SIDE = 4;
-  const monthsWindow = (center: number): [number, number] => [
-    addMonths(center, -MONTHS_EACH_SIDE),
-    addMonths(center, MONTHS_EACH_SIDE),
-  ];
+  // A fixed-length window (not calendar months, whose lengths vary and made it jump back at month ends),
+  // centred on a whole device pixel: while it slides, each frame moves it 0 or exactly 1 pixel, so lines
+  // and glyphs stay crisp instead of shimmering. The months chart runs edge to edge, so its plot width is
+  // the container width.
+  const HALF_WINDOW = MONTHS_EACH_SIDE * 30.44 * DAY;
+  const monthsWindow = (center: number): [number, number] => {
+    const px = Math.max(320, monthsEl.clientWidth) * (window.devicePixelRatio || 1);
+    const step = (2 * HALF_WINDOW) / px; // ms per device pixel
+    const c = Math.round(center / step) * step;
+    return [c - HALF_WINDOW, c + HALF_WINDOW];
+  };
   let years: ReturnType<typeof renderChart> | null = null;
 
   function drawYears() {
@@ -158,7 +167,7 @@ const rows = PLANETS.map((planet) => ({
       onWindowMove: (center) => {
         // Keep the whole window inside the years chart.
         const [from, to] = years!.domain;
-        const half = (MONTHS_EACH_SIDE * 30.44 * DAY);
+        const half = HALF_WINDOW;
         $focus.set(Math.min(Math.max(center, from + half), to - half));
       },
       hoverFormat: (d) => d.toLocaleDateString(undefined, { month: 'long', year: 'numeric', timeZone: 'UTC' }),
