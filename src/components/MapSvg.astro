@@ -4,7 +4,7 @@
 // in time, finding its parts by their data-om attributes.
 import { BODIES, type Body } from '../lib/orbits';
 import {
-  EARTH_SEA, SCALE_RINGS, SURFACE, asteroidPaths, bodyFrame, glyph, orbitPath, ringShapes, sightLine, size,
+  EARTH_SEA, SURFACE, asteroidPaths, bodyFrame, glyph, orbitPath, ringShapes, scaleRings, sightLine, size,
 } from '../lib/orbit-map';
 
 interface Props {
@@ -61,6 +61,11 @@ const bodies = BODIES.map((b) => ({ b, colour: colour(b), f: bodyFrame(b, t, pla
       <stop offset="0.55" stop-color="#000" stop-opacity="0" />
       <stop offset="1" stop-color="#000" stop-opacity="0.15" />
     </radialGradient>
+    <radialGradient id="om-halo">
+      <stop offset="0" stop-color="#fff8e6" stop-opacity="0.9" />
+      <stop offset="0.25" stop-color="#fff8e6" stop-opacity="0.35" />
+      <stop offset="1" stop-color="#fff8e6" stop-opacity="0" />
+    </radialGradient>
     <linearGradient id="om-night">
       <stop offset="0" stop-color="#fff" stop-opacity="0.45" />
       <stop offset="0.5" stop-color="#fff" stop-opacity="0" />
@@ -71,14 +76,14 @@ const bodies = BODIES.map((b) => ({ b, colour: colour(b), f: bodyFrame(b, t, pla
   <slot />
 
   <!-- Distance rings (1, 5, 10, 20, 30 AU) and one full orbit per planet (the true, eccentric path). -->
-  <g>{SCALE_RINGS.map((r) => <circle class="om-scale-ring" r={r.toFixed(2)} />)}</g>
-  <g>{BODIES.map((b) => <path class="om-orbit" d={orbitPath(b, t)} />)}</g>
+  <g>{scaleRings().map((r) => <circle class="om-scale-ring" data-om="ring" r={r.toFixed(2)} />)}</g>
+  <g>{BODIES.map((b) => <path class="om-orbit" data-om-orbit={b} d={orbitPath(b, t)} />)}</g>
 
   <path class="om-rocks" data-om="rocks" d={rocks} />
   <path class="om-rocks trojan" data-om="trojans" d={trojans} />
 
   <!-- Tails: a line back along the orbit, fading out. -->
-  <g>
+  <g class="om-tails">
     {bodies.map(({ b, colour, f }) => (
       <>
         <linearGradient id={`om-tail-${b}`} data-om-grad={b} gradientUnits="userSpaceOnUse" {...f.grad}>
@@ -94,7 +99,9 @@ const bodies = BODIES.map((b) => ({ b, colour: colour(b), f: bodyFrame(b, t, pla
 
   <!-- Planet discs in unit coordinates: far half of the rings, base colour, surface detail, limb darkening, the
        shade (sunlit toward the Sun, dark on the far side), then the near half of the rings. -->
-  <circle class="om-sun" r={size('Sun') * sunScale} />
+  <!-- The Sun's halo only shows at true scale (OrbitMap's scale button), where the Sun is a single pixel. -->
+  <circle class="om-halo" data-om="halo" r="0" opacity="0" fill="url(#om-halo)" />
+  <circle class="om-sun" data-om="sun" r={size('Sun') * sunScale} />
   {bodies.map(({ b, colour, f }) => (
     <g data-om-body={b}>
       <g data-om="disc" transform={f.disc}>

@@ -9,6 +9,9 @@ import MapSvg from './MapSvg.astro';
 <figure class="orbit-map">
   <div class="om-stage">
     <MapSvg class="om-svg" t={Date.now()} role="img" aria-label="Planet positions seen from above the solar system" />
+    <div class="om-actions om-left">
+      <button class="om-play" data-om="true-scale" type="button" aria-pressed="false" title="Switch to true distances and sizes" aria-label="Scale: logarithmic. Switch to true scale">Log scale</button>
+    </div>
     <div class="om-actions">
       <button class="help-btn" type="button" popovertarget="help-orbits" aria-label="How to read this map">?</button>
       <button class="om-play" data-om="speed" type="button" title="2 days per second" aria-label="Speed: 2 days per second">×172.8k</button>
@@ -60,6 +63,9 @@ import MapSvg from './MapSvg.astro';
   .om-actions { position: absolute; right: 4px; bottom: 4px; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
   /* The ? stays 22px like the others; the pills are 2px taller so they look the same size beside it. */
   .om-actions .help-btn { margin: 0; }
+  .om-actions.om-left { right: auto; left: 4px; align-items: flex-start; }
+  .om-play[aria-pressed='true'] { border-color: var(--text-muted); }
+
   /* Both pills share one width with room for "Pause" and "×172.8k", so toggling or cycling never resizes them
      and the column keeps a straight edge. */
   .om-play {
@@ -71,15 +77,25 @@ import MapSvg from './MapSvg.astro';
   .om-orbit { fill: none; stroke: var(--rule); stroke-width: 0.25; }
   .om-scale-ring { fill: none; stroke: var(--grid); stroke-width: 0.2; stroke-dasharray: 0.6 1; }
   .om-sun { fill: var(--starlight); filter: url(#om-glow); }
-  .om-rocks { fill: none; stroke: var(--text-muted); stroke-linecap: round; stroke-width: 0.42; opacity: 0.55; }
-  .om-rocks.trojan { stroke: var(--planet-jupiter); opacity: 0.4; }
+  /* At true scale the Sun is one pixel, and a glow that size only dims it. */
+  .om-sun.om-speck { filter: none; }
+  /* Tails and asteroids fade out at true scale (--om-fade goes 1 → 0): a tail drawn a pixel wide would make
+     each planet look far bigger than it is, and real asteroids are smaller still. */
+  .om-tails { opacity: var(--om-fade, 1); }
+  .om-rocks { opacity: calc(0.55 * var(--om-fade, 1)); }
+  .om-rocks.trojan { opacity: calc(0.4 * var(--om-fade, 1)); }
+  .om-halo { pointer-events: none; }
+  .om-rocks { fill: none; stroke: var(--text-muted); stroke-linecap: round; stroke-width: 0.42; }
+  .om-rocks.trojan { stroke: var(--planet-jupiter); }
   .om-sight { stroke: var(--starlight); stroke-width: 0.25; stroke-dasharray: 0.8 0.8; opacity: 0.55; }
   .om-glyph { text-rendering: geometricPrecision; font-size: var(--om-label, 3.6px); font-family: 'Noto Sans Symbols', system-ui, sans-serif; dominant-baseline: central; }
 </style>
 
 <script>
   import { BODIES, type Body } from '../lib/orbits';
-  import { asteroidPaths, bodyFrame, sightLine } from '../lib/orbit-map';
+  import {
+    asteroidPaths, blendSize, bodyFrame, orbitPath, scaleRings, setTrueScale, sightLine, trueSize,
+  } from '../lib/orbit-map';
   import { $focus, $today } from '../lib/store';
 
   // MapSvg rendered the map at build time; this moves its parts to the focused date. Elements are only updated,
@@ -92,6 +108,9 @@ import MapSvg from './MapSvg.astro';
       for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, String(v));
     };
     const rocksEl = one('[data-om="rocks"]'), trojansEl = one('[data-om="trojans"]');
+    const sunEl = one('[data-om="sun"]'), haloEl = one('[data-om="halo"]');
+    const rings = root.querySelectorAll('[data-om="ring"]');
+    const orbits = BODIES.map((b) => [b, one(`[data-om-orbit="${b}"]`)] as const);
     const parts = Object.fromEntries(
       BODIES.map((b) => {
         const body = one(`[data-om-body="${b}"]`);
@@ -106,18 +125,34 @@ import MapSvg from './MapSvg.astro';
     // Labels sit on whole device pixels, so text moves in clean 1px steps instead of being re-rounded every frame.
     const mapSvg = root.querySelector<SVGSVGElement>('.om-svg')!;
     let mapWidth = mapSvg.clientWidth; // kept current by the ResizeObserver below
-    const snap = (v: number) => {
-      const unitsPerPx = 200 / ((mapWidth || 200) * (window.devicePixelRatio || 1));
-      return (Math.round(v / unitsPerPx) * unitsPerPx).toFixed(3);
-    };
+    const unitsPerPx = () => 200 / ((mapWidth || 200) * (window.devicePixelRatio || 1));
+    const snap = (v: number) => (Math.round(v / unitsPerPx()) * unitsPerPx()).toFixed(3);
 
     let now = $today.get().getTime();
 
     // Asteroids move under 0.6° a day, so during playback they only need redrawing a few times a second.
     let rocksAt = -Infinity;
+    // 0 = the log map, 1 = true scale; the scale button animates between them. Orbits, rings and the Sun only
+    // change with the scale, so they're redrawn only when it has moved since the last frame.
+    let mix = 0, drawnMix = 0;
     function draw() {
       const t = $focus.get() ?? now;
-      if (Math.abs(t - rocksAt) >= DAY / 4) {
+      const rescaled = mix !== drawnMix;
+      if (rescaled) {
+        setTrueScale(mix);
+        drawnMix = mix;
+        for (const [b, el] of orbits) el.setAttribute('d', orbitPath(b, t));
+        scaleRings().forEach((r, i) => rings[i]?.setAttribute('r', r.toFixed(2)));
+        // The Sun's true size is under a pixel, so it ends as a one-pixel speck with a small halo. Both are
+        // sized in map units, so pinch-zoom makes them bigger like everything else.
+        const cssPx = 200 / (mapWidth || 200);
+        sunEl.setAttribute('r', blendSize(5, Math.max(trueSize('Sun'), cssPx / 2)).toFixed(4));
+        sunEl.classList.toggle('om-speck', mix === 1);
+        haloEl.setAttribute('r', (4 * cssPx).toFixed(3));
+        haloEl.setAttribute('opacity', mix.toFixed(3));
+        mapSvg.style.setProperty('--om-fade', (1 - mix).toFixed(3));
+      }
+      if (rescaled || Math.abs(t - rocksAt) >= DAY / 4) {
         const { rocks, trojans } = asteroidPaths(t);
         rocksEl.setAttribute('d', rocks);
         trojansEl.setAttribute('d', trojans);
@@ -144,6 +179,34 @@ import MapSvg from './MapSvg.astro';
     }).observe(mapSvg);
 
     setupPlayback();
+    setupTrueScale();
+
+    // The scale button swaps the log map for true distances and sizes, shrinking everything over about a second.
+    function setupTrueScale() {
+      const btn = root.querySelector<HTMLButtonElement>('[data-om="true-scale"]')!;
+      const DURATION = 1400;
+      let anim = 0;
+      btn.addEventListener('click', () => {
+        const on = btn.getAttribute('aria-pressed') !== 'true';
+        btn.setAttribute('aria-pressed', String(on));
+        // The label names the scale on show (so a screenshot explains itself); the title says what a click does.
+        btn.textContent = on ? 'True scale' : 'Log scale';
+        btn.title = on ? 'Switch to the logarithmic scale' : 'Switch to true distances and sizes';
+        btn.setAttribute('aria-label', on ? 'Scale: true. Switch to logarithmic' : 'Scale: logarithmic. Switch to true scale');
+        const from = mix, to = on ? 1 : 0;
+        const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const start = performance.now();
+        cancelAnimationFrame(anim);
+        const step = (ts: number) => {
+          const k = reduced ? 1 : Math.min(1, (ts - start) / DURATION);
+          const ease = k < 0.5 ? 2 * k * k : 1 - (-2 * k + 2) ** 2 / 2;
+          mix = from + (to - from) * ease;
+          draw();
+          if (k < 1) anim = requestAnimationFrame(step);
+        };
+        anim = requestAnimationFrame(step);
+      });
+    }
 
     // ▶ Play: moves the shared focus date forward at the chosen speed (two days per second to start), so
     // the map, the months chart and the years window all follow. Stops by itself where the years chart ends

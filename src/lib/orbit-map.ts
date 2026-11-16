@@ -24,8 +24,21 @@ const RADIUS_KM: Record<Body | 'Sun', number> = {
   Jupiter: 69_911, Saturn: 58_232, Uranus: 25_362, Neptune: 24_622,
 };
 const MIN_SIZE = 0.7, SUN_SIZE = 5;
-export const size = (b: Body | 'Sun') =>
+const drawnSize = (b: Body | 'Sun') =>
   MIN_SIZE + ((SUN_SIZE - MIN_SIZE) * Math.log(RADIUS_KM[b] / RADIUS_KM.Mercury)) / Math.log(RADIUS_KM.Sun / RADIUS_KM.Mercury);
+
+// True scale (the map’s scale button): distances linear in AU, with Neptune's orbit where the log scale puts it,
+// and bodies at their real size on that same scale, which makes them specks far below a pixel.
+// `trueScale` runs 0 (the usual log map) to 1 (true scale); in between is the animation from one to the other.
+const AU_KM = 149_597_871;
+const UNITS_PER_AU = 92 / 30.5;
+let trueScale = 0;
+export const setTrueScale = (mix: number) => { trueScale = mix; };
+/** A body's true radius in map units at true scale. */
+export const trueSize = (b: Body | 'Sun') => (RADIUS_KM[b] / AU_KM) * UNITS_PER_AU;
+/** Log-blend from `from` to `to`, so a shrink by ×10,000 reads as steady rather than over in the first frame. */
+export const blendSize = (from: number, to: number) => from * (to / from) ** trueScale;
+export const size = (b: Body | 'Sun') => blendSize(drawnSize(b), trueSize(b));
 
 export const EARTH_SEA = '#2f74e0';
 const EARTH_LAND = '#3fae5a';
@@ -34,7 +47,8 @@ export const isRetro = (b: Body, t: number) => b !== 'Earth' && !!activeAt(b as 
 
 // Distance: AU -> map units on a log scale that starts just outside the Sun's disc.
 const MIN_AU = 0.3, MAX_AU = 30.5, R_IN = 9, R_OUT = 92;
-export const scale = (d: number) => R_IN + ((R_OUT - R_IN) * Math.log(d / MIN_AU)) / Math.log(MAX_AU / MIN_AU);
+const logScale = (d: number) => R_IN + ((R_OUT - R_IN) * Math.log(d / MIN_AU)) / Math.log(MAX_AU / MIN_AU);
+export const scale = (d: number) => (1 - trueScale) * logScale(d) + trueScale * d * UNITS_PER_AU;
 
 export const toXY = (lon: number, r: number): [number, number] => {
   const R = scale(r);
@@ -46,7 +60,7 @@ export const at = (b: Body, t: number) => {
 };
 
 /** Distance rings (1, 5, 10, 20, 30 AU), as radii. */
-export const SCALE_RINGS = [1, 5, 10, 20, 30].map(scale);
+export const scaleRings = () => [1, 5, 10, 20, 30].map(scale);
 
 /** One full orbit (the true, eccentric path), starting at time t. */
 export function orbitPath(b: Body, t: number): string {
