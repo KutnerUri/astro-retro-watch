@@ -6,10 +6,16 @@ const enabled = GOATCOUNTER_CODE && import.meta.env.PROD;
 ---
 
 {enabled && (
-  <script
-    is:inline
-    data-goatcounter={`https://${GOATCOUNTER_CODE}.goatcounter.com/count`}
-    async
-    src="//gc.zgo.at/count.js"
-  ></script>
+  <Fragment>
+    {/* Prefix paths with the hostname so one GoatCounter site can track several domains. */}
+    <script is:inline>
+      window.goatcounter = { path: (p) => location.hostname + p };
+    </script>
+    <script
+      is:inline
+      data-goatcounter={`https://${GOATCOUNTER_CODE}.goatcounter.com/count`}
+      async
+      src="https://gc.zgo.at/count.js"
+    ></script>
+  </Fragment>
 )}
