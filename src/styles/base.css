@@ -78,6 +78,8 @@ button, [role='button'], summary { user-select: none; -webkit-user-select: none;
 }
 
 /* ---------- Charts ---------- */
+/* The line under a chart's heading. */
+.chart-sub { margin: 0 0 6px; text-align: start; font-size: 14px; color: var(--text-secondary); }
 /* Charts bleed through main's 6px gutter to the screen edges. */
 .chart { position: relative; margin: 0 -6px; }
 .chart svg { display: block; font-size: 11px; touch-action: pan-y; user-select: none; -webkit-user-select: none; }

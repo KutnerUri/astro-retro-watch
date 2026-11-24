@@ -8,10 +8,10 @@ Retro Watch charts the apparent retrograde periods of Mercury, Venus, Mars, Jupi
 Uranus and Neptune, with a "today" line through every chart:
 
 - **Orbit map:** the solar system seen from above, with every planet where it really is. It follows the
-  date you drag to on the year chart.
-- **By year:** an overlap curve spanning ten years around today. It rises when several planets are
+  date you drag to on the timeline.
+- **Timeline:** an overlap curve spanning ten years around today. It rises when several planets are
   retrograde at once. Under it is a timeline with one row per planet, labelled with its glyph. Tap a glyph to read about the planet.
-- **By month:** a year centred on today, with one wave for each planet's retrograde period.
+- **Selected period:** about four months either side of the date you pick (today by default), with one wave for each planet's retrograde period.
 - **Retrograde dates:** for each planet, whether it's retrograde now and when its next retrograde is.
 
 Retrograde dates are available from 1900 to 2100, and the data is published as
