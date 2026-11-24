@@ -1,0 +1,560 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Retrograde Tracker//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+NAME:Saturn retrograde
+X-WR-CALNAME:Saturn retrograde
+REFRESH-INTERVAL;VALUE=DURATION:P7D
+X-PUBLISHED-TTL:P7D
+BEGIN:VEVENT
+UID:saturn-202507-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20250713
+DTEND;VALUE=DATE:20250714
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Jul 13\, 2025 and continues all the
+  way to Nov 28\, 2025.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-202507-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20251128
+DTEND;VALUE=DATE:20251129
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Jul 13\, 2025 and continues all the
+  way to Nov 28\, 2025.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-202607-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20260726
+DTEND;VALUE=DATE:20260727
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Jul 26\, 2026 and continues all the
+  way to Dec 10\, 2026.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-202607-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20261210
+DTEND;VALUE=DATE:20261211
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Jul 26\, 2026 and continues all the
+  way to Dec 10\, 2026.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-202708-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270809
+DTEND;VALUE=DATE:20270810
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Aug 9\, 2027 and continues all the 
+ way to Dec 24\, 2027.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-202708-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20271224
+DTEND;VALUE=DATE:20271225
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Aug 9\, 2027 and continues all the 
+ way to Dec 24\, 2027.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-202808-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20280822
+DTEND;VALUE=DATE:20280823
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Aug 22\, 2028 and continues all the
+  way to Jan 5\, 2029.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-202808-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20290105
+DTEND;VALUE=DATE:20290106
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Aug 22\, 2028 and continues all the
+  way to Jan 5\, 2029.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-202909-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20290906
+DTEND;VALUE=DATE:20290907
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Sep 6\, 2029 and continues all the 
+ way to Jan 19\, 2030.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-202909-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20300119
+DTEND;VALUE=DATE:20300120
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Sep 6\, 2029 and continues all the 
+ way to Jan 19\, 2030.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203009-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20300920
+DTEND;VALUE=DATE:20300921
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Sep 20\, 2030 and continues all the
+  way to Feb 2\, 2031.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203009-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20310202
+DTEND;VALUE=DATE:20310203
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Sep 20\, 2030 and continues all the
+  way to Feb 2\, 2031.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203110-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20311005
+DTEND;VALUE=DATE:20311006
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Oct 5\, 2031 and continues all the 
+ way to Feb 16\, 2032.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203110-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20320216
+DTEND;VALUE=DATE:20320217
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Oct 5\, 2031 and continues all the 
+ way to Feb 16\, 2032.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203210-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20321018
+DTEND;VALUE=DATE:20321019
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Oct 18\, 2032 and continues all the
+  way to Mar 1\, 2033.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203210-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20330301
+DTEND;VALUE=DATE:20330302
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Oct 18\, 2032 and continues all the
+  way to Mar 1\, 2033.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203311-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20331102
+DTEND;VALUE=DATE:20331103
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Nov 2\, 2033 and continues all the 
+ way to Mar 16\, 2034.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203311-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20340316
+DTEND;VALUE=DATE:20340317
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Nov 2\, 2033 and continues all the 
+ way to Mar 16\, 2034.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203411-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20341116
+DTEND;VALUE=DATE:20341117
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Nov 16\, 2034 and continues all the
+  way to Mar 30\, 2035.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203411-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20350330
+DTEND;VALUE=DATE:20350331
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Nov 16\, 2034 and continues all the
+  way to Mar 30\, 2035.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203511-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20351130
+DTEND;VALUE=DATE:20351201
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Nov 30\, 2035 and continues all the
+  way to Apr 12\, 2036.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203511-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20360412
+DTEND;VALUE=DATE:20360413
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Nov 30\, 2035 and continues all the
+  way to Apr 12\, 2036.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203612-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20361213
+DTEND;VALUE=DATE:20361214
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Dec 13\, 2036 and continues all the
+  way to Apr 27\, 2037.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203612-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20370427
+DTEND;VALUE=DATE:20370428
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Dec 13\, 2036 and continues all the
+  way to Apr 27\, 2037.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203712-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20371226
+DTEND;VALUE=DATE:20371227
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Dec 26\, 2037 and continues all the
+  way to May 11\, 2038.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203712-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20380511
+DTEND;VALUE=DATE:20380512
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Dec 26\, 2037 and continues all the
+  way to May 11\, 2038.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203901-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20390108
+DTEND;VALUE=DATE:20390109
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Jan 8\, 2039 and continues all the 
+ way to May 25\, 2039.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-203901-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20390525
+DTEND;VALUE=DATE:20390526
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Jan 8\, 2039 and continues all the 
+ way to May 25\, 2039.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204001-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20400121
+DTEND;VALUE=DATE:20400122
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Jan 21\, 2040 and continues all the
+  way to Jun 6\, 2040.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204001-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20400606
+DTEND;VALUE=DATE:20400607
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Jan 21\, 2040 and continues all the
+  way to Jun 6\, 2040.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204102-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20410201
+DTEND;VALUE=DATE:20410202
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Feb 1\, 2041 and continues all the 
+ way to Jun 20\, 2041.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204102-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20410620
+DTEND;VALUE=DATE:20410621
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Feb 1\, 2041 and continues all the 
+ way to Jun 20\, 2041.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204202-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20420213
+DTEND;VALUE=DATE:20420214
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Feb 13\, 2042 and continues all the
+  way to Jul 2\, 2042.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204202-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20420702
+DTEND;VALUE=DATE:20420703
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Feb 13\, 2042 and continues all the
+  way to Jul 2\, 2042.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204302-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20430225
+DTEND;VALUE=DATE:20430226
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Feb 25\, 2043 and continues all the
+  way to Jul 15\, 2043.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204302-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20430715
+DTEND;VALUE=DATE:20430716
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Feb 25\, 2043 and continues all the
+  way to Jul 15\, 2043.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204403-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20440308
+DTEND;VALUE=DATE:20440309
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Mar 8\, 2044 and continues all the 
+ way to Jul 27\, 2044.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204403-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20440727
+DTEND;VALUE=DATE:20440728
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Mar 8\, 2044 and continues all the 
+ way to Jul 27\, 2044.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204503-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20450320
+DTEND;VALUE=DATE:20450321
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Mar 20\, 2045 and continues all the
+  way to Aug 8\, 2045.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204503-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20450808
+DTEND;VALUE=DATE:20450809
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Mar 20\, 2045 and continues all the
+  way to Aug 8\, 2045.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204604-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20460401
+DTEND;VALUE=DATE:20460402
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Apr 1\, 2046 and continues all the 
+ way to Aug 20\, 2046.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204604-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20460820
+DTEND;VALUE=DATE:20460821
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Apr 1\, 2046 and continues all the 
+ way to Aug 20\, 2046.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204704-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20470413
+DTEND;VALUE=DATE:20470414
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Apr 13\, 2047 and continues all the
+  way to Sep 1\, 2047.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204704-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20470901
+DTEND;VALUE=DATE:20470902
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Apr 13\, 2047 and continues all the
+  way to Sep 1\, 2047.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204804-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20480424
+DTEND;VALUE=DATE:20480425
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on Apr 24\, 2048 and continues all the
+  way to Sep 12\, 2048.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204804-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20480912
+DTEND;VALUE=DATE:20480913
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on Apr 24\, 2048 and continues all the
+  way to Sep 12\, 2048.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204905-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20490506
+DTEND;VALUE=DATE:20490507
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on May 6\, 2049 and continues all the 
+ way to Sep 24\, 2049.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-204905-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20490924
+DTEND;VALUE=DATE:20490925
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on May 6\, 2049 and continues all the 
+ way to Sep 24\, 2049.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-205005-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20500518
+DTEND;VALUE=DATE:20500519
+SUMMARY:♄ Saturn retrograde starts
+DESCRIPTION:Saturn retrograde starts on May 18\, 2050 and continues all the
+  way to Oct 6\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:saturn-205005-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20501006
+DTEND;VALUE=DATE:20501007
+SUMMARY:♄ Saturn retrograde ends
+DESCRIPTION:Saturn retrograde starts on May 18\, 2050 and continues all the
+  way to Oct 6\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

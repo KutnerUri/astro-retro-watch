@@ -1,5 +1,6 @@
 ---
 import Analytics from '../components/Analytics.astro';
+import CalendarCard from '../components/CalendarCard.astro';
 import RetroCharts from '../components/RetroCharts.astro';
 import OrbitMap from '../components/OrbitMap.astro';
 import Starfield from '../components/Starfield.astro';
@@ -109,6 +110,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [site, app, dataset
       <header class="masthead">
         <h1>{SITE_NAME}</h1>
         <p class="tagline">When the planets seem to walk backwards,<br /> and when they do it together.</p>
+        <button class="text-btn" type="button" popovertarget="calendar-card">Add to your calendar</button>
       </header>
 
       <section class="orbit-section">
@@ -116,6 +118,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [site, app, dataset
       </section>
 
       <RetroCharts />
+      <CalendarCard />
     </main>
   </body>
 </html>

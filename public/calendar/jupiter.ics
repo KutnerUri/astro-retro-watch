@@ -1,0 +1,560 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Retrograde Tracker//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+NAME:Jupiter retrograde
+X-WR-CALNAME:Jupiter retrograde
+REFRESH-INTERVAL;VALUE=DURATION:P7D
+X-PUBLISHED-TTL:P7D
+BEGIN:VEVENT
+UID:jupiter-202410-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20241009
+DTEND;VALUE=DATE:20241010
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Oct 9\, 2024 and continues all the
+  way to Feb 4\, 2025.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-202410-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20250204
+DTEND;VALUE=DATE:20250205
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Oct 9\, 2024 and continues all the
+  way to Feb 4\, 2025.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-202511-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20251111
+DTEND;VALUE=DATE:20251112
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Nov 11\, 2025 and continues all th
+ e way to Mar 11\, 2026.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-202511-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20260311
+DTEND;VALUE=DATE:20260312
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Nov 11\, 2025 and continues all th
+ e way to Mar 11\, 2026.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-202612-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Dec 13\, 2026 and continues all th
+ e way to Apr 13\, 2027.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-202612-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270413
+DTEND;VALUE=DATE:20270414
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Dec 13\, 2026 and continues all th
+ e way to Apr 13\, 2027.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-202801-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20280112
+DTEND;VALUE=DATE:20280113
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Jan 12\, 2028 and continues all th
+ e way to May 13\, 2028.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-202801-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20280513
+DTEND;VALUE=DATE:20280514
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Jan 12\, 2028 and continues all th
+ e way to May 13\, 2028.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-202902-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20290210
+DTEND;VALUE=DATE:20290211
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Feb 10\, 2029 and continues all th
+ e way to Jun 13\, 2029.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-202902-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20290613
+DTEND;VALUE=DATE:20290614
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Feb 10\, 2029 and continues all th
+ e way to Jun 13\, 2029.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203003-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20300313
+DTEND;VALUE=DATE:20300314
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Mar 13\, 2030 and continues all th
+ e way to Jul 15\, 2030.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203003-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20300715
+DTEND;VALUE=DATE:20300716
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Mar 13\, 2030 and continues all th
+ e way to Jul 15\, 2030.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203104-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20310415
+DTEND;VALUE=DATE:20310416
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Apr 15\, 2031 and continues all th
+ e way to Aug 16\, 2031.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203104-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20310816
+DTEND;VALUE=DATE:20310817
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Apr 15\, 2031 and continues all th
+ e way to Aug 16\, 2031.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203205-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20320519
+DTEND;VALUE=DATE:20320520
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on May 19\, 2032 and continues all th
+ e way to Sep 17\, 2032.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203205-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20320917
+DTEND;VALUE=DATE:20320918
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on May 19\, 2032 and continues all th
+ e way to Sep 17\, 2032.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203306-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20330625
+DTEND;VALUE=DATE:20330626
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Jun 25\, 2033 and continues all th
+ e way to Oct 23\, 2033.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203306-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20331023
+DTEND;VALUE=DATE:20331024
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Jun 25\, 2033 and continues all th
+ e way to Oct 23\, 2033.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203408-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20340803
+DTEND;VALUE=DATE:20340804
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Aug 3\, 2034 and continues all the
+  way to Nov 29\, 2034.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203408-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20341129
+DTEND;VALUE=DATE:20341130
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Aug 3\, 2034 and continues all the
+  way to Nov 29\, 2034.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203509-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20350909
+DTEND;VALUE=DATE:20350910
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Sep 9\, 2035 and continues all the
+  way to Jan 5\, 2036.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203509-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20360105
+DTEND;VALUE=DATE:20360106
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Sep 9\, 2035 and continues all the
+  way to Jan 5\, 2036.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203610-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20361014
+DTEND;VALUE=DATE:20361015
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Oct 14\, 2036 and continues all th
+ e way to Feb 9\, 2037.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203610-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20370209
+DTEND;VALUE=DATE:20370210
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Oct 14\, 2036 and continues all th
+ e way to Feb 9\, 2037.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203711-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20371116
+DTEND;VALUE=DATE:20371117
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Nov 16\, 2037 and continues all th
+ e way to Mar 15\, 2038.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203711-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20380315
+DTEND;VALUE=DATE:20380316
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Nov 16\, 2037 and continues all th
+ e way to Mar 15\, 2038.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203812-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20381217
+DTEND;VALUE=DATE:20381218
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Dec 17\, 2038 and continues all th
+ e way to Apr 17\, 2039.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-203812-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20390417
+DTEND;VALUE=DATE:20390418
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Dec 17\, 2038 and continues all th
+ e way to Apr 17\, 2039.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204001-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20400116
+DTEND;VALUE=DATE:20400117
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Jan 16\, 2040 and continues all th
+ e way to May 18\, 2040.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204001-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20400518
+DTEND;VALUE=DATE:20400519
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Jan 16\, 2040 and continues all th
+ e way to May 18\, 2040.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204102-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20410214
+DTEND;VALUE=DATE:20410215
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Feb 14\, 2041 and continues all th
+ e way to Jun 18\, 2041.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204102-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20410618
+DTEND;VALUE=DATE:20410619
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Feb 14\, 2041 and continues all th
+ e way to Jun 18\, 2041.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204203-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20420318
+DTEND;VALUE=DATE:20420319
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Mar 18\, 2042 and continues all th
+ e way to Jul 19\, 2042.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204203-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20420719
+DTEND;VALUE=DATE:20420720
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Mar 18\, 2042 and continues all th
+ e way to Jul 19\, 2042.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204304-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20430420
+DTEND;VALUE=DATE:20430421
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Apr 20\, 2043 and continues all th
+ e way to Aug 20\, 2043.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204304-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20430820
+DTEND;VALUE=DATE:20430821
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Apr 20\, 2043 and continues all th
+ e way to Aug 20\, 2043.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204405-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20440524
+DTEND;VALUE=DATE:20440525
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on May 24\, 2044 and continues all th
+ e way to Sep 22\, 2044.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204405-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20440922
+DTEND;VALUE=DATE:20440923
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on May 24\, 2044 and continues all th
+ e way to Sep 22\, 2044.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204507-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20450701
+DTEND;VALUE=DATE:20450702
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Jul 1\, 2045 and continues all the
+  way to Oct 28\, 2045.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204507-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20451028
+DTEND;VALUE=DATE:20451029
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Jul 1\, 2045 and continues all the
+  way to Oct 28\, 2045.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204608-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20460808
+DTEND;VALUE=DATE:20460809
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Aug 8\, 2046 and continues all the
+  way to Dec 4\, 2046.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204608-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20461204
+DTEND;VALUE=DATE:20461205
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Aug 8\, 2046 and continues all the
+  way to Dec 4\, 2046.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204709-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20470914
+DTEND;VALUE=DATE:20470915
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Sep 14\, 2047 and continues all th
+ e way to Jan 10\, 2048.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204709-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20480110
+DTEND;VALUE=DATE:20480111
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Sep 14\, 2047 and continues all th
+ e way to Jan 10\, 2048.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204810-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20481018
+DTEND;VALUE=DATE:20481019
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Oct 18\, 2048 and continues all th
+ e way to Feb 14\, 2049.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204810-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20490214
+DTEND;VALUE=DATE:20490215
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Oct 18\, 2048 and continues all th
+ e way to Feb 14\, 2049.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204911-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20491120
+DTEND;VALUE=DATE:20491121
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Nov 20\, 2049 and continues all th
+ e way to Mar 20\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-204911-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20500320
+DTEND;VALUE=DATE:20500321
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Nov 20\, 2049 and continues all th
+ e way to Mar 20\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-205012-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20501221
+DTEND;VALUE=DATE:20501222
+SUMMARY:♃ Jupiter retrograde starts
+DESCRIPTION:Jupiter retrograde starts on Dec 21\, 2050 and continues all th
+ e way to Apr 22\, 2051.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jupiter-205012-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20510422
+DTEND;VALUE=DATE:20510423
+SUMMARY:♃ Jupiter retrograde ends
+DESCRIPTION:Jupiter retrograde starts on Dec 21\, 2050 and continues all th
+ e way to Apr 22\, 2051.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

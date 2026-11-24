@@ -1,0 +1,197 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Retrograde Tracker//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+NAME:Venus retrograde
+X-WR-CALNAME:Venus retrograde
+REFRESH-INTERVAL;VALUE=DURATION:P7D
+X-PUBLISHED-TTL:P7D
+BEGIN:VEVENT
+UID:venus-202503-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20250302
+DTEND;VALUE=DATE:20250414
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Mar 2\, 2025 and continues all the w
+ ay to Apr 13\, 2025.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-202610-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261115
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Oct 3\, 2026 and continues all the w
+ ay to Nov 14\, 2026.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-202805-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20280510
+DTEND;VALUE=DATE:20280623
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on May 10\, 2028 and continues all the 
+ way to Jun 22\, 2028.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-202912-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20291216
+DTEND;VALUE=DATE:20300127
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Dec 16\, 2029 and continues all the 
+ way to Jan 26\, 2030.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-203107-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20310720
+DTEND;VALUE=DATE:20310902
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Jul 20\, 2031 and continues all the 
+ way to Sep 1\, 2031.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-203302-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20330227
+DTEND;VALUE=DATE:20330411
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Feb 27\, 2033 and continues all the 
+ way to Apr 10\, 2033.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-203409-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20340930
+DTEND;VALUE=DATE:20341112
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Sep 30\, 2034 and continues all the 
+ way to Nov 11\, 2034.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-203605-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20360508
+DTEND;VALUE=DATE:20360621
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on May 8\, 2036 and continues all the w
+ ay to Jun 20\, 2036.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-203712-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20371214
+DTEND;VALUE=DATE:20380125
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Dec 14\, 2037 and continues all the 
+ way to Jan 24\, 2038.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-203907-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20390718
+DTEND;VALUE=DATE:20390831
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Jul 18\, 2039 and continues all the 
+ way to Aug 30\, 2039.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-204102-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20410225
+DTEND;VALUE=DATE:20410409
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Feb 25\, 2041 and continues all the 
+ way to Apr 8\, 2041.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-204209-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20420928
+DTEND;VALUE=DATE:20421110
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Sep 28\, 2042 and continues all the 
+ way to Nov 9\, 2042.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-204405-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20440506
+DTEND;VALUE=DATE:20440619
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on May 6\, 2044 and continues all the w
+ ay to Jun 18\, 2044.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-204512-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20451212
+DTEND;VALUE=DATE:20460122
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Dec 12\, 2045 and continues all the 
+ way to Jan 21\, 2046.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-204707-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20470715
+DTEND;VALUE=DATE:20470829
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Jul 15\, 2047 and continues all the 
+ way to Aug 28\, 2047.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-204902-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20490222
+DTEND;VALUE=DATE:20490406
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Feb 22\, 2049 and continues all the 
+ way to Apr 5\, 2049.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-205009-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20500925
+DTEND;VALUE=DATE:20501107
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Sep 25\, 2050 and continues all the 
+ way to Nov 6\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

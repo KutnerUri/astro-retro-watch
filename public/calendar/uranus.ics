@@ -1,0 +1,604 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Retrograde Tracker//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+NAME:Uranus retrograde
+X-WR-CALNAME:Uranus retrograde
+REFRESH-INTERVAL;VALUE=DURATION:P7D
+X-PUBLISHED-TTL:P7D
+BEGIN:VEVENT
+UID:uranus-202409-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20240901
+DTEND;VALUE=DATE:20240902
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Sep 1\, 2024 and continues all the 
+ way to Jan 30\, 2025.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-202409-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20250130
+DTEND;VALUE=DATE:20250131
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Sep 1\, 2024 and continues all the 
+ way to Jan 30\, 2025.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-202509-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20250906
+DTEND;VALUE=DATE:20250907
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Sep 6\, 2025 and continues all the 
+ way to Feb 4\, 2026.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-202509-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20260204
+DTEND;VALUE=DATE:20260205
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Sep 6\, 2025 and continues all the 
+ way to Feb 4\, 2026.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-202609-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20260910
+DTEND;VALUE=DATE:20260911
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Sep 10\, 2026 and continues all the
+  way to Feb 8\, 2027.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-202609-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270209
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Sep 10\, 2026 and continues all the
+  way to Feb 8\, 2027.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-202709-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270915
+DTEND;VALUE=DATE:20270916
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Sep 15\, 2027 and continues all the
+  way to Feb 12\, 2028.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-202709-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20280212
+DTEND;VALUE=DATE:20280213
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Sep 15\, 2027 and continues all the
+  way to Feb 12\, 2028.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-202809-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20280919
+DTEND;VALUE=DATE:20280920
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Sep 19\, 2028 and continues all the
+  way to Feb 16\, 2029.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-202809-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20290216
+DTEND;VALUE=DATE:20290217
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Sep 19\, 2028 and continues all the
+  way to Feb 16\, 2029.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-202909-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20290923
+DTEND;VALUE=DATE:20290924
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Sep 23\, 2029 and continues all the
+  way to Feb 20\, 2030.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-202909-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20300220
+DTEND;VALUE=DATE:20300221
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Sep 23\, 2029 and continues all the
+  way to Feb 20\, 2030.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203009-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20300928
+DTEND;VALUE=DATE:20300929
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Sep 28\, 2030 and continues all the
+  way to Feb 25\, 2031.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203009-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20310225
+DTEND;VALUE=DATE:20310226
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Sep 28\, 2030 and continues all the
+  way to Feb 25\, 2031.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203110-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20311003
+DTEND;VALUE=DATE:20311004
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Oct 3\, 2031 and continues all the 
+ way to Mar 1\, 2032.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203110-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20320301
+DTEND;VALUE=DATE:20320302
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Oct 3\, 2031 and continues all the 
+ way to Mar 1\, 2032.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203210-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20321006
+DTEND;VALUE=DATE:20321007
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Oct 6\, 2032 and continues all the 
+ way to Mar 5\, 2033.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203210-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20330305
+DTEND;VALUE=DATE:20330306
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Oct 6\, 2032 and continues all the 
+ way to Mar 5\, 2033.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203310-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20331011
+DTEND;VALUE=DATE:20331012
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Oct 11\, 2033 and continues all the
+  way to Mar 10\, 2034.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203310-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20340310
+DTEND;VALUE=DATE:20340311
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Oct 11\, 2033 and continues all the
+  way to Mar 10\, 2034.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203410-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20341016
+DTEND;VALUE=DATE:20341017
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Oct 16\, 2034 and continues all the
+  way to Mar 14\, 2035.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203410-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20350314
+DTEND;VALUE=DATE:20350315
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Oct 16\, 2034 and continues all the
+  way to Mar 14\, 2035.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203510-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20351021
+DTEND;VALUE=DATE:20351022
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Oct 21\, 2035 and continues all the
+  way to Mar 18\, 2036.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203510-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20360318
+DTEND;VALUE=DATE:20360319
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Oct 21\, 2035 and continues all the
+  way to Mar 18\, 2036.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203610-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20361025
+DTEND;VALUE=DATE:20361026
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Oct 25\, 2036 and continues all the
+  way to Mar 23\, 2037.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203610-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20370323
+DTEND;VALUE=DATE:20370324
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Oct 25\, 2036 and continues all the
+  way to Mar 23\, 2037.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203710-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20371030
+DTEND;VALUE=DATE:20371031
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Oct 30\, 2037 and continues all the
+  way to Mar 28\, 2038.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203710-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20380328
+DTEND;VALUE=DATE:20380329
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Oct 30\, 2037 and continues all the
+  way to Mar 28\, 2038.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203811-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20381103
+DTEND;VALUE=DATE:20381104
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Nov 3\, 2038 and continues all the 
+ way to Apr 1\, 2039.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203811-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20390401
+DTEND;VALUE=DATE:20390402
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Nov 3\, 2038 and continues all the 
+ way to Apr 1\, 2039.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203911-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20391108
+DTEND;VALUE=DATE:20391109
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Nov 8\, 2039 and continues all the 
+ way to Apr 5\, 2040.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-203911-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20400405
+DTEND;VALUE=DATE:20400406
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Nov 8\, 2039 and continues all the 
+ way to Apr 5\, 2040.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204011-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20401112
+DTEND;VALUE=DATE:20401113
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Nov 12\, 2040 and continues all the
+  way to Apr 10\, 2041.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204011-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20410410
+DTEND;VALUE=DATE:20410411
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Nov 12\, 2040 and continues all the
+  way to Apr 10\, 2041.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204111-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20411117
+DTEND;VALUE=DATE:20411118
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Nov 17\, 2041 and continues all the
+  way to Apr 15\, 2042.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204111-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20420415
+DTEND;VALUE=DATE:20420416
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Nov 17\, 2041 and continues all the
+  way to Apr 15\, 2042.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204211-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20421122
+DTEND;VALUE=DATE:20421123
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Nov 22\, 2042 and continues all the
+  way to Apr 20\, 2043.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204211-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20430420
+DTEND;VALUE=DATE:20430421
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Nov 22\, 2042 and continues all the
+  way to Apr 20\, 2043.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204311-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20431127
+DTEND;VALUE=DATE:20431128
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Nov 27\, 2043 and continues all the
+  way to Apr 24\, 2044.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204311-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20440424
+DTEND;VALUE=DATE:20440425
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Nov 27\, 2043 and continues all the
+  way to Apr 24\, 2044.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204412-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20441201
+DTEND;VALUE=DATE:20441202
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Dec 1\, 2044 and continues all the 
+ way to Apr 29\, 2045.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204412-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20450429
+DTEND;VALUE=DATE:20450430
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Dec 1\, 2044 and continues all the 
+ way to Apr 29\, 2045.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204512-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20451206
+DTEND;VALUE=DATE:20451207
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Dec 6\, 2045 and continues all the 
+ way to May 4\, 2046.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204512-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20460504
+DTEND;VALUE=DATE:20460505
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Dec 6\, 2045 and continues all the 
+ way to May 4\, 2046.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204612-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20461211
+DTEND;VALUE=DATE:20461212
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Dec 11\, 2046 and continues all the
+  way to May 9\, 2047.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204612-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20470509
+DTEND;VALUE=DATE:20470510
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Dec 11\, 2046 and continues all the
+  way to May 9\, 2047.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204712-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20471216
+DTEND;VALUE=DATE:20471217
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Dec 16\, 2047 and continues all the
+  way to May 13\, 2048.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204712-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20480513
+DTEND;VALUE=DATE:20480514
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Dec 16\, 2047 and continues all the
+  way to May 13\, 2048.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204812-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20481220
+DTEND;VALUE=DATE:20481221
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Dec 20\, 2048 and continues all the
+  way to May 19\, 2049.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204812-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20490519
+DTEND;VALUE=DATE:20490520
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Dec 20\, 2048 and continues all the
+  way to May 19\, 2049.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204912-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20491225
+DTEND;VALUE=DATE:20491226
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Dec 25\, 2049 and continues all the
+  way to May 24\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-204912-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20500524
+DTEND;VALUE=DATE:20500525
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Dec 25\, 2049 and continues all the
+  way to May 24\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-205012-start@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20501230
+DTEND;VALUE=DATE:20501231
+SUMMARY:⛢ Uranus retrograde starts
+DESCRIPTION:Uranus retrograde starts on Dec 30\, 2050 and continues all the
+  way to May 29\, 2051.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:uranus-205012-end@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20510529
+DTEND;VALUE=DATE:20510530
+SUMMARY:⛢ Uranus retrograde ends
+DESCRIPTION:Uranus retrograde starts on Dec 30\, 2050 and continues all the
+  way to May 29\, 2051.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

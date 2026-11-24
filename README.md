@@ -79,6 +79,7 @@ Regenerate or check the data:
 
 ```bash
 bun scripts/gen-retrogrades.ts 1900 2100   # writes data/retrogrades.json
+bun scripts/gen-calendars.ts                # writes public/calendar/*.ics (committed; UTC dates, 2025–2050)
 bun scripts/check-retrogrades.ts           # compares with Swiss Ephemeris dates, 2013–2031
 bun scripts/check-orbits.ts                # compares orbit-map positions with astronomy-engine
 ```

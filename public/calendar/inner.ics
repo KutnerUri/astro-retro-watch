@@ -1,0 +1,1242 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Retrograde Tracker//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+NAME:Inner planet retrogrades
+X-WR-CALNAME:Inner planet retrogrades
+REFRESH-INTERVAL;VALUE=DURATION:P7D
+X-PUBLISHED-TTL:P7D
+BEGIN:VEVENT
+UID:mars-202412-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20241206
+DTEND;VALUE=DATE:20250225
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Dec 6\, 2024 and continues all the wa
+ y to Feb 24\, 2025.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-202503-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20250302
+DTEND;VALUE=DATE:20250414
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Mar 2\, 2025 and continues all the w
+ ay to Apr 13\, 2025.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202503-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20250315
+DTEND;VALUE=DATE:20250408
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Mar 15\, 2025 and continues all th
+ e way to Apr 7\, 2025.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202507-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20250718
+DTEND;VALUE=DATE:20250812
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jul 18\, 2025 and continues all th
+ e way to Aug 11\, 2025.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202511-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20251109
+DTEND;VALUE=DATE:20251130
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Nov 9\, 2025 and continues all the
+  way to Nov 29\, 2025.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202602-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20260226
+DTEND;VALUE=DATE:20260321
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Feb 26\, 2026 and continues all th
+ e way to Mar 20\, 2026.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202606-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20260629
+DTEND;VALUE=DATE:20260724
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jun 29\, 2026 and continues all th
+ e way to Jul 23\, 2026.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-202610-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261115
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Oct 3\, 2026 and continues all the w
+ ay to Nov 14\, 2026.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202610-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261114
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Oct 24\, 2026 and continues all th
+ e way to Nov 13\, 2026.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-202701-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270402
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Jan 10\, 2027 and continues all the w
+ ay to Apr 1\, 2027.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202702-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270209
+DTEND;VALUE=DATE:20270304
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Feb 9\, 2027 and continues all the
+  way to Mar 3\, 2027.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202706-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270610
+DTEND;VALUE=DATE:20270705
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jun 10\, 2027 and continues all th
+ e way to Jul 4\, 2027.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202710-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20271007
+DTEND;VALUE=DATE:20271029
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Oct 7\, 2027 and continues all the
+  way to Oct 28\, 2027.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202801-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20280124
+DTEND;VALUE=DATE:20280215
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jan 24\, 2028 and continues all th
+ e way to Feb 14\, 2028.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-202805-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20280510
+DTEND;VALUE=DATE:20280623
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on May 10\, 2028 and continues all the 
+ way to Jun 22\, 2028.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202805-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20280521
+DTEND;VALUE=DATE:20280615
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on May 21\, 2028 and continues all th
+ e way to Jun 14\, 2028.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202809-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20280919
+DTEND;VALUE=DATE:20281012
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Sep 19\, 2028 and continues all th
+ e way to Oct 11\, 2028.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202901-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20290107
+DTEND;VALUE=DATE:20290128
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jan 7\, 2029 and continues all the
+  way to Jan 27\, 2029.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-202902-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20290214
+DTEND;VALUE=DATE:20290506
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Feb 14\, 2029 and continues all the w
+ ay to May 5\, 2029.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202905-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20290501
+DTEND;VALUE=DATE:20290526
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on May 1\, 2029 and continues all the
+  way to May 25\, 2029.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202909-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20290902
+DTEND;VALUE=DATE:20290926
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Sep 2\, 2029 and continues all the
+  way to Sep 25\, 2029.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-202912-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20291216
+DTEND;VALUE=DATE:20300127
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Dec 16\, 2029 and continues all the 
+ way to Jan 26\, 2030.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-202912-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20291222
+DTEND;VALUE=DATE:20300112
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Dec 22\, 2029 and continues all th
+ e way to Jan 11\, 2030.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203004-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20300413
+DTEND;VALUE=DATE:20300507
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Apr 13\, 2030 and continues all th
+ e way to May 6\, 2030.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203008-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20300816
+DTEND;VALUE=DATE:20300909
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Aug 16\, 2030 and continues all th
+ e way to Sep 8\, 2030.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203012-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20301206
+DTEND;VALUE=DATE:20301226
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Dec 6\, 2030 and continues all the
+  way to Dec 25\, 2030.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203103-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20310326
+DTEND;VALUE=DATE:20310419
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Mar 26\, 2031 and continues all th
+ e way to Apr 18\, 2031.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-203103-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20310329
+DTEND;VALUE=DATE:20310614
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Mar 29\, 2031 and continues all the w
+ ay to Jun 13\, 2031.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-203107-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20310720
+DTEND;VALUE=DATE:20310902
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Jul 20\, 2031 and continues all the 
+ way to Sep 1\, 2031.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203107-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20310729
+DTEND;VALUE=DATE:20310823
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jul 29\, 2031 and continues all th
+ e way to Aug 22\, 2031.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203111-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20311119
+DTEND;VALUE=DATE:20311210
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Nov 19\, 2031 and continues all th
+ e way to Dec 9\, 2031.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203203-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20320307
+DTEND;VALUE=DATE:20320331
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Mar 7\, 2032 and continues all the
+  way to Mar 30\, 2032.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203207-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20320710
+DTEND;VALUE=DATE:20320804
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jul 10\, 2032 and continues all th
+ e way to Aug 3\, 2032.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203211-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20321102
+DTEND;VALUE=DATE:20321123
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Nov 2\, 2032 and continues all the
+  way to Nov 22\, 2032.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203302-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20330218
+DTEND;VALUE=DATE:20330314
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Feb 18\, 2033 and continues all th
+ e way to Mar 13\, 2033.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-203302-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20330227
+DTEND;VALUE=DATE:20330411
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Feb 27\, 2033 and continues all the 
+ way to Apr 10\, 2033.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-203305-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20330526
+DTEND;VALUE=DATE:20330802
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on May 26\, 2033 and continues all the w
+ ay to Aug 1\, 2033.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203306-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20330621
+DTEND;VALUE=DATE:20330716
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jun 21\, 2033 and continues all th
+ e way to Jul 15\, 2033.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203310-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20331016
+DTEND;VALUE=DATE:20331107
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Oct 16\, 2033 and continues all th
+ e way to Nov 6\, 2033.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203402-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20340202
+DTEND;VALUE=DATE:20340224
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Feb 2\, 2034 and continues all the
+  way to Feb 23\, 2034.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203406-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20340602
+DTEND;VALUE=DATE:20340627
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jun 2\, 2034 and continues all the
+  way to Jun 26\, 2034.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203409-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20340930
+DTEND;VALUE=DATE:20341022
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Sep 30\, 2034 and continues all th
+ e way to Oct 21\, 2034.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-203409-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20340930
+DTEND;VALUE=DATE:20341112
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Sep 30\, 2034 and continues all the 
+ way to Nov 11\, 2034.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203501-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20350117
+DTEND;VALUE=DATE:20350208
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jan 17\, 2035 and continues all th
+ e way to Feb 7\, 2035.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203505-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20350513
+DTEND;VALUE=DATE:20350607
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on May 13\, 2035 and continues all th
+ e way to Jun 6\, 2035.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-203508-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20350815
+DTEND;VALUE=DATE:20351016
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Aug 15\, 2035 and continues all the w
+ ay to Oct 15\, 2035.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203509-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20350913
+DTEND;VALUE=DATE:20351006
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Sep 13\, 2035 and continues all th
+ e way to Oct 5\, 2035.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203601-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20360101
+DTEND;VALUE=DATE:20360122
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jan 1\, 2036 and continues all the
+  way to Jan 21\, 2036.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203604-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20360423
+DTEND;VALUE=DATE:20360518
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Apr 23\, 2036 and continues all th
+ e way to May 17\, 2036.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-203605-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20360508
+DTEND;VALUE=DATE:20360621
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on May 8\, 2036 and continues all the w
+ ay to Jun 20\, 2036.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203608-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20360825
+DTEND;VALUE=DATE:20360918
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Aug 25\, 2036 and continues all th
+ e way to Sep 17\, 2036.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203612-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20361215
+DTEND;VALUE=DATE:20370104
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Dec 15\, 2036 and continues all th
+ e way to Jan 3\, 2037.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203704-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20370405
+DTEND;VALUE=DATE:20370429
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Apr 5\, 2037 and continues all the
+  way to Apr 28\, 2037.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203708-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20370808
+DTEND;VALUE=DATE:20370901
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Aug 8\, 2037 and continues all the
+  way to Aug 31\, 2037.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-203710-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20371012
+DTEND;VALUE=DATE:20371224
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Oct 12\, 2037 and continues all the w
+ ay to Dec 23\, 2037.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203711-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20371128
+DTEND;VALUE=DATE:20371219
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Nov 28\, 2037 and continues all th
+ e way to Dec 18\, 2037.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-203712-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20371214
+DTEND;VALUE=DATE:20380125
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Dec 14\, 2037 and continues all the 
+ way to Jan 24\, 2038.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203803-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20380318
+DTEND;VALUE=DATE:20380411
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Mar 18\, 2038 and continues all th
+ e way to Apr 10\, 2038.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203807-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20380721
+DTEND;VALUE=DATE:20380815
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jul 21\, 2038 and continues all th
+ e way to Aug 14\, 2038.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203811-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20381112
+DTEND;VALUE=DATE:20381203
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Nov 12\, 2038 and continues all th
+ e way to Dec 2\, 2038.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203903-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20390301
+DTEND;VALUE=DATE:20390324
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Mar 1\, 2039 and continues all the
+  way to Mar 23\, 2039.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203907-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20390702
+DTEND;VALUE=DATE:20390728
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jul 2\, 2039 and continues all the
+  way to Jul 27\, 2039.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-203907-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20390718
+DTEND;VALUE=DATE:20390831
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Jul 18\, 2039 and continues all the 
+ way to Aug 30\, 2039.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-203910-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20391027
+DTEND;VALUE=DATE:20391117
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Oct 27\, 2039 and continues all th
+ e way to Nov 16\, 2039.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-203911-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20391123
+DTEND;VALUE=DATE:20400210
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Nov 23\, 2039 and continues all the w
+ ay to Feb 9\, 2040.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204002-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20400212
+DTEND;VALUE=DATE:20400306
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Feb 12\, 2040 and continues all th
+ e way to Mar 5\, 2040.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204006-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20400613
+DTEND;VALUE=DATE:20400708
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jun 13\, 2040 and continues all th
+ e way to Jul 7\, 2040.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204010-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20401009
+DTEND;VALUE=DATE:20401031
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Oct 9\, 2040 and continues all the
+  way to Oct 30\, 2040.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204101-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20410126
+DTEND;VALUE=DATE:20410217
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jan 26\, 2041 and continues all th
+ e way to Feb 16\, 2041.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-204102-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20410225
+DTEND;VALUE=DATE:20410409
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Feb 25\, 2041 and continues all the 
+ way to Apr 8\, 2041.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204105-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20410524
+DTEND;VALUE=DATE:20410618
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on May 24\, 2041 and continues all th
+ e way to Jun 17\, 2041.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204109-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20410922
+DTEND;VALUE=DATE:20411015
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Sep 22\, 2041 and continues all th
+ e way to Oct 14\, 2041.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-204112-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20411228
+DTEND;VALUE=DATE:20420319
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Dec 28\, 2041 and continues all the w
+ ay to Mar 18\, 2042.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204201-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20420110
+DTEND;VALUE=DATE:20420131
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jan 10\, 2042 and continues all th
+ e way to Jan 30\, 2042.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204205-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20420505
+DTEND;VALUE=DATE:20420530
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on May 5\, 2042 and continues all the
+  way to May 29\, 2042.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204209-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20420905
+DTEND;VALUE=DATE:20420928
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Sep 5\, 2042 and continues all the
+  way to Sep 27\, 2042.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-204209-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20420928
+DTEND;VALUE=DATE:20421110
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Sep 28\, 2042 and continues all the 
+ way to Nov 9\, 2042.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204212-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20421225
+DTEND;VALUE=DATE:20430115
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Dec 25\, 2042 and continues all th
+ e way to Jan 14\, 2043.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204304-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20430416
+DTEND;VALUE=DATE:20430511
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Apr 16\, 2043 and continues all th
+ e way to May 10\, 2043.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204308-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20430819
+DTEND;VALUE=DATE:20430912
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Aug 19\, 2043 and continues all th
+ e way to Sep 11\, 2043.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204312-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20431208
+DTEND;VALUE=DATE:20431229
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Dec 8\, 2043 and continues all the
+  way to Dec 28\, 2043.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-204401-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20440131
+DTEND;VALUE=DATE:20440422
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Jan 31\, 2044 and continues all the w
+ ay to Apr 21\, 2044.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204403-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20440328
+DTEND;VALUE=DATE:20440421
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Mar 28\, 2044 and continues all th
+ e way to Apr 20\, 2044.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-204405-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20440506
+DTEND;VALUE=DATE:20440619
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on May 6\, 2044 and continues all the w
+ ay to Jun 18\, 2044.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204407-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20440731
+DTEND;VALUE=DATE:20440825
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jul 31\, 2044 and continues all th
+ e way to Aug 24\, 2044.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204411-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20441121
+DTEND;VALUE=DATE:20441212
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Nov 21\, 2044 and continues all th
+ e way to Dec 11\, 2044.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204503-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20450310
+DTEND;VALUE=DATE:20450403
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Mar 10\, 2045 and continues all th
+ e way to Apr 2\, 2045.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204507-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20450713
+DTEND;VALUE=DATE:20450807
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jul 13\, 2045 and continues all th
+ e way to Aug 6\, 2045.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204511-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20451105
+DTEND;VALUE=DATE:20451126
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Nov 5\, 2045 and continues all the
+  way to Nov 25\, 2045.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-204512-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20451212
+DTEND;VALUE=DATE:20460122
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Dec 12\, 2045 and continues all the 
+ way to Jan 21\, 2046.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204602-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20460221
+DTEND;VALUE=DATE:20460317
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Feb 21\, 2046 and continues all th
+ e way to Mar 16\, 2046.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-204603-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20460311
+DTEND;VALUE=DATE:20460529
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Mar 11\, 2046 and continues all the w
+ ay to May 28\, 2046.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204606-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20460624
+DTEND;VALUE=DATE:20460719
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jun 24\, 2046 and continues all th
+ e way to Jul 18\, 2046.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204610-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20461019
+DTEND;VALUE=DATE:20461110
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Oct 19\, 2046 and continues all th
+ e way to Nov 9\, 2046.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204702-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20470205
+DTEND;VALUE=DATE:20470227
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Feb 5\, 2047 and continues all the
+  way to Feb 26\, 2047.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204706-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20470605
+DTEND;VALUE=DATE:20470630
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jun 5\, 2047 and continues all the
+  way to Jun 29\, 2047.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-204707-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20470715
+DTEND;VALUE=DATE:20470829
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Jul 15\, 2047 and continues all the 
+ way to Aug 28\, 2047.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204710-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20471003
+DTEND;VALUE=DATE:20471025
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Oct 3\, 2047 and continues all the
+  way to Oct 24\, 2047.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204801-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20480120
+DTEND;VALUE=DATE:20480210
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jan 20\, 2048 and continues all th
+ e way to Feb 9\, 2048.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-204804-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20480430
+DTEND;VALUE=DATE:20480711
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Apr 30\, 2048 and continues all the w
+ ay to Jul 10\, 2048.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204805-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20480516
+DTEND;VALUE=DATE:20480609
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on May 16\, 2048 and continues all th
+ e way to Jun 8\, 2048.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204809-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20480915
+DTEND;VALUE=DATE:20481008
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Sep 15\, 2048 and continues all th
+ e way to Oct 7\, 2048.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204901-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20490102
+DTEND;VALUE=DATE:20490124
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Jan 2\, 2049 and continues all the
+  way to Jan 23\, 2049.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-204902-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20490222
+DTEND;VALUE=DATE:20490406
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Feb 22\, 2049 and continues all the 
+ way to Apr 5\, 2049.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204904-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20490426
+DTEND;VALUE=DATE:20490521
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Apr 26\, 2049 and continues all th
+ e way to May 20\, 2049.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204908-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20490828
+DTEND;VALUE=DATE:20490921
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Aug 28\, 2049 and continues all th
+ e way to Sep 20\, 2049.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-204912-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20491217
+DTEND;VALUE=DATE:20500107
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Dec 17\, 2049 and continues all th
+ e way to Jan 6\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-205004-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20500408
+DTEND;VALUE=DATE:20500502
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Apr 8\, 2050 and continues all the
+  way to May 1\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-205007-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20500715
+DTEND;VALUE=DATE:20500914
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Jul 15\, 2050 and continues all the w
+ ay to Sep 13\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-205008-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20500811
+DTEND;VALUE=DATE:20500904
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Aug 11\, 2050 and continues all th
+ e way to Sep 3\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:venus-205009-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20500925
+DTEND;VALUE=DATE:20501107
+SUMMARY:♀︎ Venus retrograde
+DESCRIPTION:Venus retrograde starts on Sep 25\, 2050 and continues all the 
+ way to Nov 6\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mercury-205012-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20501201
+DTEND;VALUE=DATE:20501222
+SUMMARY:☿ Mercury retrograde
+DESCRIPTION:Mercury retrograde starts on Dec 1\, 2050 and continues all the
+  way to Dec 21\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

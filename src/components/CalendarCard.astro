@@ -1,0 +1,119 @@
+---
+import { GLYPH } from '../lib/retro';
+import { GROUPS, SINGLES } from '../lib/calendars';
+
+// Always the live site's URL: calendar apps fetch it from their own servers.
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const urlOf = (id: string) => new URL(`${base}calendar/${id}.ics`, Astro.site).href;
+const webcal = (url: string) => url.replace(/^https?:/, 'webcal:');
+const google = (url: string) => `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(webcal(url))}`;
+
+const choices = [
+  { caption: null, calendars: GROUPS },
+  { caption: 'Or just one planet', calendars: SINGLES },
+];
+const HINT = 'Inner planets (Mercury, Venus, Mars) show the whole retrograde. Outer planets show only the days it starts and ends.';
+// The first is the default. The choice is remembered in the browser.
+const apps = [
+  { id: 'google', label: 'Google' },
+  { id: 'webcal', label: 'Apple / Outlook' },
+  { id: 'copy', label: 'Copy link' },
+];
+---
+
+<div class="help-card cal-card" id="calendar-card" popover>
+  <div class="help-head">
+    <strong>Add to your calendar</strong>
+    <button class="help-close" type="button" popovertarget="calendar-card" popovertargetaction="hide" aria-label="Close"><svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" /></svg></button>
+  </div>
+  {
+    choices.map(({ caption, calendars }) => (
+      <div>
+        {caption && <p class="cal-caption">{caption}</p>}
+        <div class="cal-row glyph-marks">
+          {calendars.map((c) => (
+            <a
+              class="key-planet"
+              href={google(urlOf(c.id))}
+              target="_blank"
+              rel="noopener"
+              data-label={c.label}
+              data-google={google(urlOf(c.id))}
+              data-webcal={webcal(urlOf(c.id))}
+              data-copy={urlOf(c.id)}
+            >
+              {c.planets.length === 1 && (
+                <span class="glyph" data-planet={c.planets[0]} style={`color:var(--planet-${c.id})`} aria-hidden="true">{GLYPH[c.planets[0]]}</span>
+              )}
+              {c.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+  <p class="cal-status" aria-live="polite" data-hint={HINT}>{HINT}</p>
+  <div class="cal-apps">
+    <p class="cal-caption" id="cal-apps-label">Add with</p>
+    <div class="cal-row" role="group" aria-labelledby="cal-apps-label">
+      {
+        apps.map((app, i) => (
+          <button class="key-planet" type="button" data-app={app.id} aria-pressed={i === 0 ? 'true' : 'false'}>
+            {app.label}
+          </button>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  const KEY = 'calendar-app';
+  const card = document.getElementById('calendar-card')!;
+  const links = card.querySelectorAll<HTMLAnchorElement>('a[data-copy]');
+  const apps = card.querySelectorAll<HTMLButtonElement>('button[data-app]');
+  const status = card.querySelector<HTMLElement>('.cal-status')!;
+  let current = 'google';
+
+  function choose(app: string) {
+    current = app;
+    for (const b of apps) b.setAttribute('aria-pressed', String(b.dataset.app === app));
+    for (const a of links) {
+      a.href = a.dataset[app]!;
+      // Only Google opens a page; webcal: hands over to the calendar app.
+      a.target = app === 'google' ? '_blank' : '';
+    }
+    status.textContent = status.dataset.hint!;
+  }
+
+  // Storage can be blocked; the choice then lasts until the page closes.
+  let saved: string | null = null;
+  try {
+    saved = localStorage.getItem(KEY);
+  } catch {}
+  if ([...apps].some((b) => b.dataset.app === saved)) choose(saved!);
+
+  for (const b of apps) {
+    b.addEventListener('click', () => {
+      choose(b.dataset.app!);
+      try {
+        localStorage.setItem(KEY, b.dataset.app!);
+      } catch {}
+    });
+  }
+  for (const a of links) {
+    a.addEventListener('click', async (e) => {
+      if (current !== 'copy') return;
+      e.preventDefault();
+      try {
+        await navigator.clipboard.writeText(a.dataset.copy!);
+        status.textContent = `Link copied: ${a.dataset.label}`;
+      } catch {
+        // No clipboard access: show the link to copy by hand.
+        status.textContent = a.dataset.copy!;
+      }
+    });
+  }
+  // Start from the hint again next time.
+  card.addEventListener('toggle', () => (status.textContent = status.dataset.hint!));
+</script>

@@ -51,7 +51,8 @@ h2 {
 h2::before, h2::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
 /* ---------- Masthead ---------- */
-.masthead { text-align: center; padding: clamp(48px, 14vw, 96px) 0 clamp(20px, 6vw, 40px); }
+.masthead { text-align: center; padding: clamp(48px, 14vw, 96px) 0 0; }
+.orbit-section { margin-top: 8px; }
 h1 {
   margin: 0; color: var(--starlight);
   font: 400 clamp(38px, 12vw, 60px)/1.1 'Yeseva One', serif; letter-spacing: 0.03em;
@@ -76,6 +77,15 @@ button, [role='button'], summary { user-select: none; -webkit-user-select: none;
   box-shadow: inset 0 0 0 999px var(--press-tint); border-color: var(--text-secondary); color: var(--text-primary);
   transition-duration: 0s;
 }
+
+/* A button that reads as a quiet link. */
+.text-btn {
+  margin-top: 12px; padding: 4px 8px; border: 0; background: none; font: inherit; font-size: 14px; color: var(--text-secondary);
+  text-decoration: underline; text-decoration-color: var(--text-muted); text-underline-offset: 3px; cursor: pointer;
+  transition: color 150ms ease-out; -webkit-tap-highlight-color: transparent;
+}
+@media (hover: hover) { .text-btn:hover { color: var(--text-primary); } }
+.text-btn:active { color: var(--starlight); transition-duration: 0s; }
 
 /* ---------- Charts ---------- */
 /* The line under a chart's heading. */
@@ -204,9 +214,20 @@ button, [role='button'], summary { user-select: none; -webkit-user-select: none;
 }
 .key-planet[aria-pressed='true'] { background: var(--highlight); border-color: var(--text-muted); color: var(--text-primary); }
 .explainer .glyph-key { gap: 8px; }
-.glyph-key .glyph { display: inline-flex; align-items: center; justify-content: center; height: 1em; font-size: 18px; line-height: 1; }
+:is(.glyph-key, .glyph-marks) .glyph { display: inline-flex; align-items: center; justify-content: center; height: 1em; font-size: 18px; line-height: 1; }
 /* These marks sit low in the symbol font; lift them to line up with the names. */
-.glyph-key .glyph:is([data-planet='Mars'], [data-planet='Saturn'], [data-planet='Uranus']) { position: relative; top: -2px; }
+:is(.glyph-key, .glyph-marks) .glyph:is([data-planet='Mars'], [data-planet='Saturn'], [data-planet='Uranus']) { position: relative; top: -2px; }
+
+/* ---------- Calendar card ---------- */
+.cal-card p { margin: 0; color: var(--text-secondary); }
+.cal-card .cal-caption { margin-bottom: 8px; font-size: 14px; }
+.cal-card .cal-status { min-height: 4.5em; font-size: 14px; overflow-wrap: anywhere; } /* three lines, so a message never moves the card */
+.cal-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.cal-row .key-planet { font-size: 15px; color: var(--text-secondary); }
+.cal-row .key-planet[aria-pressed='true'] { color: var(--text-primary); }
+.cal-row a.key-planet { text-decoration: none; }
+.cal-apps .key-planet { padding-inline: 10px; } /* one row on phones */
+.cal-apps { padding-top: 16px; border-top: 1px solid var(--grid); }
 
 /* The planet card shown under the explainer's key: same card, in the page flow. */
 .planet-inline { position: static; margin: 16px auto 0; box-shadow: none; color: var(--text-primary); }

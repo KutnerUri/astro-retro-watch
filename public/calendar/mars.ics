@@ -1,0 +1,153 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Retrograde Tracker//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+NAME:Mars retrograde
+X-WR-CALNAME:Mars retrograde
+REFRESH-INTERVAL;VALUE=DURATION:P7D
+X-PUBLISHED-TTL:P7D
+BEGIN:VEVENT
+UID:mars-202412-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20241206
+DTEND;VALUE=DATE:20250225
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Dec 6\, 2024 and continues all the wa
+ y to Feb 24\, 2025.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-202701-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270402
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Jan 10\, 2027 and continues all the w
+ ay to Apr 1\, 2027.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-202902-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20290214
+DTEND;VALUE=DATE:20290506
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Feb 14\, 2029 and continues all the w
+ ay to May 5\, 2029.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-203103-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20310329
+DTEND;VALUE=DATE:20310614
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Mar 29\, 2031 and continues all the w
+ ay to Jun 13\, 2031.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-203305-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20330526
+DTEND;VALUE=DATE:20330802
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on May 26\, 2033 and continues all the w
+ ay to Aug 1\, 2033.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-203508-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20350815
+DTEND;VALUE=DATE:20351016
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Aug 15\, 2035 and continues all the w
+ ay to Oct 15\, 2035.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-203710-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20371012
+DTEND;VALUE=DATE:20371224
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Oct 12\, 2037 and continues all the w
+ ay to Dec 23\, 2037.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-203911-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20391123
+DTEND;VALUE=DATE:20400210
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Nov 23\, 2039 and continues all the w
+ ay to Feb 9\, 2040.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-204112-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20411228
+DTEND;VALUE=DATE:20420319
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Dec 28\, 2041 and continues all the w
+ ay to Mar 18\, 2042.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-204401-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20440131
+DTEND;VALUE=DATE:20440422
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Jan 31\, 2044 and continues all the w
+ ay to Apr 21\, 2044.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-204603-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20460311
+DTEND;VALUE=DATE:20460529
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Mar 11\, 2046 and continues all the w
+ ay to May 28\, 2046.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-204804-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20480430
+DTEND;VALUE=DATE:20480711
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Apr 30\, 2048 and continues all the w
+ ay to Jul 10\, 2048.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mars-205007-span@retrograde.nefzen.dev
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20500715
+DTEND;VALUE=DATE:20500914
+SUMMARY:♂︎ Mars retrograde
+DESCRIPTION:Mars retrograde starts on Jul 15\, 2050 and continues all the w
+ ay to Sep 13\, 2050.\n\nhttps://retrograde.nefzen.dev/
+URL:https://retrograde.nefzen.dev/
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
